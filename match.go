@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"time"
 )
 
@@ -68,19 +69,35 @@ type Team struct {
 
 var (
 	ErrMatchUnauthorized = errors.New("unauthorized")
-	todayURL             = "https://esportshub.azure-api.net/schedule/matches?referenceDateTime=2022-04-08T17:00:00.000Z&direction=Forward&limit=30&videoGameIds=51b8bf37-fede-45d5-3943-fef79b0fa628&withObjects=teams,tournaments&market=en-us"
+	scheduleMatchesURL   = "https://esportshub.azure-api.net/schedule/matches"
 )
+
+type GameName string
+
+var Dota2 GameName = "dota2"
+
+var videoGameIds = map[GameName]string{
+	Dota2: "51b8bf37-fede-45d5-3943-fef79b0fa628",
+}
 
 type ScheduleMatches struct {
 	Matches []*Match `json:"matches"`
 }
 
-func getScheduledMatches(cre *MatchAPICredentials) (*ScheduleMatches, error) {
-	req, err := http.NewRequest(http.MethodGet, todayURL, nil)
+func getScheduledMatches(cre *MatchAPICredentials, videoGameId string) (*ScheduleMatches, error) {
+	params := url.Values{}
+	params.Add("referenceDateTime", time.Now().Format("2006-01-02T15:04:05.000Z")) // 2006-01-02T15:04:05Z07:00
+	params.Add("direction", "Forward")
+	params.Add("videoGameIds", videoGameId)
+	params.Add("limit", "30")
+	params.Add("withObjects", "teams,tournaments")
+
+	req, err := http.NewRequest(http.MethodGet, scheduleMatchesURL, nil)
 	if err != nil {
 		return nil, err
 	}
 
+	req.URL.RawQuery = params.Encode()
 	req.Header.Add("Ocp-Apim-Subscription-Key", cre.HubSubscriptionKey)
 
 	client := &http.Client{}

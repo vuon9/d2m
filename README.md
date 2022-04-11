@@ -1,4 +1,6 @@
-# Dota2 Matches CLI
+# Dota2 Matches Track
+
+[![Go](https://github.com/vuon9/d2m/actions/workflows/go.yml/badge.svg)](https://github.com/vuon9/d2m/actions/workflows/go.yml)
 
 To check scheduled matches of Dota 2 games as local time
 

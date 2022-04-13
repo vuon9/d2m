@@ -1,4 +1,4 @@
-package main
+package esporthub
 
 import (
 	"encoding/json"
@@ -9,6 +9,11 @@ import (
 	"net/url"
 	"time"
 )
+
+type MatchAPICredentials struct {
+	ClientID           string
+	HubSubscriptionKey string
+}
 
 type Match struct {
 	Name                       string `json:"name"`
@@ -76,7 +81,7 @@ type GameName string
 
 var Dota2 GameName = "dota2"
 
-var videoGameIds = map[GameName]string{
+var videoGameMaps = map[GameName]string{
 	Dota2: "51b8bf37-fede-45d5-3943-fef79b0fa628",
 }
 
@@ -84,11 +89,15 @@ type ScheduleMatches struct {
 	Matches []*Match `json:"matches"`
 }
 
-func getScheduledMatches(cre *MatchAPICredentials, videoGameId string) (*ScheduleMatches, error) {
+func GetScheduledMatches(cre *MatchAPICredentials, videoGameId GameName) (*ScheduleMatches, error) {
 	params := url.Values{}
-	params.Add("referenceDateTime", time.Now().Format("2006-01-02T15:04:05.000Z")) // 2006-01-02T15:04:05Z07:00
+
+	now := time.Now()
+	startedToday := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location())
+
+	params.Add("referenceDateTime", startedToday.Format("2006-01-02T15:04:05.000Z")) // 2006-01-02T15:04:05Z07:00
 	params.Add("direction", "Forward")
-	params.Add("videoGameIds", videoGameId)
+	params.Add("videoGameIds", videoGameMaps[videoGameId])
 	params.Add("limit", "30")
 	params.Add("withObjects", "teams,tournaments")
 

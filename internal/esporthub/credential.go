@@ -1,4 +1,4 @@
-package main
+package esporthub
 
 import (
 	"regexp"
@@ -9,7 +9,7 @@ import (
 
 var homePageURL = "https://www.msn.com/en-us/esports/calendar/dota2/matches?ocid=winp2oct"
 
-func fetchCredentials() *MatchAPICredentials {
+func FetchCredentials() *MatchAPICredentials {
 	var scriptContent string
 
 	c := colly.NewCollector()

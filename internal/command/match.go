@@ -1,66 +1,71 @@
 package command
 
 import (
+	"context"
 	"fmt"
+	"time"
 
-	"github.com/vuon9/d2m/internal/esporthub"
+	"github.com/vuon9/d2m/pkg/esporthub"
 )
 
-type GameName int
-
-const (
-	GameDota2 GameName = iota
-)
-
-var mapToEsportHubGameName = map[GameName]esporthub.GameName{
-	GameDota2: esporthub.Dota2,
+type Match struct {
+	esporthub.Match
 }
 
-func GetMatches(g GameName) {
-	cre := esporthub.FetchCredentials()
+func (m *Match) Team1() *esporthub.Team {
+	if len(m.Teams) > 0 {
+		return m.Teams[0]
+	}
 
-	gameName := mapToEsportHubGameName[g]
-	scheduleMatches, err := esporthub.GetScheduledMatches(cre, gameName)
+	return &esporthub.Team{
+		FullName: "TBD",
+	}
+}
+
+func (m *Match) Team2() *esporthub.Team {
+	if len(m.Teams) > 1 {
+		return m.Teams[1]
+	}
+
+	return &esporthub.Team{
+		FullName: "TBD",
+	}
+}
+
+func (m *Match) Status() string {
+	switch m.Match.Status {
+	case "Resolved":
+		return "Finish"
+	case "Unresolved":
+		return "Coming"
+	case "Live":
+		return "Live"
+	default:
+		return fmt.Sprintf("[UN] %s", m.Match.Status)
+	}
+}
+
+type MatchesByDate map[time.Time][]*Match
+
+func GetMatchesByDate(ctx context.Context, gameName esporthub.GameName) (MatchesByDate, error) {
+	client, err := esporthub.NewEsportHubClient()
 	if err != nil {
-		panic("couldn't get matches")
+		return nil, err
 	}
 
-	groupByDates := make(map[string][]*esporthub.Match)
-	dates := make([]string, 0)
+	scheduleMatches, err := client.GetScheduledMatches(ctx, gameName)
+	if err != nil {
+		return nil, err
+	}
 
-	for _, m := range scheduleMatches.Matches {
-		k := m.Start.Local().Format("Mon, 02 Jan 2006")
-		if _, ok := groupByDates[k]; !ok {
-			dates = append(dates, k)
+	matchesByDate := make(MatchesByDate)
+	for _, match := range scheduleMatches.Matches {
+		matchDate := match.Start.Local().Truncate(24 * time.Hour)
+		match := &Match{
+			Match: *match,
 		}
-		groupByDates[k] = append(groupByDates[k], m)
+		matchesByDate[matchDate] = append(matchesByDate[matchDate], match)
 	}
 
-	for _, date := range dates {
-		fmt.Printf("\n***** [ %s ] *****\n", date)
-		for _, match := range groupByDates[date] {
-
-			if len(match.Teams) < 2 {
-				continue
-			}
-
-			matchTime := match.Start.Local().Format("15:04")
-
-			var status string
-			switch match.Status {
-			case "Resolved":
-				status = "[Finish]"
-			case "Unresolved":
-				status = fmt.Sprintf("[Coming - %s]", matchTime)
-			case "Live":
-				status = fmt.Sprintf("[Live - %s]", matchTime)
-			}
-
-			fmt.Printf("* %s %s vs. %s\n--------------------------\n",
-				status,
-				match.Teams[0].FullName,
-				match.Teams[1].FullName,
-			)
-		}
-	}
+	return matchesByDate, nil
 }

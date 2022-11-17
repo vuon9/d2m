@@ -4,21 +4,20 @@
 
 To check scheduled matches of Dota 2 games as local time
 
-## How to use
+## Installation
 ```bash
 # install
-go install github.com/vuon9/d2m
-
-# then
-d2m
+go install github.com/vuon9/d2m@latest
 ```
 
-## Sample
-![](./SAMPLE.png)
+## Screenshots
 
-## WIP:
-- Configuration file
+![Main](./screenshots/main.png)
+![Matches](./screenshots/matches.png)
+![Matches - Dota2](./screenshots/matches-d2.png)
+
+## WIP features
 - Cache credentials with a specific time range?
-- Filter by status [Finish, Coming, Live] on CLI
-- Today matches
-- Customize local timezone
+- Filter by status [Finish, Coming, Live] on matches page
+- CLI: Today matches
+- CLI: Customize local timezone

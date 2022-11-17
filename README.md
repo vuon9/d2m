@@ -1,4 +1,4 @@
-# Dota2 Matches Track
+# D2M - E-sport scheduled matches tracker
 
 [![Go](https://github.com/vuon9/d2m/actions/workflows/go.yml/badge.svg)](https://github.com/vuon9/d2m/actions/workflows/go.yml)
 

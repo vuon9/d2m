@@ -1,8 +1,8 @@
-# D2M - E-sport scheduled matches tracker
+# D2M
 
 [![Go](https://github.com/vuon9/d2m/actions/workflows/go.yml/badge.svg)](https://github.com/vuon9/d2m/actions/workflows/go.yml)
 
-To check scheduled matches of Dota 2 games as local time
+E-sport scheduled matches tracker
 
 ## Installation
 ```bash

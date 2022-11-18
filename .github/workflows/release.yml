@@ -1,7 +1,9 @@
 # .github/workflows/release.yaml
 
+# Go Release Binaries Remote
 # Follow this example: https://github.com/marketplace/actions/go-release-binaries-remote
 # More example: https://github.com/wangyoucao577/go-release-action/wiki/More-Examples
+name: Go binaries release
 
 on:
   release:

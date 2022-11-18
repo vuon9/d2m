@@ -10,7 +10,7 @@ import (
 
 type MatchesByDate map[time.Time]types.MatchSlice
 
-func GetMatchesByDate(ctx context.Context, gameName types.GameName) (MatchesByDate, error) {
+func GetMatches(ctx context.Context, gameName types.GameName) (MatchesByDate, error) {
 	client, err := esporthub.NewEsportHubClient()
 	if err != nil {
 		return nil, err

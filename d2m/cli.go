@@ -11,7 +11,7 @@ import (
 
 // GetCLIMatches prints matches as table on terminal
 func GetCLIMatches(ctx context.Context, gameName types.GameName) error {
-	matchesByDate, err := GetMatchesByDate(ctx, gameName)
+	matchesByDate, err := GetMatches(ctx, gameName)
 	if err != nil {
 		return err
 	}

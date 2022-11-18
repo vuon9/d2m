@@ -5,10 +5,15 @@
 E-sport scheduled matches tracker
 
 ## Installation
+
+Install from source with go (requires go 1.18+)
+
 ```bash
 # install
 go install github.com/vuon9/d2m@latest
 ```
+
+Or download the binary from [release page](https://github.com/vuon9/d2m/releases)
 
 ## Screenshots
 

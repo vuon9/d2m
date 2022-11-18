@@ -10,12 +10,26 @@ import (
 	"time"
 
 	"github.com/gocolly/colly"
+	"github.com/vuon9/d2m/pkg/api"
+	"github.com/vuon9/d2m/pkg/api/types"
 )
+
+var videoGameMaps = map[types.GameName]string{
+	types.Dota2:           "51b8bf37-fede-45d5-3943-fef79b0fa628",
+	types.LeagueOfLegends: "dcd754dc-9f53-0f8b-3bfc-9c401f16138b",
+	types.CsGO:            "8f345aa7-ff29-2efd-48fd-8230fd8795aa",
+	types.Valorant:        "72d5fb42-ec96-44e0-ae93-2e1cfb2c1836",
+}
 
 const (
 	scheduleMatchesURL = "https://esportshub.azure-api.net/schedule/matches"
 	homePageURL        = "https://www.msn.com/en-us/esports/calendar/dota2/matches?ocid=winp2oct"
 )
+
+type EsportHubClient struct {
+	ClientID           string
+	HubSubscriptionKey string
+}
 
 func NewEsportHubClient() (*EsportHubClient, error) {
 	var scriptContent string
@@ -33,7 +47,7 @@ func NewEsportHubClient() (*EsportHubClient, error) {
 	return parseCredentials(scriptContent)
 }
 
-func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context, gameName GameName) (*ScheduleMatches, error) {
+func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice, error) {
 	params := url.Values{}
 
 	now := time.Now()
@@ -61,7 +75,7 @@ func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context, gameName Ga
 	defer res.Body.Close()
 
 	if res.StatusCode == http.StatusUnauthorized {
-		return nil, ErrMatchUnauthorized
+		return nil, api.ErrMatchUnauthorized
 	}
 
 	if res.StatusCode == http.StatusOK {
@@ -70,13 +84,17 @@ func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context, gameName Ga
 			return nil, err
 		}
 
-		var scheduleMatches ScheduleMatches
-		err = json.Unmarshal(body, &scheduleMatches)
+		type Response struct {
+			Matches types.MatchSlice `json:"matches"`
+		}
+
+		var resp Response
+		err = json.Unmarshal(body, &resp)
 		if err != nil {
 			return nil, fmt.Errorf("couldn't parse JSON: %s", err.Error())
 		}
 
-		return &scheduleMatches, nil
+		return resp.Matches, nil
 	}
 
 	return nil, fmt.Errorf("unexpected status code: %d", res.StatusCode)

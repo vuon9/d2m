@@ -1,18 +1,11 @@
-package esporthub
+package types
 
 import (
-	"errors"
+	"fmt"
 	"time"
 )
 
-var (
-	ErrMatchUnauthorized = errors.New("unauthorized")
-)
-
-type EsportHubClient struct {
-	ClientID           string
-	HubSubscriptionKey string
-}
+type MatchSlice []*Match
 
 type Match struct {
 	Name                       string `json:"name"`
@@ -53,24 +46,35 @@ type Match struct {
 	} `json:"urlsDescriptions"`
 }
 
-type Team struct {
-	ShortName              string `json:"shortName"`
-	FullName               string `json:"fullName"`
-	Score                  int    `json:"score"`
-	MatchResult            string `json:"matchResult"`
-	MatchResultDescription string `json:"matchResultDescription"`
-	LogoPrimaryColorRgb    string `json:"logoPrimaryColorRgb"`
-	LogoPrimaryColorHsl    string `json:"logoPrimaryColorHsl"`
-	ID                     string `json:"id"`
-	Urls                   struct {
-		Logo   string `json:"logo"`
-		Search string `json:"search"`
-	} `json:"urls"`
-	UrlsDescriptions struct {
-		Logo string `json:"logo"`
-	} `json:"urlsDescriptions"`
+func (m *Match) Team1() *Team {
+	if len(m.Teams) > 0 {
+		return m.Teams[0]
+	}
+
+	return &Team{
+		FullName: "TBD",
+	}
 }
 
-type ScheduleMatches struct {
-	Matches []*Match `json:"matches"`
+func (m *Match) Team2() *Team {
+	if len(m.Teams) > 1 {
+		return m.Teams[1]
+	}
+
+	return &Team{
+		FullName: "TBD",
+	}
+}
+
+func (m *Match) FriendlyStatus() string {
+	switch m.Status {
+	case "Resolved":
+		return "Finish"
+	case "Unresolved":
+		return "Coming"
+	case "Live":
+		return "Live"
+	default:
+		return fmt.Sprintf("[UN] %s", m.Status)
+	}
 }

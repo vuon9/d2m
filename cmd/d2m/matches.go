@@ -21,27 +21,10 @@ var (
 			usage:    "Dota 2 matches",
 			gameName: types.Dota2,
 		},
-		{
-			cmdName:  "lol",
-			aliases:  []string{"league"},
-			usage:    "League of Legends matches",
-			gameName: types.LeagueOfLegends,
-		},
-		{
-			cmdName:  "csgo",
-			aliases:  []string{"cs"},
-			usage:    "Counter-Strike: Global Offensive matches",
-			gameName: types.CsGO,
-		},
-		{
-			cmdName:  "valorant",
-			aliases:  []string{"valo"},
-			usage:    "Valorant matches",
-			gameName: types.Valorant,
-		},
 	}
 )
 
+// MatchesCmds returns a slice of cli.Command for matches subcommands
 func MatchesCmds() []*cli.Command {
 	cliActionFn := func(gName types.GameName) cli.ActionFunc {
 		return func(c *cli.Context) error {

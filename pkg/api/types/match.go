@@ -1,7 +1,6 @@
 package types
 
 import (
-	"fmt"
 	"time"
 )
 
@@ -68,10 +67,9 @@ func (m *Match) Team2() *Team {
 	}
 }
 
+// TimebasedFriendlyStatus returns a friendly status based on the start time of the match
+// it's inaccuracy because it doesn't take into account the status of the match
 func (m *Match) TimebasedFriendlyStatus() string {
-	// If the gap of start time and now is more than 3 hours, start time is before now, it's "FINISHED"
-	// If the gap of start time and now is less than 3 hours, start time is before now, it's "LIVE"
-	// If the gap of start time and now is less than 3 hours, start time is after now, it's "COMING"
 	now := time.Now()
 	threeHours := 3 * time.Hour
 
@@ -91,14 +89,5 @@ func (m *Match) FriendlyStatus() string {
 		return m.TimebasedFriendlyStatus()
 	}
 
-	switch m.Status {
-	case "Resolved":
-		return "Finish"
-	case "Unresolved":
-		return "Coming"
-	case "Live":
-		return "Live"
-	default:
-		return fmt.Sprintf("[UN] %s", m.Status)
-	}
+	return m.Status
 }

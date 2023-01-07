@@ -4,14 +4,14 @@ import (
 	"context"
 	"time"
 
-	"github.com/vuon9/d2m/pkg/api/haglund"
+	"github.com/vuon9/d2m/pkg/api/liquipedia"
 	"github.com/vuon9/d2m/pkg/api/types"
 )
 
 type MatchesByDate map[time.Time]types.MatchSlice
 
 func GetMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice, error) {
-	client, err := haglund.NewHaglundClient()
+	client, err := liquipedia.NewClient()
 	if err != nil {
 		return nil, err
 	}

@@ -19,7 +19,6 @@ func NewClient() (*Client, error) {
 }
 
 func (cre *Client) GetScheduledMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice, error) {
-	client := &http.Client{}
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, upComingPageUrl, nil)
 	if err != nil {
 		return nil, err
@@ -31,13 +30,6 @@ func (cre *Client) GetScheduledMatches(ctx context.Context, gameName types.GameN
 	req.Header.Add("Accept-Encoding", "gzip, deflate, br")
 	req.Header.Add("Cache-Control", "max-age=0")
 
-	res, err := client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-
-	defer res.Body.Close()
-
-	return nil, nil
+	return ScarppingHTML(ctx, req)
 
 }

@@ -2,8 +2,8 @@ package d2m
 
 import (
 	"context"
-	"fmt"
 	"os"
+	"time"
 
 	"github.com/olekukonko/tablewriter"
 	"github.com/vuon9/d2m/pkg/api/types"
@@ -17,7 +17,7 @@ func GetCLIMatches(ctx context.Context, gameName types.GameName) error {
 	}
 
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"Date", "Status", "Team 1", "Team 2", "Score"})
+	table.SetHeader([]string{"Time", "Tournament", "Team 1", "vs.", "Team 2", "Status"})
 	table.SetBorder(true)
 	table.SetColumnSeparator(" ")
 	table.SetRowSeparator(" ")
@@ -36,21 +36,38 @@ func GetCLIMatches(ctx context.Context, gameName types.GameName) error {
 	table.SetAutoWrapText(false)
 	table.SetAutoFormatHeaders(false)
 	table.SetRowLine(false)
-	table.SetTablePadding("\t")
+	table.SetTablePadding("  ")
 	table.SetNoWhiteSpace(true)
 
+	prev5Hours := time.Now().Add(-24 * time.Hour)
+
 	for _, match := range matches {
+		time.Now().Hour()
+
+		if match.Start.Before(prev5Hours) {
+			continue
+		}
+
 		tableRow := []string{
 			match.Start.Format("2006-01-02 15:04"),
-			match.FriendlyStatus(),
+			match.Tournament.Name,
 			match.Team1().FullName,
+			match.CompetitionType,
 			match.Team2().FullName,
-			fmt.Sprintf("%d - %d", match.Team1().Score, match.Team2().Score),
+			match.FriendlyStatus(),
 		}
 		table.Append(tableRow)
 	}
 
 	table.Render()
+
+	// print match as beautiful JSON
+	// matchJSON, err := json.MarshalIndent(match, "", "  ")
+	// if err != nil {
+	// 	return err
+	// }
+
+	// fmt.Println(string(matchJSON))
 
 	return nil
 }

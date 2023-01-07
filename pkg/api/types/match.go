@@ -69,12 +69,18 @@ func (m *Match) Team2() *Team {
 }
 
 func (m *Match) TimebasedFriendlyStatus() string {
-	if m.Start.Before(time.Now()) {
-		return "Live"
-	}
+	// If the gap of start time and now is more than 3 hours, start time is before now, it's "FINISHED"
+	// If the gap of start time and now is less than 3 hours, start time is before now, it's "LIVE"
+	// If the gap of start time and now is less than 3 hours, start time is after now, it's "COMING"
+	now := time.Now()
+	threeHours := 3 * time.Hour
 
-	if time.Now().Add(5 * time.Hour).After(m.Start) {
-		return "Finish"
+	if m.Start.Before(now) {
+		if now.Sub(m.Start) > threeHours {
+			return "Finish"
+		}
+
+		return "Live"
 	}
 
 	return "Coming"

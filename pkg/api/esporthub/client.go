@@ -31,6 +31,10 @@ type EsportHubClient struct {
 	HubSubscriptionKey string
 }
 
+type Response struct {
+	Matches types.MatchSlice `json:"matches"`
+}
+
 func NewEsportHubClient() (*EsportHubClient, error) {
 	var scriptContent string
 
@@ -82,10 +86,6 @@ func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context, gameName ty
 		body, err := ioutil.ReadAll(res.Body)
 		if err != nil {
 			return nil, err
-		}
-
-		type Response struct {
-			Matches types.MatchSlice `json:"matches"`
 		}
 
 		var resp Response

@@ -4,14 +4,14 @@ import (
 	"context"
 	"time"
 
-	"github.com/vuon9/d2m/pkg/api/esporthub"
+	"github.com/vuon9/d2m/pkg/api/haglund"
 	"github.com/vuon9/d2m/pkg/api/types"
 )
 
 type MatchesByDate map[time.Time]types.MatchSlice
 
 func GetMatches(ctx context.Context, gameName types.GameName) (MatchesByDate, error) {
-	client, err := esporthub.NewEsportHubClient()
+	client, err := haglund.NewHaglundClient()
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 
 type MatchesByDate map[time.Time]types.MatchSlice
 
-func GetMatches(ctx context.Context, gameName types.GameName) (MatchesByDate, error) {
+func GetMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice, error) {
 	client, err := haglund.NewHaglundClient()
 	if err != nil {
 		return nil, err
@@ -21,11 +21,14 @@ func GetMatches(ctx context.Context, gameName types.GameName) (MatchesByDate, er
 		return nil, err
 	}
 
-	matchesByDate := make(MatchesByDate)
-	for _, match := range matches {
-		matchDate := match.Start.Local().Truncate(24 * time.Hour)
-		matchesByDate[matchDate] = append(matchesByDate[matchDate], match)
+	// loop thorugh matches and sort them by ascending date
+	for i := 0; i < len(matches); i++ {
+		for j := i + 1; j < len(matches); j++ {
+			if matches[i].Start.After(matches[j].Start) {
+				matches[i], matches[j] = matches[j], matches[i]
+			}
+		}
 	}
 
-	return matchesByDate, nil
+	return matches, nil
 }

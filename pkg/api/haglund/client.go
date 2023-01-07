@@ -73,6 +73,11 @@ func (cre *HaglundClient) GetScheduledMatches(ctx context.Context, gameName type
 	}
 
 	for _, match := range resp {
+		// only get matches which has start time within +/- 1 day
+		if match.StartsAt.Before(time.Now().Add(-24*time.Hour)) || match.StartsAt.After(time.Now().Add(24*time.Hour)) {
+			continue
+		}
+
 		m := types.Match{
 			Start:                      match.StartsAt,
 			CompetitionType:            match.MatchType,

@@ -11,7 +11,7 @@ import (
 
 // GetCLIMatches prints matches as table on terminal
 func GetCLIMatches(ctx context.Context, gameName types.GameName) error {
-	matchesByDate, err := GetMatches(ctx, gameName)
+	matches, err := GetMatches(ctx, gameName)
 	if err != nil {
 		return err
 	}
@@ -39,17 +39,15 @@ func GetCLIMatches(ctx context.Context, gameName types.GameName) error {
 	table.SetTablePadding("\t")
 	table.SetNoWhiteSpace(true)
 
-	for date, matches := range matchesByDate {
-		for _, match := range matches {
-			tableRow := []string{
-				date.Format("2006-01-02 15:04"),
-				match.FriendlyStatus(),
-				match.Team1().FullName,
-				match.Team2().FullName,
-				fmt.Sprintf("%d - %d", match.Team1().Score, match.Team2().Score),
-			}
-			table.Append(tableRow)
+	for _, match := range matches {
+		tableRow := []string{
+			match.Start.Format("2006-01-02 15:04"),
+			match.FriendlyStatus(),
+			match.Team1().FullName,
+			match.Team2().FullName,
+			fmt.Sprintf("%d - %d", match.Team1().Score, match.Team2().Score),
 		}
+		table.Append(tableRow)
 	}
 
 	table.Render()

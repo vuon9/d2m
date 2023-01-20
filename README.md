@@ -19,6 +19,9 @@ Or download the binary from [release page](https://github.com/vuon9/d2m/releases
 
 ```bash
 d2m
+
+# Get help
+d2m help
 ```
 
 ## Screenshots

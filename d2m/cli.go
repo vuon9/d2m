@@ -9,11 +9,33 @@ import (
 	"github.com/vuon9/d2m/pkg/api/types"
 )
 
+type Matcher struct {
+	status types.MatchStatus
+}
+
+func NewMatcher() *Matcher {
+	return &Matcher{
+		status: types.MatchStatusDefault,
+	}
+}
+
+type MatcherOption func(*Matcher)
+
+func WithMatchStatus(status types.MatchStatus) MatcherOption {
+	return func(matcher *Matcher) {
+		matcher.status = status
+	}
+}
+
 // GetCLIMatches prints matches as table on terminal
-func GetCLIMatches(ctx context.Context, gameName types.GameName) error {
-	matches, err := GetMatches(ctx, gameName)
+func (m *Matcher) GetCLIMatches(ctx context.Context, options ...MatcherOption) error {
+	matches, err := GetMatches(ctx, types.Dota2)
 	if err != nil {
 		return err
+	}
+
+	for _, mo := range options {
+		mo(m)
 	}
 
 	table := tablewriter.NewWriter(os.Stdout)
@@ -42,7 +64,10 @@ func GetCLIMatches(ctx context.Context, gameName types.GameName) error {
 	prev5Hours := time.Now().Add(-24 * time.Hour)
 
 	for _, match := range matches {
-		time.Now().Hour()
+		frStatus := match.FriendlyStatus()
+		if frStatus != m.status {
+			continue
+		}
 
 		if match.Start.Before(prev5Hours) {
 			continue
@@ -54,7 +79,7 @@ func GetCLIMatches(ctx context.Context, gameName types.GameName) error {
 			match.Team1().FullName,
 			match.CompetitionType,
 			match.Team2().FullName,
-			match.FriendlyStatus(),
+			frStatus.String(),
 		}
 		table.Append(tableRow)
 	}

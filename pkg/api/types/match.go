@@ -4,24 +4,38 @@ import (
 	"time"
 )
 
+type MatchStatus string
+
+func (m MatchStatus) String() string {
+	return string(m)
+}
+
+const (
+	MatchStatusComing   MatchStatus = "Coming"
+	MatchStatusLive     MatchStatus = "Live"
+	MatchStatusFinished MatchStatus = "Finished"
+
+	MatchStatusDefault MatchStatus = MatchStatusLive
+)
+
 type MatchSlice []*Match
 
 type Match struct {
+	Start                      time.Time  `json:"start"`
+	Tournament                 Tournament `json:"tournament"`
 	Name                       string     `json:"name"`
-	Status                     string     `json:"status"`
-	StatusDescription          string     `json:"statusDescription"`
 	CompetitionType            string     `json:"competitionType"`
 	CompetitionTypeDescription string     `json:"competitionTypeDescription"`
 	ContentType                string     `json:"contentType"`
 	Tier                       string     `json:"tier"`
-	Tournament                 Tournament `json:"tournament"`
-	Teams                      []*Team    `json:"teams"`
-	Start                      time.Time  `json:"start"`
-	ID                         string     `json:"id"`
+	StatusDescription          string     `json:"statusDescription"`
 	VideoGameID                string     `json:"videoGameId"`
+	Status                     string     `json:"status"`
+	ID                         string     `json:"id"`
 	UrlsDescriptions           struct {
 		Logo string `json:"logo"`
 	} `json:"urlsDescriptions"`
+	Teams []*Team `json:"teams"`
 }
 
 type Tournament struct {
@@ -69,25 +83,25 @@ func (m *Match) Team2() *Team {
 
 // TimebasedFriendlyStatus returns a friendly status based on the start time of the match
 // it's inaccuracy because it doesn't take into account the status of the match
-func (m *Match) TimebasedFriendlyStatus() string {
+func (m *Match) TimebasedFriendlyStatus() MatchStatus {
 	now := time.Now()
 	threeHours := 3 * time.Hour
 
 	if m.Start.Before(now) {
 		if now.Sub(m.Start) > threeHours {
-			return "Finish"
+			return MatchStatusFinished
 		}
 
-		return "Live"
+		return MatchStatusLive
 	}
 
-	return "Coming"
+	return MatchStatusComing
 }
 
-func (m *Match) FriendlyStatus() string {
+func (m *Match) FriendlyStatus() MatchStatus {
 	if m.Status == "" {
 		return m.TimebasedFriendlyStatus()
 	}
 
-	return m.Status
+	return MatchStatus(m.Status)
 }

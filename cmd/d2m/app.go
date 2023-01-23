@@ -1,6 +1,8 @@
 package d2m
 
 import (
+	"time"
+
 	cli "github.com/urfave/cli/v2"
 	"github.com/vuon9/d2m/d2m"
 	"github.com/vuon9/d2m/pkg/api/types"
@@ -13,7 +15,8 @@ func AppCmd() *cli.App {
 		Name:  "d2m",
 		Usage: "Dota2 matches schedule on terminal",
 		Action: func(c *cli.Context) error {
-			return app.GetCLIMatches(c.Context)
+			today := time.Now().Truncate(24 * time.Hour)
+			return app.GetCLIMatches(c.Context, d2m.WithDate(today))
 		},
 		Commands: []*cli.Command{
 			{
@@ -41,6 +44,36 @@ func AppCmd() *cli.App {
 				HelpName: "d2m finished",
 				Action: func(c *cli.Context) error {
 					return app.GetCLIMatches(c.Context, d2m.WithMatchStatus(types.MatchStatusFinished))
+				},
+			},
+			{
+				Name:     "today",
+				Aliases:  []string{"t"},
+				Usage:    "Matches today",
+				HelpName: "d2m today",
+				Action: func(c *cli.Context) error {
+					today := time.Now().Truncate(24 * time.Hour)
+					return app.GetCLIMatches(c.Context, d2m.WithDate(today))
+				},
+			},
+			{
+				Name:     "tomorrow",
+				Aliases:  []string{"m"},
+				Usage:    "Matches tomorrow",
+				HelpName: "d2m tomorrow",
+				Action: func(c *cli.Context) error {
+					tomorrow := time.Now().Truncate(24 * time.Hour).Add(24 * time.Hour)
+					return app.GetCLIMatches(c.Context, d2m.WithDate(tomorrow))
+				},
+			},
+			{
+				Name:     "yesterday",
+				Aliases:  []string{"y"},
+				Usage:    "Matches yesterday",
+				HelpName: "d2m yesterday",
+				Action: func(c *cli.Context) error {
+					yesterday := time.Now().Truncate(24 * time.Hour).Add(-24 * time.Hour)
+					return app.GetCLIMatches(c.Context, d2m.WithDate(yesterday))
 				},
 			},
 		},

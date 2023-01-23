@@ -14,8 +14,6 @@ const (
 	MatchStatusComing   MatchStatus = "Coming"
 	MatchStatusLive     MatchStatus = "Live"
 	MatchStatusFinished MatchStatus = "Finished"
-
-	MatchStatusDefault MatchStatus = MatchStatusLive
 )
 
 type MatchSlice []*Match

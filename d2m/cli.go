@@ -10,20 +10,27 @@ import (
 )
 
 type Matcher struct {
-	status types.MatchStatus
+	Keyword string
+	FilterType string
 }
 
 func NewMatcher() *Matcher {
-	return &Matcher{
-		status: types.MatchStatusDefault,
-	}
+	return &Matcher{}
 }
 
 type MatcherOption func(*Matcher)
 
 func WithMatchStatus(status types.MatchStatus) MatcherOption {
 	return func(matcher *Matcher) {
-		matcher.status = status
+		matcher.Keyword = status.String()
+		matcher.FilterType = "status"
+	}
+}
+
+func WithDate(date time.Time) MatcherOption {
+	return func(matcher *Matcher) {
+		matcher.Keyword = date.Truncate(24 * time.Hour).Format("2006-01-02")
+		matcher.FilterType = "date"
 	}
 }
 
@@ -64,8 +71,19 @@ func (m *Matcher) GetCLIMatches(ctx context.Context, options ...MatcherOption) e
 	prev5Hours := time.Now().Add(-24 * time.Hour)
 
 	for _, match := range matches {
-		frStatus := match.FriendlyStatus()
-		if frStatus != m.status {
+		matchStatus := match.FriendlyStatus()
+		matchStartByDate := match.Start.Truncate(24 * time.Hour)
+		matchStartByDateIsToday := matchStartByDate.Equal(time.Now().Truncate(24 * time.Hour))
+
+		if m.FilterType == "status" {
+			if m.Keyword == "today" && !matchStartByDateIsToday {
+				continue
+			} else if matchStatus != types.MatchStatus(m.Keyword) {
+				continue
+			}
+		}
+
+		if m.FilterType == "date" && matchStartByDate.Format("2006-01-02") != m.Keyword {
 			continue
 		}
 
@@ -79,7 +97,7 @@ func (m *Matcher) GetCLIMatches(ctx context.Context, options ...MatcherOption) e
 			match.Team1().FullName,
 			match.CompetitionType,
 			match.Team2().FullName,
-			frStatus.String(),
+			matchStatus.String(),
 		}
 		table.Append(tableRow)
 	}

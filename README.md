@@ -18,11 +18,31 @@ Or download the binary from [release page](https://github.com/vuon9/d2m/releases
 ## To use it
 
 ```bash
-d2m
-
-# Get help
-d2m help
+❯ d2m
 ```
+
+Get help
+```
+❯ d2m help
+NAME:
+   d2m - Dota2 matches schedule on terminal
+
+USAGE:
+   d2m [global options] command [command options] [arguments...]
+
+COMMANDS:
+   live, l       Live matches
+   coming, u     Upcoming matches
+   finished, f   Finished matches
+   today, t      Matches today
+   tomorrow, m   Matches tomorrow
+   yesterday, y  Matches yesterday
+   help, h       Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --help, -h  show help (default: false)
+```
+
 
 ## Screenshots
 

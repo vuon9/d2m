@@ -6,7 +6,7 @@ require (
 	github.com/BurntSushi/toml v1.2.1
 	github.com/gocolly/colly v1.2.0
 	github.com/olekukonko/tablewriter v0.0.5
-	github.com/urfave/cli/v2 v2.23.7
+	github.com/urfave/cli/v2 v2.24.1
 )
 
 require (

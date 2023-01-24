@@ -1,7 +1,8 @@
 package d2m
 
 import (
-	"github.com/charmbracelet/bubbles/key"
+	"time"
+
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
@@ -22,44 +23,64 @@ var (
 
 type model struct {
 	list list.Model
+	delegator *delegator
 }
 
 type item struct {
 	title string
 	description string
+
+	startTime time.Time
+	status string
 }
 
 func (i *item) Title() string {
 	return i.title
 }
 
+func (i *item) Description() string {
+	return i.description
+}
+
 func (i *item) FilterValue() string {
 	return i.title + i.description
 }
 
-func (i *item) Description() string {
-	return i.description
+type Matchable interface {
+	StartTime() time.Time
+	Status() string
+}
+
+func (i *item) StartTime() time.Time {
+	return i.startTime
+}
+
+func (i *item) Status() string {
+	return i.status
 }
 
 func newModel(matches types.MatchSlice) tea.Model {
 	items := make([]list.Item, len(matches), len(matches))
 	for i, match := range matches {
 		items[i] = &item{
-			title: match.Team1().FullName + " vs. " + match.Team2().FullName,
+			title: "["+match.Status+"] "+ match.Team1().FullName + " vs. " + match.Team2().FullName,
 			description: "[" + match.Start.Format("2006-01-02 15:04") + "] - " + match.Tournament.Name,
+			startTime: match.Start,
+			status: match.Status,
 		}
 	}
 
+	delegator := &delegator{
+		originItems: items,
+	}
 
-	matchList := list.New(items, newItemDelegate(newDelegateKeyMap()), 0, 0)
+	matchList := list.New(items, delegator.newItemDelegate(newDelegateKeyMap()), 0, 0)
 	matchList.Title = "D2M - Dota2 Matches"
 	matchList.Styles.Title = titleStyle
-	matchList.AdditionalFullHelpKeys = func () []key.Binding {
-		return []key.Binding{}
-	}
 
 	return &model{
 		list: matchList,
+		delegator: delegator,
 	}
 }
 

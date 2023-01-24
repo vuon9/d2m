@@ -38,7 +38,7 @@ func GetMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice,
 
 type matchFilter uint8
 const (
-	_ matchFilter = iota
+	all matchFilter = iota
 	today
 	tomorrow
 	yesterday

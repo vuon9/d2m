@@ -9,8 +9,6 @@ import (
 	"github.com/vuon9/d2m/pkg/api/types"
 )
 
-type MatchesByDate map[time.Time]types.MatchSlice
-
 func GetMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice, error) {
 	client, err := liquipedia.NewClient()
 	if err != nil {
@@ -22,7 +20,7 @@ func GetMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice,
 		return nil, err
 	}
 
-	// loop thorugh matches and sort them by ascending date
+	// loop through matches and sort them by ascending date
 	for i := 0; i < len(matches); i++ {
 		for j := i + 1; j < len(matches); j++ {
 			if matches[i].Start.After(matches[j].Start) {

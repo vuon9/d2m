@@ -1,13 +1,11 @@
 package d2m
 
 import (
-	"log"
-	"os"
+	"context"
+
+	"github.com/vuon9/d2m/d2m"
 )
 
 func Execute() {
-	app := AppCmd()
-	if err := app.Run(os.Args); err != nil {
-		log.Fatal(err)
-	}
+	d2m.GetCLIMatches(context.Background())
 }

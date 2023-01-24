@@ -2,15 +2,16 @@ package d2m
 
 import (
 	"context"
-	"os"
 	"time"
 
-	"github.com/olekukonko/tablewriter"
+	"github.com/charmbracelet/bubbles/key"
+	"github.com/charmbracelet/bubbles/list"
+	tea "github.com/charmbracelet/bubbletea"
 	"github.com/vuon9/d2m/pkg/api/types"
 )
 
 type Matcher struct {
-	Keyword string
+	Keyword    string
 	FilterType string
 }
 
@@ -36,39 +37,17 @@ func WithDate(date time.Time) MatcherOption {
 
 // GetCLIMatches prints matches as table on terminal
 func (m *Matcher) GetCLIMatches(ctx context.Context, options ...MatcherOption) error {
+	for _, mo := range options {
+		mo(m)
+	}
+
+	prev5Hours := time.Now().Add(-24 * time.Hour)
 	matches, err := GetMatches(ctx, types.Dota2)
 	if err != nil {
 		return err
 	}
 
-	for _, mo := range options {
-		mo(m)
-	}
-
-	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"Time", "Tournament", "Team 1", "vs.", "Team 2", "Status"})
-	table.SetBorder(true)
-	table.SetColumnSeparator(" ")
-	table.SetRowSeparator(" ")
-	table.SetCenterSeparator(" ")
-	table.SetColumnAlignment([]int{
-		tablewriter.ALIGN_LEFT,
-		tablewriter.ALIGN_LEFT,
-		tablewriter.ALIGN_LEFT,
-		tablewriter.ALIGN_LEFT,
-		tablewriter.ALIGN_LEFT,
-	})
-
-	table.SetHeaderAlignment(tablewriter.ALIGN_LEFT)
-	table.SetAlignment(tablewriter.ALIGN_LEFT)
-	table.SetHeaderLine(false)
-	table.SetAutoWrapText(false)
-	table.SetAutoFormatHeaders(false)
-	table.SetRowLine(false)
-	table.SetTablePadding("  ")
-	table.SetNoWhiteSpace(true)
-
-	prev5Hours := time.Now().Add(-24 * time.Hour)
+	finalMatches := make(types.MatchSlice, 0)
 
 	for _, match := range matches {
 		matchStatus := match.FriendlyStatus()
@@ -91,26 +70,71 @@ func (m *Matcher) GetCLIMatches(ctx context.Context, options ...MatcherOption) e
 			continue
 		}
 
-		tableRow := []string{
-			match.Start.Format("2006-01-02 15:04"),
-			match.Tournament.Name,
-			match.Team1().FullName,
-			match.CompetitionType,
-			match.Team2().FullName,
-			matchStatus.String(),
-		}
-		table.Append(tableRow)
+		finalMatches = append(finalMatches, match)
 	}
 
-	table.Render()
-
-	// print match as beautiful JSON
-	// matchJSON, err := json.MarshalIndent(match, "", "  ")
-	// if err != nil {
-	// 	return err
-	// }
-
-	// fmt.Println(string(matchJSON))
+	prog := tea.NewProgram(newModel(matches))
+	if _, err := prog.Run(); err != nil {
+		return err
+	}
 
 	return nil
+}
+
+type delegateKeyMap struct {
+	choose key.Binding
+}
+
+func (m delegateKeyMap) FullHelp() [][]key.Binding {
+	return [][]key.Binding{
+		{m.choose},
+	}
+}
+
+func (m delegateKeyMap) ShortHelp() []key.Binding {
+	return []key.Binding{
+		m.choose,
+	}
+}
+
+func newDelegateKeyMap() *delegateKeyMap {
+	return &delegateKeyMap{
+		choose: key.NewBinding(key.WithKeys("enter"), key.WithHelp("enter", "choose")),
+	}
+}
+
+func newItemDelegate(keys *delegateKeyMap) list.DefaultDelegate {
+	d := list.NewDefaultDelegate()
+
+	d.UpdateFunc = func(msg tea.Msg, m *list.Model) tea.Cmd {
+		var title string
+
+		if i, ok := m.SelectedItem().(*item); ok {
+			title = i.Title()
+		} else {
+			return nil
+		}
+
+		switch msg := msg.(type) { //nolint:gocritic
+		case tea.KeyMsg:
+			switch { //nolint:gocritic
+				case key.Matches(msg, keys.choose):
+					return m.NewStatusMessage("You chose " + title)
+			}
+		}
+
+		return nil
+	}
+
+	help := []key.Binding{keys.choose}
+
+	d.ShortHelpFunc = func() []key.Binding {
+		return help
+	}
+
+	d.FullHelpFunc = func() [][]key.Binding {
+		return [][]key.Binding{help}
+	}
+
+	return d
 }

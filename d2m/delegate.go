@@ -70,7 +70,7 @@ func (d *delegator) newItemDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 
 		switch msg := msg.(type) { //nolint:gocritic
 		case tea.KeyMsg:
-			switch { //nolint:gocritic
+			switch {
 				case key.Matches(msg, keys.choose):
 					return m.NewStatusMessage("You chose " + title)
 				case key.Matches(msg, keys.all):

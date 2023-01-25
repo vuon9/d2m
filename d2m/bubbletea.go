@@ -73,7 +73,8 @@ func newModel(matches types.MatchSlice) tea.Model {
 	delegator := &delegator{
 		originItems: items,
 	}
-
+	
+	items = delegator.filterMatches(FromToday)
 	matchList := list.New(items, delegator.newItemDelegate(newDelegateKeyMap()), 0, 0)
 	matchList.Title = "D2M - Dota2 Matches"
 	matchList.Styles.Title = titleStyle

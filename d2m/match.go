@@ -37,12 +37,13 @@ func GetMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice,
 type matchFilter uint8
 const (
 	all matchFilter = iota
-	today
-	tomorrow
-	yesterday
-	live
-	finished
-	coming
+	FromToday
+	Today
+	Tomorrow
+	Yesterday
+	Live
+	Finished
+	Coming
 )
 
 func (d *delegator) filterMatches(mf matchFilter) []list.Item {
@@ -57,17 +58,19 @@ func (d *delegator) filterMatches(mf matchFilter) []list.Item {
 		var isEligible bool
 
 		switch mf {
-		case today:
+		case FromToday:
+			isEligible = !matcher.StartTime().Truncate(24 * time.Hour).Before(time.Now().Truncate(24 * time.Hour))
+		case Today:
 			isEligible = matcher.StartTime().Day() == time.Now().Day()
-		case tomorrow:
+		case Tomorrow:
 			isEligible = matcher.StartTime().Day() == time.Now().AddDate(0, 0, 1).Day()
-		case yesterday:
+		case Yesterday:
 			isEligible = matcher.StartTime().Day() == time.Now().AddDate(0, 0, -1).Day()
-		case live:
+		case Live:
 			isEligible = matcher.Status() == "Live"
-		case finished:
+		case Finished:
 			isEligible = matcher.Status() == "Finished"
-		case coming:
+		case Coming:
 			isEligible = matcher.Status() == "Coming"
 		default:
 			continue

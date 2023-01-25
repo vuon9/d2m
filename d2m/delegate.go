@@ -15,13 +15,14 @@ type delegateKeyMap struct {
 	live key.Binding
 	finished key.Binding
 	coming key.Binding
+	fromToday key.Binding
 }
 
 func (m delegateKeyMap) FullHelp() [][]key.Binding {
 	return [][]key.Binding{
 		{m.choose},
 		{m.all},
-		{m.today, m.tomorrow, m.yesterday},
+		{m.fromToday, m.today, m.tomorrow, m.yesterday},
 		{m.live, m.finished, m.coming},
 	}
 }
@@ -30,6 +31,7 @@ func (m delegateKeyMap) ShortHelp() []key.Binding {
 	return []key.Binding{
 		m.choose,
 		m.all,
+		m.fromToday,
 		m.today,
 		m.tomorrow,
 		m.yesterday,
@@ -43,12 +45,14 @@ func newDelegateKeyMap() *delegateKeyMap {
 	return &delegateKeyMap{
 		choose: key.NewBinding(key.WithKeys("enter"), key.WithHelp("enter", "choose")),
 		all: key.NewBinding(key.WithKeys("a"), key.WithHelp("a", "all")),
+		fromToday: key.NewBinding(key.WithKeys("ft"), key.WithHelp("ft", "fromToday")),
 		today: key.NewBinding(key.WithKeys("t"), key.WithHelp("t", "today")),
 		tomorrow: key.NewBinding(key.WithKeys("m"), key.WithHelp("m", "tomorrow")),
 		yesterday: key.NewBinding(key.WithKeys("y"), key.WithHelp("y", "yesterday")),
 		live: key.NewBinding(key.WithKeys("l"), key.WithHelp("l", "live")),
 		finished: key.NewBinding(key.WithKeys("f"), key.WithHelp("f", "finished")),
 		coming: key.NewBinding(key.WithKeys("c"), key.WithHelp("c", "coming")),
+		
 	}
 }
 
@@ -76,17 +80,17 @@ func (d *delegator) newItemDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 				case key.Matches(msg, keys.all):
 					return m.SetItems(d.originItems)
 				case key.Matches(msg, keys.today):
-					return m.SetItems(d.filterMatches(today))
+					return m.SetItems(d.filterMatches(Today))
 				case key.Matches(msg, keys.tomorrow):
-					return m.SetItems(d.filterMatches(tomorrow))
+					return m.SetItems(d.filterMatches(Tomorrow))
 				case key.Matches(msg, keys.yesterday):
-					return m.SetItems(d.filterMatches(yesterday))
+					return m.SetItems(d.filterMatches(Yesterday))
 				case key.Matches(msg, keys.live):
-					return m.SetItems(d.filterMatches(live))
+					return m.SetItems(d.filterMatches(Live))
 				case key.Matches(msg, keys.finished):
-					return m.SetItems(d.filterMatches(finished))
+					return m.SetItems(d.filterMatches(Finished))
 				case key.Matches(msg, keys.coming):
-					return m.SetItems(d.filterMatches(coming))
+					return m.SetItems(d.filterMatches(Coming))
 			}
 		}
 
@@ -96,6 +100,7 @@ func (d *delegator) newItemDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 	help := []key.Binding{
 		keys.choose,
 		keys.all,
+		keys.fromToday,
 		keys.today,
 		keys.tomorrow,
 		keys.yesterday,

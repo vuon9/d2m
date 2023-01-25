@@ -5,17 +5,17 @@ import (
 	"time"
 
 	"github.com/charmbracelet/bubbles/list"
+	"github.com/vuon9/d2m/pkg/api"
 	"github.com/vuon9/d2m/pkg/api/liquipedia"
-	"github.com/vuon9/d2m/pkg/api/types"
 )
 
-func GetMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice, error) {
+func GetMatches(ctx context.Context) ([]*api.Match, error) {
 	client, err := liquipedia.NewClient()
 	if err != nil {
 		return nil, err
 	}
 
-	matches, err := client.GetScheduledMatches(ctx, gameName)
+	matches, err := client.GetScheduledMatches(ctx)
 	if err != nil {
 		return nil, err
 	}
@@ -32,11 +32,9 @@ func GetMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice,
 	return matches, nil
 }
 
-
-
 type matchFilter uint8
 const (
-	all matchFilter = iota
+	All matchFilter = iota
 	FromToday
 	Today
 	Tomorrow
@@ -46,11 +44,11 @@ const (
 	Coming
 )
 
-func (d *delegator) filterMatches(mf matchFilter) []list.Item {
-	var newList []list.Item
+func filterMatches(items []list.Item, mf matchFilter) []list.Item {
+	var filteredItems []list.Item
 
-	for _, originItem := range d.originItems {
-		matcher, ok := originItem.(Matchable)
+	for _, match := range items {
+		match, ok := match.(*api.Match)
 		if !ok {
 			continue
 		}
@@ -58,28 +56,31 @@ func (d *delegator) filterMatches(mf matchFilter) []list.Item {
 		var isEligible bool
 
 		switch mf {
+		case All:
+			isEligible = true
 		case FromToday:
-			isEligible = !matcher.StartTime().Truncate(24 * time.Hour).Before(time.Now().Truncate(24 * time.Hour))
+			t := time.Now()
+			isEligible = match.Start.After(time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location()))
 		case Today:
-			isEligible = matcher.StartTime().Day() == time.Now().Day()
+			isEligible = match.Start.Day() == time.Now().Day()
 		case Tomorrow:
-			isEligible = matcher.StartTime().Day() == time.Now().AddDate(0, 0, 1).Day()
+			isEligible = match.Start.Day() == time.Now().AddDate(0, 0, 1).Day()
 		case Yesterday:
-			isEligible = matcher.StartTime().Day() == time.Now().AddDate(0, 0, -1).Day()
+			isEligible = match.Start.Day() == time.Now().AddDate(0, 0, -1).Day()
 		case Live:
-			isEligible = matcher.Status() == "Live"
+			isEligible = match.Status == "Live"
 		case Finished:
-			isEligible = matcher.Status() == "Finished"
+			isEligible = match.Status == "Finished"
 		case Coming:
-			isEligible = matcher.Status() == "Coming"
+			isEligible = match.Status == "Coming"
 		default:
 			continue
 		}
 
 		if isEligible {
-			newList = append(newList, originItem)
+			filteredItems = append(filteredItems, match)
 		}
 	}
 
-	return newList
+	return filteredItems
 }

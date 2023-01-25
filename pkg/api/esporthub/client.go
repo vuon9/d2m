@@ -11,12 +11,7 @@ import (
 
 	"github.com/gocolly/colly"
 	"github.com/vuon9/d2m/pkg/api"
-	"github.com/vuon9/d2m/pkg/api/types"
 )
-
-var videoGameMaps = map[types.GameName]string{
-	types.Dota2: "51b8bf37-fede-45d5-3943-fef79b0fa628",
-}
 
 const (
 	scheduleMatchesURL = "https://esportshub.azure-api.net/schedule/matches"
@@ -29,10 +24,10 @@ type EsportHubClient struct {
 }
 
 type Response struct {
-	Matches types.MatchSlice `json:"matches"`
+	Matches []*api.Match `json:"matches"`
 }
 
-func NewEsportHubClient() (*EsportHubClient, error) {
+func NewClient() (*EsportHubClient, error) {
 	var scriptContent string
 
 	c := colly.NewCollector()
@@ -48,7 +43,7 @@ func NewEsportHubClient() (*EsportHubClient, error) {
 	return parseCredentials(scriptContent)
 }
 
-func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice, error) {
+func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context) ([]*api.Match, error) {
 	params := url.Values{}
 
 	now := time.Now()
@@ -56,7 +51,7 @@ func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context, gameName ty
 
 	params.Add("referenceDateTime", startedToday.Format("2006-01-02T15:04:05.000Z")) // 2006-01-02T15:04:05Z07:00
 	params.Add("direction", "Forward")
-	params.Add("videoGameIds", videoGameMaps[gameName])
+	params.Add("videoGameIds", "51b8bf37-fede-45d5-3943-fef79b0fa628")
 	params.Add("limit", "30")
 	params.Add("withObjects", "teams,tournaments")
 

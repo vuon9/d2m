@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/gocolly/colly"
-	"github.com/vuon9/d2m/pkg/api/types"
+	"github.com/vuon9/d2m/pkg/api"
 )
 
 var allowedDomains = []string{
@@ -19,7 +19,7 @@ var allowedDomains = []string{
 	"www.liquipedia.net",
 }
 
-func ScarppingHTML(ctx context.Context, req *http.Request) (types.MatchSlice, error) {
+func ScarppingHTML(ctx context.Context, req *http.Request) ([]*api.Match, error) {
 	c := colly.NewCollector(
 		colly.AllowedDomains(allowedDomains...),
 		// colly.CacheDir("./_cache"),
@@ -31,10 +31,10 @@ func ScarppingHTML(ctx context.Context, req *http.Request) (types.MatchSlice, er
 		}
 	})
 
-	uniqueMatches := map[string]*types.Match{}
+	uniqueMatches := map[string]*api.Match{}
 	c.OnHTML("table.infobox_matches_content > tbody", func(e *colly.HTMLElement) {
-		match := types.Match{
-			Teams: []*types.Team{
+		match := api.Match{
+			Teams: []*api.Team{
 				{},
 				{},
 			},
@@ -94,7 +94,7 @@ func ScarppingHTML(ctx context.Context, req *http.Request) (types.MatchSlice, er
 		return nil, err
 	}
 
-	matches := types.MatchSlice{}
+	matches := make([]*api.Match, 0)
 	for k, m := range uniqueMatches {
 		matches = append(matches, m)
 		uniqueMatches[k] = m

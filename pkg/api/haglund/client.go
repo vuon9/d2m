@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/vuon9/d2m/pkg/api/types"
+	"github.com/vuon9/d2m/pkg/api"
 )
 
 const (
@@ -36,11 +36,11 @@ type Team struct {
 
 type Response []Match
 
-func NewHaglundClient() (*HaglundClient, error) {
+func NewClient() (*HaglundClient, error) {
 	return &HaglundClient{}, nil
 }
 
-func (cre *HaglundClient) GetScheduledMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice, error) {
+func (cre *HaglundClient) GetScheduledMatches(ctx context.Context) ([]*api.Match, error) {
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, scheduleMatchesURL, nil)
 	if err != nil {
 		return nil, err
@@ -54,8 +54,8 @@ func (cre *HaglundClient) GetScheduledMatches(ctx context.Context, gameName type
 
 	defer res.Body.Close()
 
-	// parse json into types.MatchSlice
-	var matches types.MatchSlice
+	// parse json into api.MatchSlice
+	matches := make([]*api.Match, 0)
 	if res.StatusCode != http.StatusOK {
 
 		return nil, errors.New("It's not OK")
@@ -78,18 +78,18 @@ func (cre *HaglundClient) GetScheduledMatches(ctx context.Context, gameName type
 			continue
 		}
 
-		m := types.Match{
+		m := api.Match{
 			Start:                      match.StartsAt,
 			CompetitionType:            match.MatchType,
 			CompetitionTypeDescription: match.LeagueName,
-			Tournament: types.Tournament{
+			Tournament: api.Tournament{
 				Name: match.LeagueName,
 			},
-			Teams: make([]*types.Team, 0),
+			Teams: make([]*api.Team, 0),
 		}
 
 		for _, team := range match.Teams {
-			t := &types.Team{
+			t := &api.Team{
 				FullName: team.Name,
 			}
 			m.Teams = append(m.Teams, t)

@@ -4,7 +4,7 @@
 
 Dota2 scheduled matches tracker
 
-![Main](./screenshots/main2.jpg)
+![Main](./screenshots/main.gif)
 
 ## Installation
 

@@ -36,15 +36,18 @@ type delegateKeyMap struct {
 func (m delegateKeyMap) FullHelp() [][]key.Binding {
 	return [][]key.Binding{
 		{m.choose},
-		// {m.all, m.fromToday},
-		// {m.today, m.tomorrow, m.yesterday},
-		// {m.live, m.finished, m.coming},
+		{m.all, m.fromToday},
+		{m.today, m.tomorrow, m.yesterday},
+		{m.live, m.finished, m.coming},
 	}
 }
 
 func (m delegateKeyMap) ShortHelp() []key.Binding {
 	return []key.Binding{
 		m.choose,
+		m.live,
+		m.today,
+		m.all,
 	}
 }
 

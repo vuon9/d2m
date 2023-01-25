@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/vuon9/d2m/pkg/api/types"
+	"github.com/vuon9/d2m/pkg/api"
 )
 
 var (
@@ -18,7 +18,7 @@ func NewClient() (*Client, error) {
 	return &Client{}, nil
 }
 
-func (cre *Client) GetScheduledMatches(ctx context.Context, gameName types.GameName) (types.MatchSlice, error) {
+func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error) {
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, upComingPageUrl, nil)
 	if err != nil {
 		return nil, err

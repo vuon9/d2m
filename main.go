@@ -1,7 +1,7 @@
 package main
 
-import "github.com/vuon9/d2m/cmd/d2m"
+import "github.com/vuon9/d2m/cmd"
 
 func main() {
-	d2m.Execute()
+	cmd.Execute()
 }

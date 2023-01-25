@@ -1,4 +1,4 @@
-package types
+package api
 
 type Team struct {
 	ShortName              string `json:"shortName"`

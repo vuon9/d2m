@@ -1,4 +1,4 @@
-package d2m
+package cmd
 
 import (
 	"context"
@@ -7,5 +7,5 @@ import (
 )
 
 func Execute() {
-	d2m.GetCLIMatches(context.Background())
+	d2m.RunProgram(context.Background())
 }

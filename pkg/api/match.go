@@ -1,6 +1,7 @@
-package types
+package api
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -15,8 +16,6 @@ const (
 	MatchStatusLive     MatchStatus = "Live"
 	MatchStatusFinished MatchStatus = "Finished"
 )
-
-type MatchSlice []*Match
 
 type Match struct {
 	Start                      time.Time  `json:"start"`
@@ -79,27 +78,31 @@ func (m *Match) Team2() *Team {
 	}
 }
 
-// TimebasedFriendlyStatus returns a friendly status based on the start time of the match
-// it's inaccuracy because it doesn't take into account the status of the match
-func (m *Match) TimebasedFriendlyStatus() MatchStatus {
-	now := time.Now()
-	threeHours := 3 * time.Hour
-
-	if m.Start.Before(now) {
-		if now.Sub(m.Start) > threeHours {
-			return MatchStatusFinished
-		}
-
-		return MatchStatusLive
-	}
-
-	return MatchStatusComing
-}
-
 func (m *Match) FriendlyStatus() MatchStatus {
-	if m.Status == "" {
-		return m.TimebasedFriendlyStatus()
-	}
-
 	return MatchStatus(m.Status)
 }
+
+func (m *Match) Title() string {
+	vsOrScores := fmt.Sprintf("%s", m.Status)
+	if m.Status == "Live" || m.Status == "Finished" {
+		vsOrScores = fmt.Sprintf("[%d:%d] - %s", m.Team1().Score, m.Team2().Score, m.Status)
+	}
+
+	return fmt.Sprintf("%s - %s",
+		vsOrScores,
+		m.GeneralTitle(),
+	)
+}
+
+func (m *Match) GeneralTitle() string {
+	return fmt.Sprintf("%s vs. %s", m.Team1().FullName, m.Team2().FullName)
+}
+
+func (m *Match) Description() string {
+	return fmt.Sprintf("[%s] - %s", m.Start.Format("2006-01-02"),  m.Tournament.Name)
+}
+
+func (m *Match) FilterValue() string {
+	return m.GeneralTitle() + " " + m.Description()
+}
+

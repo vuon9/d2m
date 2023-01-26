@@ -1,6 +1,9 @@
 # D2M
 
+[![GitHub release](https://img.shields.io/github/release/vuon9/d2m.svg)](https://GitHub.com/vuon9/d2m/releases/)
+[![GitHub license](https://badgen.net/github/license/vuon9/d2m)](https://github.com/vuon9/d2m/blob/master/LICENSE)
 [![Go](https://github.com/vuon9/d2m/actions/workflows/go.yml/badge.svg)](https://github.com/vuon9/d2m/actions/workflows/go.yml)
+[![GitHub commits](https://badgen.net/github/commits/vuon9/d2m)](https://github.com/vuon9/d2m/commit/)
 
 Dota2 scheduled matches tracker
 

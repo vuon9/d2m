@@ -21,3 +21,14 @@ Or download the binary from [release page](https://github.com/vuon9/d2m/releases
 ```bash
 ❯ d2m
 ```
+
+## Key features
+- Filter matches by time, status:
+    - Upcoming
+    - Live
+    - Finished
+    - Tomorrow
+    - Today
+    - Yesterday
+    - From today
+- Open Twitch streaming link in browser

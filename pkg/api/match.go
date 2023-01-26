@@ -28,7 +28,7 @@ type Match struct {
 	ContentType                string     `json:"contentType"`
 	Tier                       string     `json:"tier"`
 	StatusDescription          string     `json:"statusDescription"`
-	VideoGameID                string     `json:"videoGameId"`
+	StreamingURL               string     `json:"streamingURL"`
 	Status                     MatchStatus     `json:"status"`
 	ID                         string     `json:"id"`
 	UrlsDescriptions           struct {
@@ -104,3 +104,6 @@ func (m *Match) FilterValue() string {
 	return m.GeneralTitle() + " " + m.Description()
 }
 
+func (m *Match) StreamURL() string {
+	return m.StreamingURL
+}

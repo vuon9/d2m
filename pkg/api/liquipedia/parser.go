@@ -20,7 +20,7 @@ var allowedDomains = []string{
 	"www.liquipedia.net",
 }
 
-func ScarppingHTML(ctx context.Context, req *http.Request) ([]*api.Match, error) {
+func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, error) {
 	c := colly.NewCollector(
 		colly.AllowedDomains(allowedDomains...),
 		// colly.CacheDir("./_cache"),
@@ -83,6 +83,12 @@ func ScarppingHTML(ctx context.Context, req *http.Request) ([]*api.Match, error)
 			dataStartTimestamp := el.ChildAttr("span > span.timer-object", "data-timestamp")
 			startTimestamp, _ := strconv.ParseInt(dataStartTimestamp, 10, 64)
 			match.Start = time.Unix(startTimestamp, 0)
+
+			// Get twitch channel name
+			twitchChannelName := el.ChildAttr("span > span.timer-object", "data-stream-twitch")
+			if twitchChannelName != "" {
+				match.StreamingURL = buildStreamPageLink(twitchChannelName)
+			}
 		})
 
 		// Store with has to avoid duplicate matches
@@ -120,4 +126,8 @@ func checkVersusType(boType string, score0, score1 int64) bool {
 	}
 
 	return false
+}
+
+func buildStreamPageLink(channelName string) string {
+	return fmt.Sprintf("https://liquipedia.net/dota2/Special:Stream/twitch/%s", channelName)
 }

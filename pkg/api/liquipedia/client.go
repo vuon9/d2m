@@ -30,6 +30,6 @@ func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error
 	req.Header.Add("Accept-Encoding", "gzip, deflate, br")
 	req.Header.Add("Cache-Control", "max-age=0")
 
-	return ScarppingHTML(ctx, req)
+	return parseUpComingPage(ctx, req)
 
 }

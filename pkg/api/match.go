@@ -3,6 +3,8 @@ package api
 import (
 	"fmt"
 	"time"
+
+	"github.com/samber/lo"
 )
 
 type MatchStatus string
@@ -12,9 +14,9 @@ func (m MatchStatus) String() string {
 }
 
 const (
-	MatchStatusComing   MatchStatus = "Coming"
-	MatchStatusLive     MatchStatus = "Live"
-	MatchStatusFinished MatchStatus = "Finished"
+	StatusComing   MatchStatus = "Coming"
+	StatusLive     MatchStatus = "Live"
+	StatusFinished MatchStatus = "Finished"
 )
 
 type Match struct {
@@ -27,7 +29,7 @@ type Match struct {
 	Tier                       string     `json:"tier"`
 	StatusDescription          string     `json:"statusDescription"`
 	VideoGameID                string     `json:"videoGameId"`
-	Status                     string     `json:"status"`
+	Status                     MatchStatus     `json:"status"`
 	ID                         string     `json:"id"`
 	UrlsDescriptions           struct {
 		Logo string `json:"logo"`
@@ -78,13 +80,9 @@ func (m *Match) Team2() *Team {
 	}
 }
 
-func (m *Match) FriendlyStatus() MatchStatus {
-	return MatchStatus(m.Status)
-}
-
 func (m *Match) Title() string {
 	vsOrScores := fmt.Sprintf("%s", m.Status)
-	if m.Status == "Live" || m.Status == "Finished" {
+	if lo.Contains([]MatchStatus{StatusLive, StatusFinished}, m.Status) {
 		vsOrScores = fmt.Sprintf("[%d:%d] - %s", m.Team1().Score, m.Team2().Score, m.Status)
 	}
 

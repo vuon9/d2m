@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/gocolly/colly"
+	"github.com/samber/lo"
 	"github.com/vuon9/d2m/pkg/api"
 )
 
@@ -55,15 +56,16 @@ func ScarppingHTML(ctx context.Context, req *http.Request) ([]*api.Match, error)
 			match.CompetitionType = strings.ReplaceAll(versus, "(", " (")
 
 			// Skip parsing scores if the match is not started yet
-			if strings.Contains(versus, "vs") {
-				match.Status = "Coming"
-			} else if strings.Contains(versus, "Bo") {
-				match.Status = "Live"
-			} else {
-				match.Status = "Finished"
+			switch {
+			case strings.Contains(versus, "vs"):
+				match.Status = api.StatusComing
+			case strings.Contains(versus, "Bo"):
+				match.Status = api.StatusLive
+			default:
+				match.Status = api.StatusFinished
 			}
 
-			if match.Status == "Finished" || match.Status == "Live" {
+			if lo.Contains([]api.MatchStatus{api.StatusFinished, api.StatusLive}, match.Status) {
 				rawScores := strings.Split(versus, ":")
 				score0, _ := strconv.ParseInt(strings.TrimSpace(rawScores[0]), 10, 64)
 				score1, _ := strconv.ParseInt(strings.TrimSpace(rawScores[1]), 10, 64)
@@ -103,7 +105,7 @@ func ScarppingHTML(ctx context.Context, req *http.Request) ([]*api.Match, error)
 	return matches, nil
 }
 
-func checkBoMatch(boType string, score0, score1 int64) bool {
+func checkVersusType(boType string, score0, score1 int64) bool {
 	checkBoMaps := map[string][]string{
 		"(Bo2)": {"2:0", "0:2", "1:1"},
 		"(Bo3)": {"1:2", "2:1", "2:0"},

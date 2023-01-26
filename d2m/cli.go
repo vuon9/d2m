@@ -7,9 +7,23 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 )
 
+type app struct {
+	tracker Tracker
+}
+
+type Apper interface {
+	Run(ctx context.Context) error
+}
+
+func NewApp() Apper {
+	return &app{
+		tracker: NewTracker(),
+	}
+}
+
 // RunProgram prints matches as table on terminal
-func RunProgram(ctx context.Context) error {
-	matches, err := GetMatches(ctx)
+func (a *app) Run(ctx context.Context) error {
+	matches, err := a.tracker.GetMatches(ctx)
 	if err != nil {
 		return err
 	}

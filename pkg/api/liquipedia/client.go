@@ -14,8 +14,8 @@ var (
 type Client struct {
 }
 
-func NewClient() (*Client, error) {
-	return &Client{}, nil
+func NewClient() (*Client) {
+	return &Client{}
 }
 
 func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error) {

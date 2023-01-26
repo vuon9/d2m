@@ -7,5 +7,6 @@ import (
 )
 
 func Execute() {
-	d2m.RunProgram(context.Background())
+	prog := d2m.NewApp()
+	prog.Run(context.Background())
 }

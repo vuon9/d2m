@@ -14,8 +14,8 @@ var (
 type Client struct {
 }
 
-func NewClient() (*Client, error) {
-	return &Client{}, nil
+func NewClient() (*Client) {
+	return &Client{}
 }
 
 func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error) {
@@ -30,6 +30,6 @@ func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error
 	req.Header.Add("Accept-Encoding", "gzip, deflate, br")
 	req.Header.Add("Cache-Control", "max-age=0")
 
-	return ScarppingHTML(ctx, req)
+	return parseUpComingPage(ctx, req)
 
 }

@@ -9,59 +9,36 @@ import (
 	"github.com/vuon9/d2m/pkg/api"
 )
 
-type ExtendedBubbleItem interface {
-	list.Item
-	GeneralTitle() string
-	Title() string
-	Description () string
-}
-
-var (
-	// Safety check to make sure our type implements the interface.
-	_ ExtendedBubbleItem = (*api.Match)(nil)
-)
-
 type delegateKeyMap struct {
 	choose key.Binding
-	all key.Binding
-	fromToday key.Binding
-	today key.Binding
-	tomorrow key.Binding
-	yesterday key.Binding
-	live key.Binding
-	finished key.Binding
-	coming key.Binding
+	openStreamURL key.Binding
 }
 
 func (m delegateKeyMap) FullHelp() [][]key.Binding {
 	return [][]key.Binding{
 		{m.choose},
-		{m.all, m.fromToday},
-		{m.today, m.tomorrow, m.yesterday},
-		{m.live, m.finished, m.coming},
+		{m.openStreamURL},
 	}
 }
 
 func (m delegateKeyMap) ShortHelp() []key.Binding {
 	return []key.Binding{
 		m.choose,
-		m.live,
-		m.today,
-		m.all,
+		m.openStreamURL,
 	}
 }
+
+var (
+	itemKeys = keyMaps{
+		ChooseMatch: key.NewBinding(key.WithKeys("enter"), key.WithHelp("enter", "choose")),
+		OpenStreamURL: key.NewBinding(key.WithKeys("o"), key.WithHelp("o", "open stream url")),
+	}
+)
 
 func newDelegateKeyMap() *delegateKeyMap {
 	return &delegateKeyMap{
 		choose:    key.NewBinding(key.WithKeys("enter"), key.WithHelp("enter", "choose")),
-		all:       filterKeys[All],
-		fromToday: filterKeys[FromToday],
-		today:     filterKeys[Today],
-		tomorrow:  filterKeys[Tomorrow],
-		yesterday: filterKeys[Yesterday],
-		live:      filterKeys[Live],
-		finished:  filterKeys[Finished],
-		coming:    filterKeys[Coming],
+		openStreamURL: key.NewBinding(key.WithKeys("o"), key.WithHelp("o", "open stream url")),
 	}
 }
 
@@ -74,35 +51,41 @@ func newItemDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 	de := list.NewDefaultDelegate()
 
 	de.UpdateFunc = func(msg tea.Msg, m *list.Model) tea.Cmd {
-		var title string
-
-		if i, ok := m.SelectedItem().(ExtendedBubbleItem); ok {
-			title = i.GeneralTitle()
-		} else {
-			return nil
+		match, ok := m.SelectedItem().(*api.Match)
+		if !ok {
+			return m.NewStatusMessage("Invalid match")
 		}
+
+		title := match.GeneralTitle()
 
 		switch msg := msg.(type) { //nolint:gocritic
 		case tea.KeyMsg:
 			switch { //nolint:gocritic
 				case key.Matches(msg, keys.choose):
 					return m.NewStatusMessage(fmt.Sprintf("Current match is '%s'", title))
+				case key.Matches(msg, keys.openStreamURL):
+					if match.StreamingURL == "" {
+						return m.NewStatusMessage(fmt.Sprintf("Match '%s' is not live", title))
+					}
+
+					go func() {
+						OpenURL(match.StreamingURL)
+					}()
+					return m.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", title))
 			}
 		}
 
 		return nil
 	}
 
-	help := []key.Binding{
-		keys.choose,
-		keys.live,
-		keys.fromToday,
-		keys.coming,
-		keys.finished,
-		keys.all,
-		keys.today,
-		keys.tomorrow,
-		keys.yesterday,
+	// Merge filterKeys and itemKeys into []key.Binding slice as help vars
+	help := make([]key.Binding, 0)
+	for _, filterKey := range filterKeys {
+		help = append(help, filterKey)
+	}
+
+	for _, item := range itemKeys {
+		help = append(help, item)
 	}
 
 	de.ShortHelpFunc = func() []key.Binding {

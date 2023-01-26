@@ -9,13 +9,26 @@ import (
 	"github.com/vuon9/d2m/pkg/api/liquipedia"
 )
 
-func GetMatches(ctx context.Context) ([]*api.Match, error) {
-	client, err := liquipedia.NewClient()
-	if err != nil {
-		return nil, err
-	}
+type Tracker interface {
+	GetMatches(ctx context.Context) ([]*api.Match, error)
+}
 
-	matches, err := client.GetScheduledMatches(ctx)
+type tracker struct {
+	client api.Clienter
+}
+
+var (
+	_ Tracker = (*tracker)(nil)
+)
+
+func NewTracker() *tracker {
+	return &tracker{
+		client: liquipedia.NewClient(),
+	}
+}
+
+func (d *tracker) GetMatches(ctx context.Context) ([]*api.Match, error) {
+	matches, err := d.client.GetScheduledMatches(ctx)
 	if err != nil {
 		return nil, err
 	}

@@ -7,6 +7,25 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
+type keyName string
+const (
+	// Filter keys
+	AllMatches = keyName("all")
+	FromTodayMatches = keyName("from_today")
+	TodayMatches =  keyName("today")
+	TomorrowMatches = keyName("tomorrow")
+	YesterdayMatches = keyName("yesterday")
+	LiveMatches = keyName("live")
+	FinishedMatches = keyName("finished")
+	ComingMatches = keyName("coming")
+
+	// Delegate keys
+	ChooseMatch = keyName("choose")
+	OpenStreamURL = keyName("open_stream_url")
+)
+
+type keyMaps map[keyName]key.Binding
+
 var (
 	appStyle = lipgloss.NewStyle().Padding(1, 2)
 	titleStyle = lipgloss.NewStyle().
@@ -18,15 +37,15 @@ var (
 				Foreground(lipgloss.AdaptiveColor{Light: "#04B575", Dark: "#04B575"}).
 				Render
 
-	filterKeys = map[matchFilter]key.Binding{
-		All: key.NewBinding(key.WithKeys("a"), key.WithHelp("a", "all")),
-		FromToday: key.NewBinding(key.WithKeys("r"), key.WithHelp("r", "from today")),
-		Today: key.NewBinding(key.WithKeys("t"), key.WithHelp("t", "today")),
-		Tomorrow: key.NewBinding(key.WithKeys("m"), key.WithHelp("m", "tomorrow")),
-		Yesterday: key.NewBinding(key.WithKeys("y"), key.WithHelp("y", "yesterday")),
-		Live: key.NewBinding(key.WithKeys("l"), key.WithHelp("l", "live")),
-		Finished: key.NewBinding(key.WithKeys("f"), key.WithHelp("f", "finished")),
-		Coming: key.NewBinding(key.WithKeys("c"), key.WithHelp("c", "coming")),
+	filterKeys = keyMaps{
+		AllMatches: key.NewBinding(key.WithKeys("a"), key.WithHelp("a", "all")),
+		FromTodayMatches: key.NewBinding(key.WithKeys("r"), key.WithHelp("r", "from today")),
+		TodayMatches: key.NewBinding(key.WithKeys("t"), key.WithHelp("t", "today")),
+		TomorrowMatches: key.NewBinding(key.WithKeys("m"), key.WithHelp("m", "tomorrow")),
+		YesterdayMatches: key.NewBinding(key.WithKeys("y"), key.WithHelp("y", "yesterday")),
+		LiveMatches: key.NewBinding(key.WithKeys("l"), key.WithHelp("l", "live")),
+		FinishedMatches: key.NewBinding(key.WithKeys("f"), key.WithHelp("f", "finished")),
+		ComingMatches: key.NewBinding(key.WithKeys("c"), key.WithHelp("c", "coming")),
 	}
 
 	exitKeys = map[string]bool{
@@ -38,7 +57,7 @@ var (
 
 type model struct {
 	delegate list.DefaultDelegate
-	keys     map[matchFilter]key.Binding
+	keys     keyMaps
 	list     list.Model
 	items    []list.Item
 }
@@ -74,19 +93,19 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch {
 		case exitKeys[msg.String()]:
 			return m, tea.Quit
-		case key.Matches(msg, m.keys[All]):
+		case key.Matches(msg, m.keys[AllMatches]):
 			m.list.SetItems(filterMatches(m.items, All))
-		case key.Matches(msg, m.keys[FromToday]):
+		case key.Matches(msg, m.keys[FromTodayMatches]):
 			m.list.SetItems(filterMatches(m.items, FromToday))
-		case key.Matches(msg, m.keys[Tomorrow]):
+		case key.Matches(msg, m.keys[TomorrowMatches]):
 			m.list.SetItems(filterMatches(m.items, Tomorrow))
-		case key.Matches(msg, m.keys[Yesterday]):
+		case key.Matches(msg, m.keys[YesterdayMatches]):
 			m.list.SetItems(filterMatches(m.items, Yesterday))
-		case key.Matches(msg, m.keys[Live]):
+		case key.Matches(msg, m.keys[LiveMatches]):
 			m.list.SetItems(filterMatches(m.items, Live))
-		case key.Matches(msg, m.keys[Coming]):
+		case key.Matches(msg, m.keys[ComingMatches]):
 			m.list.SetItems(filterMatches(m.items, Coming))
-		case key.Matches(msg, m.keys[Finished]):
+		case key.Matches(msg, m.keys[FinishedMatches]):
 			m.list.SetItems(filterMatches(m.items, Finished))
 		}
 	}

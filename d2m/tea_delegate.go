@@ -9,6 +9,16 @@ import (
 	"github.com/vuon9/d2m/pkg/api"
 )
 
+type MatchItem interface {
+	list.Item
+	list.DefaultItem
+}
+
+var (
+	// MatchItem is an interface that all match items must implement.
+	_ MatchItem = (*api.Match)(nil)
+)
+
 type delegateKeyMap struct {
 	choose key.Binding
 	openStreamURL key.Binding
@@ -40,11 +50,6 @@ func newDelegateKeyMap() *delegateKeyMap {
 		choose:    key.NewBinding(key.WithKeys("enter"), key.WithHelp("enter", "choose")),
 		openStreamURL: key.NewBinding(key.WithKeys("o"), key.WithHelp("o", "open stream url")),
 	}
-}
-
-type ListItem interface{
-	Title() string
-	Description() string
 }
 
 func newItemDelegate(keys *delegateKeyMap) list.DefaultDelegate {

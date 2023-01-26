@@ -92,18 +92,14 @@ func (m *Match) Title() string {
 	)
 }
 
-func (m *Match) GeneralTitle() string {
-	return fmt.Sprintf("%s vs. %s", m.Team1().FullName, m.Team2().FullName)
-}
-
 func (m *Match) Description() string {
 	return fmt.Sprintf("[%s] - %s", m.Start.Format("2006-01-02"),  m.Tournament.Name)
 }
 
-func (m *Match) FilterValue() string {
-	return m.GeneralTitle() + " " + m.Description()
+func (m *Match) GeneralTitle() string {
+	return fmt.Sprintf("%s vs. %s", m.Team1().FullName, m.Team2().FullName)
 }
 
-func (m *Match) StreamURL() string {
-	return m.StreamingURL
+func (m *Match) FilterValue() string {
+	return m.GeneralTitle() + " " + m.Description()
 }

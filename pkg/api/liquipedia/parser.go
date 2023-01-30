@@ -111,23 +111,6 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 	return matches, nil
 }
 
-func checkVersusType(boType string, score0, score1 int64) bool {
-	checkBoMaps := map[string][]string{
-		"(Bo2)": {"2:0", "0:2", "1:1"},
-		"(Bo3)": {"1:2", "2:1", "2:0"},
-		"(Bo5)": {"1:3", "3:1", "2:3", "3:2", "3:0", "0:3"},
-	}
-
-	pScore := fmt.Sprintf("%d:%d", score0, score1)
-	for _, score := range checkBoMaps[boType] {
-		if pScore == score {
-			return true
-		}
-	}
-
-	return false
-}
-
 func buildStreamPageLink(channelName string) string {
 	return fmt.Sprintf("https://liquipedia.net/dota2/Special:Stream/twitch/%s", channelName)
 }

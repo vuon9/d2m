@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package d2m
+package app
 
 import (
 	"fmt"
@@ -9,19 +9,21 @@ import (
 	"strings"
 )
 
-var openCmd string
-var possibleCmds = []string{
-	"xdg-open",           // generic linux
-	"gvfs-open",          // gnome linux
-	"gnome-open",         // gnome linux
-	"kde-open",           // kde linux
-	"kde-open5",          // kde linux
-	"exo-open",           // xfce linux
-	"enlightenment_open", // enlightenment linux
-	"open",               // mac
-	"start",              // windows
-	"cygstart",           // windows
-}
+var (
+	openCmd      string
+	possibleCmds = []string{
+		"xdg-open",           // generic linux
+		"gvfs-open",          // gnome linux
+		"gnome-open",         // gnome linux
+		"kde-open",           // kde linux
+		"kde-open5",          // kde linux
+		"exo-open",           // xfce linux
+		"enlightenment_open", // enlightenment linux
+		"open",               // mac
+		"start",              // windows
+		"cygstart",           // windows
+	}
+)
 
 func init() {
 	for _, cmd := range possibleCmds {

@@ -1,4 +1,4 @@
-package d2m
+package app
 
 import (
 	"fmt"
@@ -14,13 +14,11 @@ type MatchItem interface {
 	list.DefaultItem
 }
 
-var (
-	// MatchItem is an interface that all match items must implement.
-	_ MatchItem = (*api.Match)(nil)
-)
+// MatchItem is an interface that all match items must implement.
+var _ MatchItem = (*api.Match)(nil)
 
 type delegateKeyMap struct {
-	choose key.Binding
+	choose        key.Binding
 	openStreamURL key.Binding
 }
 
@@ -38,16 +36,14 @@ func (m delegateKeyMap) ShortHelp() []key.Binding {
 	}
 }
 
-var (
-	itemKeys = keyMaps{
-		ChooseMatch: key.NewBinding(key.WithKeys("enter"), key.WithHelp("enter", "choose")),
-		OpenStreamURL: key.NewBinding(key.WithKeys("o"), key.WithHelp("o", "open stream url")),
-	}
-)
+var itemKeys = keyMaps{
+	ChooseMatch:   key.NewBinding(key.WithKeys("enter"), key.WithHelp("enter", "choose")),
+	OpenStreamURL: key.NewBinding(key.WithKeys("o"), key.WithHelp("o", "open stream url")),
+}
 
 func newDelegateKeyMap() *delegateKeyMap {
 	return &delegateKeyMap{
-		choose:    key.NewBinding(key.WithKeys("enter"), key.WithHelp("enter", "choose")),
+		choose:        key.NewBinding(key.WithKeys("enter"), key.WithHelp("enter", "choose")),
 		openStreamURL: key.NewBinding(key.WithKeys("o"), key.WithHelp("o", "open stream url")),
 	}
 }
@@ -66,17 +62,17 @@ func newItemDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 		switch msg := msg.(type) { //nolint:gocritic
 		case tea.KeyMsg:
 			switch { //nolint:gocritic
-				case key.Matches(msg, keys.choose):
-					return m.NewStatusMessage(fmt.Sprintf("Current match is '%s'", title))
-				case key.Matches(msg, keys.openStreamURL):
-					if match.StreamingURL == "" {
-						return m.NewStatusMessage(fmt.Sprintf("Match '%s' is not live", title))
-					}
+			case key.Matches(msg, keys.choose):
+				return m.NewStatusMessage(fmt.Sprintf("Current match is '%s'", title))
+			case key.Matches(msg, keys.openStreamURL):
+				if match.StreamingURL == "" {
+					return m.NewStatusMessage(fmt.Sprintf("Match '%s' is not live", title))
+				}
 
-					go func() {
-						OpenURL(match.StreamingURL)
-					}()
-					return m.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", title))
+				go func() {
+					OpenURL(match.StreamingURL)
+				}()
+				return m.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", title))
 			}
 		}
 

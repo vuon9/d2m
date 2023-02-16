@@ -1,4 +1,4 @@
-package d2m
+package app
 
 import (
 	"context"

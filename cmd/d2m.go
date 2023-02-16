@@ -3,10 +3,10 @@ package cmd
 import (
 	"context"
 
-	"github.com/vuon9/d2m/d2m"
+	"github.com/vuon9/d2m/internal/app"
 )
 
 func Execute() {
-	prog := d2m.NewApp()
+	prog := app.NewApp()
 	prog.Run(context.Background())
 }

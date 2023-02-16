@@ -1,15 +1,18 @@
-//+build windows
+//go:build windows
+// +build windows
 
-package d2m
+package app
 
 import (
 	"os/exec"
 )
 
-var windowsOpenCmd string
-var windowsPossibleCmds = []string{
-	"Start-Process",
-}
+var (
+	windowsOpenCmd      string
+	windowsPossibleCmds = []string{
+		"Start-Process",
+	}
+)
 var windowsPossibleExecs = []string{
 	"powershell.exe",
 	"explorer.exe",

@@ -1,4 +1,4 @@
-package d2m
+package app
 
 import (
 	"context"
@@ -17,9 +17,7 @@ type tracker struct {
 	client api.Clienter
 }
 
-var (
-	_ Tracker = (*tracker)(nil)
-)
+var _ Tracker = (*tracker)(nil)
 
 func NewTracker() *tracker {
 	return &tracker{
@@ -46,6 +44,7 @@ func (d *tracker) GetMatches(ctx context.Context) ([]*api.Match, error) {
 }
 
 type matchFilter uint8
+
 const (
 	All matchFilter = iota
 	FromToday

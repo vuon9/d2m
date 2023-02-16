@@ -1,4 +1,4 @@
-package d2m
+package app
 
 import (
 	"github.com/charmbracelet/bubbles/key"
@@ -8,26 +8,27 @@ import (
 )
 
 type keyName string
+
 const (
 	// Filter keys
-	AllMatches = keyName("all")
+	AllMatches       = keyName("all")
 	FromTodayMatches = keyName("from_today")
-	TodayMatches =  keyName("today")
-	TomorrowMatches = keyName("tomorrow")
+	TodayMatches     = keyName("today")
+	TomorrowMatches  = keyName("tomorrow")
 	YesterdayMatches = keyName("yesterday")
-	LiveMatches = keyName("live")
-	FinishedMatches = keyName("finished")
-	ComingMatches = keyName("coming")
+	LiveMatches      = keyName("live")
+	FinishedMatches  = keyName("finished")
+	ComingMatches    = keyName("coming")
 
 	// Delegate keys
-	ChooseMatch = keyName("choose")
+	ChooseMatch   = keyName("choose")
 	OpenStreamURL = keyName("open_stream_url")
 )
 
 type keyMaps map[keyName]key.Binding
 
 var (
-	appStyle = lipgloss.NewStyle().Padding(1, 2)
+	appStyle   = lipgloss.NewStyle().Padding(1, 2)
 	titleStyle = lipgloss.NewStyle().
 			Foreground(lipgloss.Color("#FFFDF5")).
 			Background(lipgloss.Color("#25A065")).
@@ -38,19 +39,18 @@ var (
 				Render
 
 	filterKeys = keyMaps{
-		AllMatches: key.NewBinding(key.WithKeys("a"), key.WithHelp("a", "all")),
+		AllMatches:       key.NewBinding(key.WithKeys("a"), key.WithHelp("a", "all")),
 		FromTodayMatches: key.NewBinding(key.WithKeys("r"), key.WithHelp("r", "from today")),
-		TodayMatches: key.NewBinding(key.WithKeys("t"), key.WithHelp("t", "today")),
-		TomorrowMatches: key.NewBinding(key.WithKeys("m"), key.WithHelp("m", "tomorrow")),
+		TodayMatches:     key.NewBinding(key.WithKeys("t"), key.WithHelp("t", "today")),
+		TomorrowMatches:  key.NewBinding(key.WithKeys("m"), key.WithHelp("m", "tomorrow")),
 		YesterdayMatches: key.NewBinding(key.WithKeys("y"), key.WithHelp("y", "yesterday")),
-		LiveMatches: key.NewBinding(key.WithKeys("l"), key.WithHelp("l", "live")),
-		FinishedMatches: key.NewBinding(key.WithKeys("f"), key.WithHelp("f", "finished")),
-		ComingMatches: key.NewBinding(key.WithKeys("c"), key.WithHelp("c", "coming")),
+		LiveMatches:      key.NewBinding(key.WithKeys("l"), key.WithHelp("l", "live")),
+		FinishedMatches:  key.NewBinding(key.WithKeys("f"), key.WithHelp("f", "finished")),
+		ComingMatches:    key.NewBinding(key.WithKeys("c"), key.WithHelp("c", "coming")),
 	}
 
 	exitKeys = map[string]bool{
-		"q": true,
-		"esc": true,
+		"q":      true,
 		"ctrl+c": true,
 	}
 )
@@ -71,10 +71,10 @@ func newModel(matches []list.Item) tea.Model {
 	matchList.Styles.Title = titleStyle
 
 	return &model{
-		list: matchList,
+		list:     matchList,
 		delegate: delegate,
-		items: matches,
-		keys: filterKeys,
+		items:    matches,
+		keys:     filterKeys,
 	}
 }
 

@@ -14,23 +14,23 @@ func (m MatchStatus) String() string {
 }
 
 const (
-	StatusComing   MatchStatus = "Coming"
-	StatusLive     MatchStatus = "Live"
-	StatusFinished MatchStatus = "Finished"
+	StatusComing   MatchStatus = "⌛️"
+	StatusLive     MatchStatus = "▶️▶️"
+	StatusFinished MatchStatus = "🏁"
 )
 
 type Match struct {
-	Start                      time.Time  `json:"start"`
-	Tournament                 Tournament `json:"tournament"`
-	Name                       string     `json:"name"`
-	CompetitionType            string     `json:"competitionType"`
-	CompetitionTypeDescription string     `json:"competitionTypeDescription"`
-	ContentType                string     `json:"contentType"`
-	Tier                       string     `json:"tier"`
-	StatusDescription          string     `json:"statusDescription"`
-	StreamingURL               string     `json:"streamingURL"`
-	Status                     MatchStatus     `json:"status"`
-	ID                         string     `json:"id"`
+	Start                      time.Time   `json:"start"`
+	Tournament                 Tournament  `json:"tournament"`
+	Name                       string      `json:"name"`
+	CompetitionType            string      `json:"competitionType"`
+	CompetitionTypeDescription string      `json:"competitionTypeDescription"`
+	ContentType                string      `json:"contentType"`
+	Tier                       string      `json:"tier"`
+	StatusDescription          string      `json:"statusDescription"`
+	StreamingURL               string      `json:"streamingURL"`
+	Status                     MatchStatus `json:"status"`
+	ID                         string      `json:"id"`
 	UrlsDescriptions           struct {
 		Logo string `json:"logo"`
 	} `json:"urlsDescriptions"`
@@ -83,7 +83,7 @@ func (m *Match) Team2() *Team {
 func (m *Match) Title() string {
 	vsOrScores := fmt.Sprintf("%s", m.Status)
 	if lo.Contains([]MatchStatus{StatusLive, StatusFinished}, m.Status) {
-		vsOrScores = fmt.Sprintf("[%d:%d] - %s", m.Team1().Score, m.Team2().Score, m.Status)
+		vsOrScores = fmt.Sprintf("%s [%d:%d]", m.Status, m.Team1().Score, m.Team2().Score)
 	}
 
 	return fmt.Sprintf("%s - %s",
@@ -93,7 +93,7 @@ func (m *Match) Title() string {
 }
 
 func (m *Match) Description() string {
-	return fmt.Sprintf("[%s] - %s", m.Start.Format("2006-01-02"),  m.Tournament.Name)
+	return fmt.Sprintf("[%s] - %s", m.Start.Format("15:04 2006-01-02"), m.Tournament.Name)
 }
 
 func (m *Match) GeneralTitle() string {

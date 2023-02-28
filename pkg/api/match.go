@@ -3,61 +3,32 @@ package api
 import (
 	"fmt"
 	"time"
-
-	"github.com/samber/lo"
-)
-
-type MatchStatus string
-
-func (m MatchStatus) String() string {
-	return string(m)
-}
-
-const (
-	StatusComing   MatchStatus = "⌛️"
-	StatusLive     MatchStatus = "▶️▶️"
-	StatusFinished MatchStatus = "🏁"
 )
 
 type Match struct {
-	Start                      time.Time   `json:"start"`
-	Tournament                 Tournament  `json:"tournament"`
-	Name                       string      `json:"name"`
-	CompetitionType            string      `json:"competitionType"`
-	CompetitionTypeDescription string      `json:"competitionTypeDescription"`
-	ContentType                string      `json:"contentType"`
-	Tier                       string      `json:"tier"`
-	StatusDescription          string      `json:"statusDescription"`
-	StreamingURL               string      `json:"streamingURL"`
-	Status                     MatchStatus `json:"status"`
-	ID                         string      `json:"id"`
+	Start                      time.Time  `json:"start"`
+	Tournament                 Tournament `json:"tournament"`
+	Tier                       string     `json:"tier"`
+	CompetitionType            string     `json:"competitionType"`
+	CompetitionTypeDescription string     `json:"competitionTypeDescription"`
+	ContentType                string     `json:"contentType"`
+	Name                       string     `json:"name"`
+	StatusDescription          string     `json:"statusDescription"`
+	StreamingURL               string     `json:"streamingURL"`
+	ID                         string     `json:"id"`
 	UrlsDescriptions           struct {
 		Logo string `json:"logo"`
 	} `json:"urlsDescriptions"`
-	Teams []*Team `json:"teams"`
+	Teams  []*Team     `json:"teams"`
+	Status MatchStatus `json:"status"`
 }
 
-type Tournament struct {
-	Name                string    `json:"name"`
-	PrizePool           string    `json:"prizePool"`
-	LogoPrimaryColorRgb string    `json:"logoPrimaryColorRgb"`
-	LogoPrimaryColorHsl string    `json:"logoPrimaryColorHsl"`
-	Start               time.Time `json:"start"`
-	End                 time.Time `json:"end"`
-	ID                  string    `json:"id"`
-	Urls                struct {
-		Logo         string `json:"logo"`
-		BannerImage  string `json:"bannerImage"`
-		DefaultImage string `json:"defaultImage"`
-		SquareImage  string `json:"squareImage"`
-		Thumbnail    string `json:"thumbnail"`
-		Default      string `json:"default"`
-		Search       string `json:"search"`
-	} `json:"urls"`
-	UrlsDescriptions struct {
-		Logo    string `json:"logo"`
-		Default string `json:"default"`
-	} `json:"urlsDescriptions"`
+var defaultTeam = &Team{
+	FullName: "TBD",
+}
+
+func (m MatchStatus) String() string {
+	return matchStatuses[m]
 }
 
 func (m *Match) Team1() *Team {
@@ -65,9 +36,7 @@ func (m *Match) Team1() *Team {
 		return m.Teams[0]
 	}
 
-	return &Team{
-		FullName: "TBD",
-	}
+	return defaultTeam
 }
 
 func (m *Match) Team2() *Team {
@@ -75,29 +44,35 @@ func (m *Match) Team2() *Team {
 		return m.Teams[1]
 	}
 
-	return &Team{
-		FullName: "TBD",
-	}
+	return defaultTeam
 }
 
 func (m *Match) Title() string {
-	vsOrScores := fmt.Sprintf("%s", m.Status)
-	if lo.Contains([]MatchStatus{StatusLive, StatusFinished}, m.Status) {
-		vsOrScores = fmt.Sprintf("%s [%d:%d]", m.Status, m.Team1().Score, m.Team2().Score)
+	var typeAndScores string
+	switch m.Status {
+	case StatusLive:
+	case StatusFinished:
+		typeAndScores = fmt.Sprintf("[%d:%d] - %s", m.Team1().Score, m.Team2().Score, m.Status)
+	case StatusComing:
+		typeAndScores = fmt.Sprintf("%s", m.Status)
+	default:
+		typeAndScores = fmt.Sprintf("Unknown - %s", m.Status)
 	}
 
-	return fmt.Sprintf("%s - %s",
-		vsOrScores,
-		m.GeneralTitle(),
-	)
+	return fmt.Sprintf("%s - %s", typeAndScores, m.GeneralTitle())
 }
 
 func (m *Match) Description() string {
-	return fmt.Sprintf("[%s] - %s", m.Start.Format("15:04 2006-01-02"), m.Tournament.Name)
+	return fmt.Sprintf("[%s] - %s", m.Start.Format("2006-01-02 15:04"), m.Tournament.Name)
 }
 
 func (m *Match) GeneralTitle() string {
-	return fmt.Sprintf("%s vs. %s", m.Team1().FullName, m.Team2().FullName)
+	vs := fmt.Sprintf("%s vs. %s", m.Team1().FullName, m.Team2().FullName)
+	if m.CompetitionType != "" {
+		vs = fmt.Sprintf("%s (%s)", vs, m.CompetitionType)
+	}
+
+	return vs
 }
 
 func (m *Match) FilterValue() string {

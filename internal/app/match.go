@@ -80,11 +80,11 @@ func filterMatches(items []list.Item, mf matchFilter) []list.Item {
 		case Yesterday:
 			isEligible = match.Start.Day() == time.Now().AddDate(0, 0, -1).Day()
 		case Live:
-			isEligible = match.Status == "Live"
+			isEligible = match.Status == api.StatusLive
 		case Finished:
-			isEligible = match.Status == "Finished"
+			isEligible = match.Status == api.StatusFinished
 		case Coming:
-			isEligible = match.Status == "Coming"
+			isEligible = match.Status == api.StatusComing
 		default:
 			continue
 		}

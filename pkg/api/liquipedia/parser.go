@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -53,7 +54,8 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 
 		versus := e.ChildText("tr > td.versus")
 		if versus != "" {
-			match.CompetitionType = strings.ReplaceAll(versus, "(", " (")
+			re := regexp.MustCompile(`([A-Z]\w{2})`)
+			match.CompetitionType = string(re.Find([]byte(versus)))
 
 			// Skip parsing scores if the match is not started yet
 			switch {
@@ -111,6 +113,7 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 	return matches, nil
 }
 
+// buildStreamPageLink builds a link to the stream page on liquipedia
 func buildStreamPageLink(channelName string) string {
 	return fmt.Sprintf("https://liquipedia.net/dota2/Special:Stream/twitch/%s", channelName)
 }

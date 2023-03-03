@@ -51,6 +51,7 @@ func (m *Match) Title() string {
 	var typeAndScores string
 	switch m.Status {
 	case StatusLive:
+		fallthrough
 	case StatusFinished:
 		typeAndScores = fmt.Sprintf("[%d:%d] - %s", m.Team1().Score, m.Team2().Score, m.Status)
 	case StatusComing:

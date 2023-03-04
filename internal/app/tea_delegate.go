@@ -36,7 +36,19 @@ func (m delegateKeyMap) ShortHelp() []key.Binding {
 	}
 }
 
-var itemKeys = keyMaps{
+type itemKeyMap struct {
+	ChooseMatch   key.Binding
+	OpenStreamURL key.Binding
+}
+
+func (m itemKeyMap) FullHelp() []key.Binding {
+	return []key.Binding{
+		m.ChooseMatch,
+		m.OpenStreamURL,
+	}
+}
+
+var itemKeys = itemKeyMap{
 	ChooseMatch:   key.NewBinding(key.WithKeys("enter"), key.WithHelp("enter", "choose")),
 	OpenStreamURL: key.NewBinding(key.WithKeys("o"), key.WithHelp("o", "open stream url")),
 }
@@ -80,14 +92,7 @@ func newItemDelegate(keys *delegateKeyMap) list.DefaultDelegate {
 	}
 
 	// Merge filterKeys and itemKeys into []key.Binding slice as help vars
-	help := make([]key.Binding, 0)
-	for _, filterKey := range filterKeys {
-		help = append(help, filterKey)
-	}
-
-	for _, item := range itemKeys {
-		help = append(help, item)
-	}
+	help := append(filterKeys.FullHelp(), itemKeys.FullHelp()...)
 
 	de.ShortHelpFunc = func() []key.Binding {
 		return help

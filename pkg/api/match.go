@@ -2,6 +2,7 @@ package api
 
 import (
 	"fmt"
+	"strings"
 	"time"
 )
 
@@ -67,6 +68,7 @@ func (m *Match) Description() string {
 	return fmt.Sprintf("[%s] - %s", m.Start.Format("2006-01-02 15:04"), m.Tournament.Name)
 }
 
+// GeneralTitle uses for filtering only
 func (m *Match) GeneralTitle() string {
 	vs := fmt.Sprintf("%s vs. %s", m.Team1().FullName, m.Team2().FullName)
 	if m.CompetitionType != "" {
@@ -77,5 +79,10 @@ func (m *Match) GeneralTitle() string {
 }
 
 func (m *Match) FilterValue() string {
-	return m.GeneralTitle() + " " + m.Description()
+	return strings.Join([]string{
+		m.Status.String(),
+		m.GeneralTitle(),
+		m.Tournament.Name,
+		m.Description(),
+	}, " ")
 }

@@ -56,9 +56,9 @@ func (m *Match) Title() string {
 	case StatusFinished:
 		typeAndScores = fmt.Sprintf("[%d:%d] - %s", m.Team1().Score, m.Team2().Score, m.Status)
 	case StatusComing:
-		typeAndScores = fmt.Sprintf("%s", m.Status)
+		fallthrough
 	default:
-		typeAndScores = fmt.Sprintf("Unknown - %s", m.Status)
+		typeAndScores = fmt.Sprintf("%s", m.Status)
 	}
 
 	return fmt.Sprintf("%s - %s", typeAndScores, m.GeneralTitle())

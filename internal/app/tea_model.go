@@ -25,11 +25,6 @@ const (
 	OpenStreamURL = keyName("open_stream_url")
 )
 
-type keyWithFilter struct {
-	key.Binding
-	filter keyName
-}
-
 type keyMap struct {
 	AllMatches       key.Binding
 	FromTodayMatches key.Binding

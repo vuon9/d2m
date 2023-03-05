@@ -26,27 +26,27 @@ type (
 )
 
 type keyMap struct {
-	AllMatches       key.Binding
-	FromTodayMatches key.Binding
-	TodayMatches     key.Binding
-	TomorrowMatches  key.Binding
-	YesterdayMatches key.Binding
-	LiveMatches      key.Binding
-	FinishedMatches  key.Binding
-	ComingMatches    key.Binding
-	OpenStreamURL    key.Binding
+	KeyAllMatches       key.Binding
+	KeyFromTodayMatches key.Binding
+	KeyTodayMatches     key.Binding
+	KeyTomorrowMatches  key.Binding
+	KeyYesterdayMatches key.Binding
+	KeyLiveMatches      key.Binding
+	KeyFinishedMatches  key.Binding
+	KeyComingMatches    key.Binding
+	KeyOpenStreamURL    key.Binding
 }
 
 func (km keyMap) FullHelp() []key.Binding {
 	return []key.Binding{
-		km.AllMatches,
-		km.FromTodayMatches,
-		km.TodayMatches,
-		km.TomorrowMatches,
-		km.YesterdayMatches,
-		km.LiveMatches,
-		km.FinishedMatches,
-		km.ComingMatches,
+		km.KeyAllMatches,
+		km.KeyFromTodayMatches,
+		km.KeyTodayMatches,
+		km.KeyTomorrowMatches,
+		km.KeyYesterdayMatches,
+		km.KeyLiveMatches,
+		km.KeyFinishedMatches,
+		km.KeyComingMatches,
 	}
 }
 
@@ -62,24 +62,6 @@ func (d *delegateKeyMap) FullHelp() []key.Binding {
 	}
 }
 
-type keyName string
-
-const (
-	// Filter keys
-	AllMatches       = keyName("all")
-	FromTodayMatches = keyName("from_today")
-	TodayMatches     = keyName("today")
-	TomorrowMatches  = keyName("tomorrow")
-	YesterdayMatches = keyName("yesterday")
-	LiveMatches      = keyName("live")
-	FinishedMatches  = keyName("finished")
-	ComingMatches    = keyName("coming")
-
-	// Delegate keys
-	ChooseMatch   = keyName("choose")
-	OpenStreamURL = keyName("open_stream_url")
-)
-
 var (
 	appStyle   = lipgloss.NewStyle().Padding(1, 2)
 	titleStyle = lipgloss.NewStyle().
@@ -91,17 +73,15 @@ var (
 				Foreground(lipgloss.AdaptiveColor{Light: "#04B575", Dark: "#04B575"}).
 				Render
 
-	listKeys = keyMap{
-		AllMatches:       key.NewBinding(key.WithKeys("a"), key.WithHelp("a", "all")),
-		FromTodayMatches: key.NewBinding(key.WithKeys("r"), key.WithHelp("r", "from today")),
-		TodayMatches:     key.NewBinding(key.WithKeys("t"), key.WithHelp("t", "today")),
-		TomorrowMatches:  key.NewBinding(key.WithKeys("m"), key.WithHelp("m", "tomorrow")),
-		YesterdayMatches: key.NewBinding(key.WithKeys("y"), key.WithHelp("y", "yesterday")),
-		LiveMatches:      key.NewBinding(key.WithKeys("l"), key.WithHelp("l", "live")),
-		FinishedMatches:  key.NewBinding(key.WithKeys("f"), key.WithHelp("f", "finished")),
-		ComingMatches:    key.NewBinding(key.WithKeys("c"), key.WithHelp("c", "coming")),
-		OpenStreamURL:    key.NewBinding(key.WithKeys("o"), key.WithHelp("o", "open stream url")),
-	}
+	KeyAllMatches       = key.NewBinding(key.WithKeys("a"), key.WithHelp("a", "all"))
+	KeyFromTodayMatches = key.NewBinding(key.WithKeys("r"), key.WithHelp("r", "from today"))
+	KeyTodayMatches     = key.NewBinding(key.WithKeys("t"), key.WithHelp("t", "today"))
+	KeyTomorrowMatches  = key.NewBinding(key.WithKeys("m"), key.WithHelp("m", "tomorrow"))
+	KeyYesterdayMatches = key.NewBinding(key.WithKeys("y"), key.WithHelp("y", "yesterday"))
+	KeyLiveMatches      = key.NewBinding(key.WithKeys("l"), key.WithHelp("l", "live"))
+	KeyFinishedMatches  = key.NewBinding(key.WithKeys("f"), key.WithHelp("f", "finished"))
+	KeyComingMatches    = key.NewBinding(key.WithKeys("c"), key.WithHelp("c", "coming"))
+	KeyOpenStreamURL    = key.NewBinding(key.WithKeys("o"), key.WithHelp("o", "open stream url"))
 
 	exitKeys = map[string]bool{
 		"q":      true,
@@ -133,56 +113,17 @@ func (m model) Init() tea.Cmd {
 	return tea.EnterAltScreen
 }
 
-type matchFilterKey struct {
-	Key    key.Binding
-	Filter matchFilter
-}
+type matchFilterKeys map[matchFilter]key.Binding
 
-type matchFilterKeys []matchFilterKey
-
-var filterKeys = matchFilterKeys{
-	{
-		Key:    listKeys.AllMatches,
-		Filter: All,
-	},
-	{
-		Key:    listKeys.FromTodayMatches,
-		Filter: FromToday,
-	},
-	{
-		Key:    listKeys.TodayMatches,
-		Filter: Today,
-	},
-	{
-		Key:    listKeys.TomorrowMatches,
-		Filter: Tomorrow,
-	},
-	{
-		Key:    listKeys.YesterdayMatches,
-		Filter: Yesterday,
-	},
-	{
-		Key:    listKeys.LiveMatches,
-		Filter: Live,
-	},
-	{
-		Key:    listKeys.FinishedMatches,
-		Filter: Finished,
-	},
-	{
-		Key:    listKeys.ComingMatches,
-		Filter: Coming,
-	},
-}
-
-func (fk matchFilterKeys) Match(msg tea.KeyMsg) (found bool, filter matchFilter) {
-	for _, k := range fk {
-		if key.Matches(msg, k.Key) {
-			return true, k.Filter
-		}
-	}
-
-	return false, All
+var filterKeys = map[matchFilter]key.Binding{
+	All:       KeyAllMatches,
+	FromToday: KeyFromTodayMatches,
+	Today:     KeyTodayMatches,
+	Tomorrow:  KeyTomorrowMatches,
+	Yesterday: KeyYesterdayMatches,
+	Live:      KeyLiveMatches,
+	Finished:  KeyFinishedMatches,
+	Coming:    KeyComingMatches,
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
@@ -195,7 +136,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case tea.KeyMsg:
 		// common keys, work in all states
 		switch { //nolint:gocritic
-		case key.Matches(msg, listKeys.OpenStreamURL):
+		case key.Matches(msg, KeyOpenStreamURL):
 			m.openStreamingURL()
 		}
 
@@ -214,9 +155,13 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 				m.appState = showDetailsMatch
 			default:
-				found, mf := filterKeys.Match(msg)
-				if found {
-					m.listModel.SetItems(filterMatches(m.items, mf))
+				for filterRule, kb := range filterKeys {
+					if !key.Matches(msg, kb) {
+						continue
+					}
+
+					m.listModel.SetItems(filterMatches(m.items, filterRule))
+					break
 				}
 			}
 

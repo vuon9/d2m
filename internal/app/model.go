@@ -194,19 +194,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.listModel.SetSize(msg.Width-h, msg.Height-v)
 	case tea.KeyMsg:
 		// common keys, work in all states
-		switch {
+		switch { //nolint:gocritic
 		case key.Matches(msg, listKeys.OpenStreamURL):
-			match, ok := m.listModel.SelectedItem().(*api.Match)
-			if !ok || match.StreamingURL == "" {
-				m.listModel.NewStatusMessage("No stream URL available")
-				break
-			}
-
-			go func() {
-				OpenURL(match.StreamingURL)
-			}()
-
-			m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
+			m.openStreamingURL()
 		}
 
 		// keys by view states
@@ -245,6 +235,20 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	}
 
 	return m, tea.Batch(cmds...)
+}
+
+func (m model) openStreamingURL() {
+	match, ok := m.listModel.SelectedItem().(*api.Match)
+	if !ok || match.StreamingURL == "" {
+		m.listModel.NewStatusMessage("No stream URL available")
+		return
+	}
+
+	go func() {
+		OpenURL(match.StreamingURL)
+	}()
+
+	m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
 }
 
 func newListView(matches []list.Item) list.Model {

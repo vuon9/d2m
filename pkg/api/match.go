@@ -15,6 +15,7 @@ type Match struct {
 	ContentType                string     `json:"contentType"`
 	Name                       string     `json:"name"`
 	StatusDescription          string     `json:"statusDescription"`
+	HasStreamingURL            bool       `json:"hasStreamingURL"`
 	StreamingURL               string     `json:"streamingURL"`
 	ID                         string     `json:"id"`
 	UrlsDescriptions           struct {
@@ -48,13 +49,24 @@ func (m *Match) Team2() *Team {
 	return defaultTeam
 }
 
+var (
+	defaultTemplate  = "[%d:%d] - %s"
+	hasStreamingIcon = "\u003e\u003e"
+)
+
 func (m *Match) Title() string {
 	var typeAndScores string
+	tmp := defaultTemplate
+
 	switch m.Status {
 	case StatusLive:
+		if m.HasStreamingURL {
+			tmp = "[%d:%d] - " + hasStreamingIcon + " %s"
+		}
+
 		fallthrough
 	case StatusFinished:
-		typeAndScores = fmt.Sprintf("[%d:%d] - %s", m.Team1().Score, m.Team2().Score, m.Status)
+		typeAndScores = fmt.Sprintf(tmp, m.Team1().Score, m.Team2().Score, m.Status)
 	case StatusComing:
 		fallthrough
 	default:

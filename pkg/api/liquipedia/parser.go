@@ -90,6 +90,7 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 			twitchChannelName := el.ChildAttr("span > span.timer-object", "data-stream-twitch")
 			if twitchChannelName != "" {
 				match.StreamingURL = buildStreamPageLink(twitchChannelName)
+				match.HasStreamingURL = true
 			}
 		})
 

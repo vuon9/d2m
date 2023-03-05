@@ -13,10 +13,10 @@ import (
 
 type (
 	model struct {
-		keys         keyMap
 		listModel    list.Model
 		detailsModel table.Model
 		items        []list.Item
+		appState     appState
 	}
 
 	MatchItem interface {
@@ -113,9 +113,11 @@ var (
 	}
 )
 
-var (
-	showListMatch    = true
-	showDetailsMatch = false
+type appState uint8
+
+const (
+	showListMatch appState = iota
+	showDetailsMatch
 )
 
 func newModel(matches []list.Item) tea.Model {
@@ -123,14 +125,15 @@ func newModel(matches []list.Item) tea.Model {
 		listModel:    newListView(matches),
 		detailsModel: newDetailsView(),
 		items:        matches,
+		appState:     showListMatch,
 	}
 }
 
-func (m *model) Init() tea.Cmd {
+func (m model) Init() tea.Cmd {
 	return tea.EnterAltScreen
 }
 
-func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	var cmds []tea.Cmd
 
 	switch msg := msg.(type) { //nolint:gocritic
@@ -138,54 +141,73 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		h, v := appStyle.GetFrameSize()
 		m.listModel.SetSize(msg.Width-h, msg.Height-v)
 	case tea.KeyMsg:
-		switch {
-		case msg.String() == "enter":
-			match, ok := m.listModel.SelectedItem().(*api.Match)
-			if ok {
-				m.listModel.NewStatusMessage(fmt.Sprintf("Choose match %s", match.GeneralTitle()))
+		switch m.appState {
+		case showListMatch:
+			var cmd tea.Cmd
+			m.listModel, cmd = m.listModel.Update(msg)
+
+			switch {
+			case msg.String() == "enter":
+				match, ok := m.listModel.SelectedItem().(*api.Match)
+				if ok {
+					m.listModel.NewStatusMessage(fmt.Sprintf("Choose match %s", match.GeneralTitle()))
+				}
+
+				m.appState = showDetailsMatch
+			case key.Matches(msg, filterKeys.OpenStreamURL):
+				match, ok := m.listModel.SelectedItem().(*api.Match)
+				if !ok || match.StreamingURL == "" {
+					m.listModel.NewStatusMessage("No stream URL available")
+					break
+				}
+
+				go func() {
+					OpenURL(match.StreamingURL)
+				}()
+
+				m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
+			case key.Matches(msg, filterKeys.AllMatches):
+				m.listModel.SetItems(filterMatches(m.items, All))
+			case key.Matches(msg, filterKeys.FromTodayMatches):
+				m.listModel.SetItems(filterMatches(m.items, FromToday))
+			case key.Matches(msg, filterKeys.TomorrowMatches):
+				m.listModel.SetItems(filterMatches(m.items, Tomorrow))
+			case key.Matches(msg, filterKeys.YesterdayMatches):
+				m.listModel.SetItems(filterMatches(m.items, Yesterday))
+			case key.Matches(msg, filterKeys.LiveMatches):
+				m.listModel.SetItems(filterMatches(m.items, Live))
+			case key.Matches(msg, filterKeys.ComingMatches):
+				m.listModel.SetItems(filterMatches(m.items, Coming))
+			case key.Matches(msg, filterKeys.FinishedMatches):
+				m.listModel.SetItems(filterMatches(m.items, Finished))
 			}
 
-			showDetailsMatch = !showDetailsMatch
-			showListMatch = !showListMatch
-		case key.Matches(msg, m.keys.OpenStreamURL):
-			match, ok := m.listModel.SelectedItem().(*api.Match)
-			if !ok || match.StreamingURL == "" {
-				m.listModel.NewStatusMessage("No stream URL available")
-				break
+			return m, cmd
+
+		case showDetailsMatch:
+			var cmd tea.Cmd
+			m.detailsModel, cmd = m.detailsModel.Update(msg)
+
+			switch {
+			case msg.String() == "esc":
+				m.appState = showListMatch
+			case key.Matches(msg, filterKeys.OpenStreamURL):
+				match, ok := m.listModel.SelectedItem().(*api.Match)
+				if !ok || match.StreamingURL == "" {
+					m.listModel.NewStatusMessage("No stream URL available")
+					break
+				}
+
+				go func() {
+					OpenURL(match.StreamingURL)
+				}()
+
+				m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
 			}
 
-			go func() {
-				OpenURL(match.StreamingURL)
-			}()
-
-			m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
-		case key.Matches(msg, filterKeys.AllMatches):
-			m.listModel.SetItems(filterMatches(m.items, All))
-		case key.Matches(msg, filterKeys.FromTodayMatches):
-			m.listModel.SetItems(filterMatches(m.items, FromToday))
-		case key.Matches(msg, filterKeys.TomorrowMatches):
-			m.listModel.SetItems(filterMatches(m.items, Tomorrow))
-		case key.Matches(msg, filterKeys.YesterdayMatches):
-			m.listModel.SetItems(filterMatches(m.items, Yesterday))
-		case key.Matches(msg, filterKeys.LiveMatches):
-			m.listModel.SetItems(filterMatches(m.items, Live))
-		case key.Matches(msg, filterKeys.ComingMatches):
-			m.listModel.SetItems(filterMatches(m.items, Coming))
-		case key.Matches(msg, filterKeys.FinishedMatches):
-			m.listModel.SetItems(filterMatches(m.items, Finished))
+			return m, cmd
 		}
 	}
-
-	var cmd tea.Cmd
-	if showListMatch {
-		m.listModel, cmd = m.listModel.Update(msg)
-	}
-
-	if showDetailsMatch {
-		m.detailsModel, cmd = m.detailsModel.Update(msg)
-	}
-
-	cmds = append(cmds, cmd)
 
 	return m, tea.Batch(cmds...)
 }
@@ -233,9 +255,9 @@ func newDetailsView() table.Model {
 	return tableView
 }
 
-func (m *model) View() string {
+func (m model) View() string {
 	view := m.listModel.View()
-	if showDetailsMatch {
+	if m.appState == showDetailsMatch {
 		view = m.detailsModel.View()
 	}
 

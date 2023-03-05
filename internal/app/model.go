@@ -5,6 +5,7 @@ import (
 
 	"github.com/charmbracelet/bubbles/key"
 	"github.com/charmbracelet/bubbles/list"
+	"github.com/charmbracelet/bubbles/table"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/vuon9/d2m/pkg/api"
@@ -12,11 +13,10 @@ import (
 
 type (
 	model struct {
-		keys            keyMap
-		listModel       list.Model
-		delegate        list.DefaultDelegate
-		items           []list.Item
-		isInDetailsMode bool
+		keys         keyMap
+		listModel    list.Model
+		detailsModel table.Model
+		items        []list.Item
 	}
 
 	MatchItem interface {
@@ -113,11 +113,16 @@ var (
 	}
 )
 
+var (
+	showListMatch    = true
+	showDetailsMatch = false
+)
+
 func newModel(matches []list.Item) tea.Model {
 	return &model{
-		listModel: newListView(matches),
-		items:     matches,
-		keys:      filterKeys,
+		listModel:    newListView(matches),
+		detailsModel: newDetailsView(),
+		items:        matches,
 	}
 }
 
@@ -140,7 +145,8 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.listModel.NewStatusMessage(fmt.Sprintf("Choose match %s", match.GeneralTitle()))
 			}
 
-			m.isInDetailsMode = !m.isInDetailsMode
+			showDetailsMatch = !showDetailsMatch
+			showListMatch = !showListMatch
 		case key.Matches(msg, m.keys.OpenStreamURL):
 			match, ok := m.listModel.SelectedItem().(*api.Match)
 			if !ok || match.StreamingURL == "" {
@@ -153,25 +159,32 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}()
 
 			m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
-		case key.Matches(msg, m.keys.AllMatches):
+		case key.Matches(msg, filterKeys.AllMatches):
 			m.listModel.SetItems(filterMatches(m.items, All))
-		case key.Matches(msg, m.keys.FromTodayMatches):
+		case key.Matches(msg, filterKeys.FromTodayMatches):
 			m.listModel.SetItems(filterMatches(m.items, FromToday))
-		case key.Matches(msg, m.keys.TomorrowMatches):
+		case key.Matches(msg, filterKeys.TomorrowMatches):
 			m.listModel.SetItems(filterMatches(m.items, Tomorrow))
-		case key.Matches(msg, m.keys.YesterdayMatches):
+		case key.Matches(msg, filterKeys.YesterdayMatches):
 			m.listModel.SetItems(filterMatches(m.items, Yesterday))
-		case key.Matches(msg, m.keys.LiveMatches):
+		case key.Matches(msg, filterKeys.LiveMatches):
 			m.listModel.SetItems(filterMatches(m.items, Live))
-		case key.Matches(msg, m.keys.ComingMatches):
+		case key.Matches(msg, filterKeys.ComingMatches):
 			m.listModel.SetItems(filterMatches(m.items, Coming))
-		case key.Matches(msg, m.keys.FinishedMatches):
+		case key.Matches(msg, filterKeys.FinishedMatches):
 			m.listModel.SetItems(filterMatches(m.items, Finished))
 		}
 	}
 
-	newListModel, cmd := m.listModel.Update(msg)
-	m.listModel = newListModel
+	var cmd tea.Cmd
+	if showListMatch {
+		m.listModel, cmd = m.listModel.Update(msg)
+	}
+
+	if showDetailsMatch {
+		m.detailsModel, cmd = m.detailsModel.Update(msg)
+	}
+
 	cmds = append(cmds, cmd)
 
 	return m, tea.Batch(cmds...)
@@ -185,18 +198,46 @@ func newListView(matches []list.Item) list.Model {
 	return listView
 }
 
+func newDetailsView() table.Model {
+	columns := []table.Column{
+		{Title: "Player", Width: 10},
+		{Title: "Hero", Width: 10},
+		{Title: "Team", Width: 10},
+	}
+
+	rows := []table.Row{
+		{"player1", "hero1", "Liquid"},
+		{"player2", "hero2", "OG"},
+	}
+
+	tableView := table.New(
+		table.WithColumns(columns),
+		table.WithRows(rows),
+		table.WithFocused(true),
+		table.WithHeight(7),
+	)
+
+	s := table.DefaultStyles()
+	s.Header = s.Header.
+		BorderStyle(lipgloss.NormalBorder()).
+		BorderForeground(lipgloss.Color("240")).
+		BorderBottom(true).
+		Bold(false)
+	s.Selected = s.Selected.
+		Foreground(lipgloss.Color("229")).
+		Background(lipgloss.Color("57")).
+		Bold(false)
+
+	tableView.SetStyles(s)
+
+	return tableView
+}
+
 func (m *model) View() string {
-	var view string
-	if m.isInDetailsMode {
-		view = m.detailsView()
-	} else {
-		view = m.listModel.View()
+	view := m.listModel.View()
+	if showDetailsMatch {
+		view = m.detailsModel.View()
 	}
 
 	return appStyle.Render(view)
-}
-
-func (m *model) detailsView() string {
-	si := m.listModel.SelectedItem().(*api.Match)
-	return "this is details view: " + si.GeneralTitle()
 }

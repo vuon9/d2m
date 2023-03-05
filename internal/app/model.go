@@ -100,19 +100,6 @@ const (
 	showDetailsMatch
 )
 
-func newModel(matches []list.Item) tea.Model {
-	return &model{
-		listModel:    newListView(matches),
-		detailsModel: newDetailsView(),
-		items:        matches,
-		appState:     showListMatch,
-	}
-}
-
-func (m model) Init() tea.Cmd {
-	return tea.EnterAltScreen
-}
-
 type matchFilterKeys map[matchFilter]key.Binding
 
 var filterKeys = map[matchFilter]key.Binding{
@@ -124,6 +111,19 @@ var filterKeys = map[matchFilter]key.Binding{
 	Live:      KeyLiveMatches,
 	Finished:  KeyFinishedMatches,
 	Coming:    KeyComingMatches,
+}
+
+func newModel(matches []list.Item) tea.Model {
+	return &model{
+		listModel:    newListView(matches),
+		detailsModel: newDetailsView(),
+		items:        matches,
+		appState:     showListMatch,
+	}
+}
+
+func (m model) Init() tea.Cmd {
+	return tea.EnterAltScreen
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
@@ -196,6 +196,15 @@ func (m model) openStreamingURL() {
 	m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
 }
 
+func (m model) View() string {
+	view := m.listModel.View()
+	if m.appState == showDetailsMatch {
+		view = m.detailsModel.View()
+	}
+
+	return appStyle.Render(view)
+}
+
 func newListView(matches []list.Item) list.Model {
 	listView := list.New(filterMatches(matches, FromToday), list.NewDefaultDelegate(), 0, 0)
 	listView.Title = "D2M - Dota2 Matches Tracker"
@@ -237,13 +246,4 @@ func newDetailsView() table.Model {
 	tableView.SetStyles(s)
 
 	return tableView
-}
-
-func (m model) View() string {
-	view := m.listModel.View()
-	if m.appState == showDetailsMatch {
-		view = m.detailsModel.View()
-	}
-
-	return appStyle.Render(view)
 }

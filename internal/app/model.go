@@ -37,6 +37,7 @@ type keyMap struct {
 	KeyOpenStreamURL    key.Binding
 }
 
+// TODO: Missing help menu for these keys
 func (km keyMap) FullHelp() []key.Binding {
 	return []key.Binding{
 		km.KeyAllMatches,
@@ -102,7 +103,26 @@ const (
 
 type matchFilterKeys map[matchFilter]key.Binding
 
-var filterKeys = map[matchFilter]key.Binding{
+func (m matchFilterKeys) FullHelp() []key.Binding {
+	var keys []key.Binding
+	for _, k := range m {
+		keys = append(keys, k)
+	}
+
+	return keys
+}
+
+func (m matchFilterKeys) Match(msg tea.KeyMsg) (matchFilter, bool) {
+	for filter, kb := range m {
+		if key.Matches(msg, kb) {
+			return filter, true
+		}
+	}
+
+	return matchFilter(0), false
+}
+
+var filterKeys = matchFilterKeys{
 	All:       KeyAllMatches,
 	FromToday: KeyFromTodayMatches,
 	Today:     KeyTodayMatches,
@@ -155,13 +175,8 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 				m.appState = showDetailsMatch
 			default:
-				for filterRule, kb := range filterKeys {
-					if !key.Matches(msg, kb) {
-						continue
-					}
-
+				if filterRule, found := filterKeys.Match(msg); found {
 					m.listModel.SetItems(filterMatches(m.items, filterRule))
-					break
 				}
 			}
 

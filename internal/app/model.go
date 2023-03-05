@@ -91,7 +91,7 @@ var (
 				Foreground(lipgloss.AdaptiveColor{Light: "#04B575", Dark: "#04B575"}).
 				Render
 
-	filterKeys = keyMap{
+	listKeys = keyMap{
 		AllMatches:       key.NewBinding(key.WithKeys("a"), key.WithHelp("a", "all")),
 		FromTodayMatches: key.NewBinding(key.WithKeys("r"), key.WithHelp("r", "from today")),
 		TodayMatches:     key.NewBinding(key.WithKeys("t"), key.WithHelp("t", "today")),
@@ -133,6 +133,58 @@ func (m model) Init() tea.Cmd {
 	return tea.EnterAltScreen
 }
 
+type matchFilterKey struct {
+	Key    key.Binding
+	Filter matchFilter
+}
+
+type matchFilterKeys []matchFilterKey
+
+var filterKeys = matchFilterKeys{
+	{
+		Key:    listKeys.AllMatches,
+		Filter: All,
+	},
+	{
+		Key:    listKeys.FromTodayMatches,
+		Filter: FromToday,
+	},
+	{
+		Key:    listKeys.TodayMatches,
+		Filter: Today,
+	},
+	{
+		Key:    listKeys.TomorrowMatches,
+		Filter: Tomorrow,
+	},
+	{
+		Key:    listKeys.YesterdayMatches,
+		Filter: Yesterday,
+	},
+	{
+		Key:    listKeys.LiveMatches,
+		Filter: Live,
+	},
+	{
+		Key:    listKeys.FinishedMatches,
+		Filter: Finished,
+	},
+	{
+		Key:    listKeys.ComingMatches,
+		Filter: Coming,
+	},
+}
+
+func (fk matchFilterKeys) Match(msg tea.KeyMsg) (found bool, filter matchFilter) {
+	for _, k := range fk {
+		if key.Matches(msg, k.Key) {
+			return true, k.Filter
+		}
+	}
+
+	return false, All
+}
+
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	var cmds []tea.Cmd
 
@@ -141,6 +193,23 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		h, v := appStyle.GetFrameSize()
 		m.listModel.SetSize(msg.Width-h, msg.Height-v)
 	case tea.KeyMsg:
+		// common keys, work in all states
+		switch {
+		case key.Matches(msg, listKeys.OpenStreamURL):
+			match, ok := m.listModel.SelectedItem().(*api.Match)
+			if !ok || match.StreamingURL == "" {
+				m.listModel.NewStatusMessage("No stream URL available")
+				break
+			}
+
+			go func() {
+				OpenURL(match.StreamingURL)
+			}()
+
+			m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
+		}
+
+		// keys by view states
 		switch m.appState {
 		case showListMatch:
 			var cmd tea.Cmd
@@ -154,58 +223,24 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				}
 
 				m.appState = showDetailsMatch
-			case key.Matches(msg, filterKeys.OpenStreamURL):
-				match, ok := m.listModel.SelectedItem().(*api.Match)
-				if !ok || match.StreamingURL == "" {
-					m.listModel.NewStatusMessage("No stream URL available")
-					break
+			default:
+				found, mf := filterKeys.Match(msg)
+				if found {
+					m.listModel.SetItems(filterMatches(m.items, mf))
 				}
-
-				go func() {
-					OpenURL(match.StreamingURL)
-				}()
-
-				m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
-			case key.Matches(msg, filterKeys.AllMatches):
-				m.listModel.SetItems(filterMatches(m.items, All))
-			case key.Matches(msg, filterKeys.FromTodayMatches):
-				m.listModel.SetItems(filterMatches(m.items, FromToday))
-			case key.Matches(msg, filterKeys.TomorrowMatches):
-				m.listModel.SetItems(filterMatches(m.items, Tomorrow))
-			case key.Matches(msg, filterKeys.YesterdayMatches):
-				m.listModel.SetItems(filterMatches(m.items, Yesterday))
-			case key.Matches(msg, filterKeys.LiveMatches):
-				m.listModel.SetItems(filterMatches(m.items, Live))
-			case key.Matches(msg, filterKeys.ComingMatches):
-				m.listModel.SetItems(filterMatches(m.items, Coming))
-			case key.Matches(msg, filterKeys.FinishedMatches):
-				m.listModel.SetItems(filterMatches(m.items, Finished))
 			}
 
-			return m, cmd
+			cmds = append(cmds, cmd)
 
 		case showDetailsMatch:
 			var cmd tea.Cmd
 			m.detailsModel, cmd = m.detailsModel.Update(msg)
 
-			switch {
-			case msg.String() == "esc":
+			if msg.String() == "esc" {
 				m.appState = showListMatch
-			case key.Matches(msg, filterKeys.OpenStreamURL):
-				match, ok := m.listModel.SelectedItem().(*api.Match)
-				if !ok || match.StreamingURL == "" {
-					m.listModel.NewStatusMessage("No stream URL available")
-					break
-				}
-
-				go func() {
-					OpenURL(match.StreamingURL)
-				}()
-
-				m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
 			}
 
-			return m, cmd
+			cmds = append(cmds, cmd)
 		}
 	}
 

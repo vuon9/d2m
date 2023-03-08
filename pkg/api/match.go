@@ -52,6 +52,8 @@ func (m *Match) Team2() *Team {
 var (
 	defaultTemplate  = "[%d:%d] - %s"
 	hasStreamingIcon = "\u003e\u003e"
+	hasTeamProfile   = "\u2b1f"
+	hasNoTeamProfile = "\u25a2"
 )
 
 func (m *Match) Title() string {
@@ -82,7 +84,20 @@ func (m *Match) Description() string {
 
 // GeneralTitle uses for filtering only
 func (m *Match) GeneralTitle() string {
-	vs := fmt.Sprintf("%s vs. %s", m.Team1().FullName, m.Team2().FullName)
+	team1Name := hasTeamProfile
+	if m.Team1().TeamProfileLink == "" {
+		team1Name = hasNoTeamProfile
+	}
+
+	team2Name := hasTeamProfile
+	if m.Team2().TeamProfileLink == "" {
+		team2Name = hasNoTeamProfile
+	}
+
+	team1Name += " " + m.Team1().FullName
+	team2Name += " " + m.Team2().FullName
+
+	vs := fmt.Sprintf("%s vs. %s", team1Name, team2Name)
 	if m.CompetitionType != "" {
 		vs = fmt.Sprintf("%s (%s)", vs, m.CompetitionType)
 	}

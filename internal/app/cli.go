@@ -28,6 +28,12 @@ func (a *app) Run(ctx context.Context) error {
 		return err
 	}
 
+	// for _, match := range matches {
+	// 	fmt.Println(match.Team1().FullName, match.Team2().FullName, match.Start)
+	// 	fmt.Println(match.Team1().TeamProfileLink, match.Team2().TeamProfileLink)
+	// 	fmt.Println()
+	// }
+
 	items := make([]list.Item, 0)
 	for _, match := range matches {
 		items = append(items, match)

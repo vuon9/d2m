@@ -3,6 +3,7 @@ package api
 type Team struct {
 	ShortName              string `json:"shortName"`
 	FullName               string `json:"fullName"`
+	TeamProfileLink        string `json:"teamProfileLink"`
 	Score                  int    `json:"score"`
 	MatchResult            string `json:"matchResult"`
 	MatchResultDescription string `json:"matchResultDescription"`

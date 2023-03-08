@@ -16,9 +16,15 @@ import (
 	"github.com/vuon9/d2m/pkg/api"
 )
 
+var rootDomain = "https://liquipedia.net"
+
 var allowedDomains = []string{
 	"liquipedia.net",
 	"www.liquipedia.net",
+}
+
+func isValidTeamURL(potentialURL string) bool {
+	return !strings.Contains(potentialURL, "/dota2/index.php?title=")
 }
 
 func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, error) {
@@ -45,11 +51,41 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 		teamLeft := e.ChildAttr("tr > td.team-left span", "data-highlightingclass")
 		if teamLeft != "" {
 			match.Teams[0].FullName = strings.TrimSpace(teamLeft)
+			refLink := e.ChildAttr("tr > td.team-left a", "href")
+			match.Teams[0].TeamProfileLink = rootDomain + refLink
+		}
+
+		// skip parsing scores if the match is not started yet
+		t1PotentialRelativeURLs := e.ChildAttrs("tr > td.team-left a", "href")
+		for _, t1PotentialRelativeURL := range t1PotentialRelativeURLs {
+			// the sequence of potential relative URLs is not always the same on each match
+			// then better to check if the URL is valid or not
+			if isValidTeamURL(t1PotentialRelativeURL) {
+				match.Teams[0].TeamProfileLink = rootDomain + t1PotentialRelativeURL
+			} else {
+				match.Teams[0].TeamProfileLink = ""
+				break
+			}
 		}
 
 		teamRight := e.ChildAttr("tr > td.team-right span", "data-highlightingclass")
 		if teamRight != "" {
 			match.Teams[1].FullName = strings.TrimSpace(teamRight)
+		}
+
+		// skip parsing scores if the match is not started yet
+		if match.Teams[1].FullName != "TBD" {
+			// the sequence of potential relative URLs is not always the same on each match
+			// then better to check if the URL is valid or not
+			t2PotentialRelativeURLs := e.ChildAttrs("tr > td.team-right a", "href")
+			for _, t2PotentialRelativeURL := range t2PotentialRelativeURLs {
+				if isValidTeamURL(t2PotentialRelativeURL) {
+					match.Teams[1].TeamProfileLink = rootDomain + t2PotentialRelativeURL
+				} else {
+					match.Teams[1].TeamProfileLink = ""
+					break
+				}
+			}
 		}
 
 		versus := e.ChildText("tr > td.versus")

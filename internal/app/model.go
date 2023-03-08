@@ -156,7 +156,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case tea.KeyMsg:
 		// common keys, work in all states
 		switch { //nolint:gocritic
-		case key.Matches(msg, KeyOpenStreamURL):
+		case key.Matches(msg, KeyOpenStreamURL) && !m.listModel.IsFiltered():
 			m.openStreamingURL()
 		}
 
@@ -167,7 +167,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.listModel, cmd = m.listModel.Update(msg)
 
 			switch {
-			case msg.String() == "enter":
+			case msg.String() == "k":
 				match, ok := m.listModel.SelectedItem().(*api.Match)
 				if ok {
 					m.listModel.NewStatusMessage(fmt.Sprintf("Choose match %s", match.GeneralTitle()))
@@ -175,6 +175,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 				m.appState = showDetailsMatch
 			default:
+				// TODO: Fix broken filters
 				if filterRule, found := filterKeys.Match(msg); found {
 					m.listModel.SetItems(filterMatches(m.items, filterRule))
 				}

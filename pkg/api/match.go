@@ -107,9 +107,8 @@ func (m *Match) GeneralTitle() string {
 
 func (m *Match) FilterValue() string {
 	return strings.Join([]string{
-		m.Status.String(),
-		m.GeneralTitle(),
+		m.Team1().FullName,
+		m.Team2().FullName,
 		m.Tournament.Name,
-		m.Description(),
 	}, " ")
 }

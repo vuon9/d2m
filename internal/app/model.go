@@ -112,14 +112,14 @@ func (m matchFilterKeys) FullHelp() []key.Binding {
 	return keys
 }
 
-func (m matchFilterKeys) Match(msg tea.KeyMsg) (matchFilter, bool) {
-	for filter, kb := range m {
-		if key.Matches(msg, kb) {
-			return filter, true
+func IsFilterKey(msg tea.KeyMsg) bool {
+	for _, k := range filterKeys {
+		if key.Matches(msg, k) {
+			return true
 		}
 	}
 
-	return matchFilter(0), false
+	return false
 }
 
 var filterKeys = matchFilterKeys{
@@ -146,6 +146,32 @@ func (m model) Init() tea.Cmd {
 	return tea.EnterAltScreen
 }
 
+// DoFilterSuccessful is used to filter matches by key
+func (m *model) DoFilterSuccessful(msg tea.KeyMsg) bool {
+	switch {
+	case key.Matches(msg, KeyAllMatches):
+		m.listModel.SetItems(filterMatches(m.items, All))
+	case key.Matches(msg, KeyFromTodayMatches):
+		m.listModel.SetItems(filterMatches(m.items, FromToday))
+	case key.Matches(msg, KeyTodayMatches):
+		m.listModel.SetItems(filterMatches(m.items, Today))
+	case key.Matches(msg, KeyTomorrowMatches):
+		m.listModel.SetItems(filterMatches(m.items, Tomorrow))
+	case key.Matches(msg, KeyYesterdayMatches):
+		m.listModel.SetItems(filterMatches(m.items, Yesterday))
+	case key.Matches(msg, KeyLiveMatches):
+		m.listModel.SetItems(filterMatches(m.items, Live))
+	case key.Matches(msg, KeyFinishedMatches):
+		m.listModel.SetItems(filterMatches(m.items, Finished))
+	case key.Matches(msg, KeyComingMatches):
+		m.listModel.SetItems(filterMatches(m.items, Coming))
+	default:
+		return false
+	}
+
+	return true
+}
+
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	var cmds []tea.Cmd
 
@@ -154,46 +180,47 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		h, v := appStyle.GetFrameSize()
 		m.listModel.SetSize(msg.Width-h, msg.Height-v)
 	case tea.KeyMsg:
-		// common keys, work in all states
-		switch { //nolint:gocritic
-		case key.Matches(msg, KeyOpenStreamURL) && !m.listModel.IsFiltered():
-			m.openStreamingURL()
+		// If the list is filtering, we want to skip all the keys in this state
+		if m.listModel.FilterState() == list.Filtering {
+			break
 		}
 
-		// keys by view states
+		// common keys, work in all states
 		switch m.appState {
 		case showListMatch:
-			var cmd tea.Cmd
-			m.listModel, cmd = m.listModel.Update(msg)
-
-			switch {
-			case msg.String() == "k":
+			switch { //nolint:gocritic
+			case exitKeys[msg.String()]:
+				return m, tea.Quit
+			case key.Matches(msg, KeyOpenStreamURL):
+				m.openStreamingURL()
+				return m, nil
+			case msg.String() == "enter":
 				match, ok := m.listModel.SelectedItem().(*api.Match)
 				if ok {
 					m.listModel.NewStatusMessage(fmt.Sprintf("Choose match %s", match.GeneralTitle()))
+					m.appState = showDetailsMatch
 				}
 
-				m.appState = showDetailsMatch
-			default:
-				// TODO: Fix broken filters
-				if filterRule, found := filterKeys.Match(msg); found {
-					m.listModel.SetItems(filterMatches(m.items, filterRule))
-				}
+				return m, nil
+			case m.DoFilterSuccessful(msg):
+				return m, nil
 			}
-
-			cmds = append(cmds, cmd)
-
 		case showDetailsMatch:
-			var cmd tea.Cmd
-			m.detailsModel, cmd = m.detailsModel.Update(msg)
-
-			if msg.String() == "esc" {
+			switch {
+			case exitKeys[msg.String()]:
 				m.appState = showListMatch
+				return m, nil
+			default:
+				var cmd tea.Cmd
+				m.detailsModel, cmd = m.detailsModel.Update(msg)
+				cmds = append(cmds, cmd)
 			}
-
-			cmds = append(cmds, cmd)
 		}
 	}
+
+	var cmd tea.Cmd
+	m.listModel, cmd = m.listModel.Update(msg)
+	cmds = append(cmds, cmd)
 
 	return m, tea.Batch(cmds...)
 }
@@ -225,6 +252,7 @@ func newListView(matches []list.Item) list.Model {
 	listView := list.New(filterMatches(matches, FromToday), list.NewDefaultDelegate(), 0, 0)
 	listView.Title = "D2M - Dota2 Matches Tracker"
 	listView.Styles.Title = titleStyle
+	listView.AdditionalFullHelpKeys = filterKeys.FullHelp
 
 	return listView
 }

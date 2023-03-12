@@ -14,7 +14,8 @@ import (
 type (
 	model struct {
 		listModel    list.Model
-		detailsModel table.Model
+		tableModel   table.Model
+		detailsModel tea.Model
 		items        []list.Item
 		appState     appState
 	}
@@ -136,7 +137,8 @@ var filterKeys = matchFilterKeys{
 func newModel(matches []list.Item) tea.Model {
 	return &model{
 		listModel:    newListView(matches),
-		detailsModel: newDetailsView(),
+		tableModel:   newTableModel(),
+		detailsModel: newDetailsModel(""),
 		items:        matches,
 		appState:     showListMatch,
 	}
@@ -257,7 +259,7 @@ func newListView(matches []list.Item) list.Model {
 	return listView
 }
 
-func newDetailsView() table.Model {
+func newTableModel() table.Model {
 	columns := []table.Column{
 		{Title: "Player", Width: 10},
 		{Title: "Hero", Width: 10},

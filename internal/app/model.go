@@ -174,10 +174,11 @@ func (m *model) DoFilterSuccessful(msg tea.KeyMsg) bool {
 	return true
 }
 
-func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	var cmds []tea.Cmd
 
-	switch msg := msg.(type) { //nolint:gocritic
+	// Commons handling
+	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
 		h, v := appStyle.GetFrameSize()
 		m.listModel.SetSize(msg.Width-h, msg.Height-v)
@@ -187,42 +188,53 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			break
 		}
 
-		// common keys, work in all states
-		switch m.appState {
-		case showListMatch:
-			switch { //nolint:gocritic
-			case exitKeys[msg.String()]:
-				return m, tea.Quit
-			case key.Matches(msg, KeyOpenStreamURL):
-				m.openStreamingURL()
+		switch {
+		case exitKeys[msg.String()]:
+			if m.appState == showDetailsMatch {
+				m.appState = showListMatch
 				return m, nil
+			}
+
+			return m, tea.Quit
+		case key.Matches(msg, KeyOpenStreamURL):
+			m.openStreamingURL()
+		}
+	}
+
+	// Handling with specific app state
+	switch m.appState {
+	case showDetailsMatch:
+		var cmd tea.Cmd
+		m.detailsModel, cmd = m.detailsModel.Update(msg)
+		cmds = append(cmds, cmd)
+	case showListMatch:
+		switch msg := msg.(type) {
+		case tea.KeyMsg:
+			// If the list is filtering, we want to skip all the keys in this state
+			if m.listModel.FilterState() == list.Filtering {
+				break
+			}
+
+			switch {
 			case msg.String() == "enter":
 				match, ok := m.listModel.SelectedItem().(*api.Match)
 				if ok {
 					m.listModel.NewStatusMessage(fmt.Sprintf("Choose match %s", match.GeneralTitle()))
 					m.appState = showDetailsMatch
+
+					return m, m.detailsModel.Init()
 				}
 
 				return m, nil
 			case m.DoFilterSuccessful(msg):
 				return m, nil
 			}
-		case showDetailsMatch:
-			switch {
-			case exitKeys[msg.String()]:
-				m.appState = showListMatch
-				return m, nil
-			default:
-				var cmd tea.Cmd
-				m.detailsModel, cmd = m.detailsModel.Update(msg)
-				cmds = append(cmds, cmd)
-			}
 		}
-	}
 
-	var cmd tea.Cmd
-	m.listModel, cmd = m.listModel.Update(msg)
-	cmds = append(cmds, cmd)
+		var cmd tea.Cmd
+		m.listModel, cmd = m.listModel.Update(msg)
+		cmds = append(cmds, cmd)
+	}
 
 	return m, tea.Batch(cmds...)
 }

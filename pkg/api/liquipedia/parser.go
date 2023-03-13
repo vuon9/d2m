@@ -154,3 +154,13 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 func buildStreamPageLink(channelName string) string {
 	return fmt.Sprintf("https://liquipedia.net/dota2/Special:Stream/twitch/%s", channelName)
 }
+
+func parseLiveMatchDetailsPage(ctx context.Context, req *http.Request) ([]*api.LiveTeam, error) {
+	// TODO: Implement
+	return nil, nil
+}
+
+func parseTeamProfilePage(ctx context.Context, req *http.Request) (*api.Team, error) {
+	// TODO: Implement
+	return nil, nil
+}

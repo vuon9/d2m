@@ -51,20 +51,20 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 		teamLeft := e.ChildAttr("tr > td.team-left span", "data-highlightingclass")
 		if teamLeft != "" {
 			match.Teams[0].FullName = strings.TrimSpace(teamLeft)
-			refLink := e.ChildAttr("tr > td.team-left a", "href")
-			match.Teams[0].TeamProfileLink = rootDomain + refLink
 		}
 
 		// skip parsing scores if the match is not started yet
 		t1PotentialRelativeURLs := e.ChildAttrs("tr > td.team-left a", "href")
-		for _, t1PotentialRelativeURL := range t1PotentialRelativeURLs {
-			// the sequence of potential relative URLs is not always the same on each match
-			// then better to check if the URL is valid or not
-			if isValidTeamURL(t1PotentialRelativeURL) {
-				match.Teams[0].TeamProfileLink = rootDomain + t1PotentialRelativeURL
-			} else {
-				match.Teams[0].TeamProfileLink = ""
-				break
+		if match.Teams[0].FullName != "TBD" {
+			for _, t1PotentialRelativeURL := range t1PotentialRelativeURLs {
+				// the sequence of potential relative URLs is not always the same on each match
+				// then better to check if the URL is valid or not
+				if isValidTeamURL(t1PotentialRelativeURL) {
+					match.Teams[0].TeamProfileLink = rootDomain + t1PotentialRelativeURL
+				} else {
+					match.Teams[0].TeamProfileLink = ""
+					break
+				}
 			}
 		}
 

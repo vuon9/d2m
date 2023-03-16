@@ -16,7 +16,7 @@ import (
 	"github.com/vuon9/d2m/pkg/api"
 )
 
-var rootDomain = "https://liquipedia.net"
+var secureDomain = "https://liquipedia.net"
 
 var allowedDomains = []string{
 	"liquipedia.net",
@@ -48,45 +48,57 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 			},
 		}
 
-		teamLeft := e.ChildAttr("tr > td.team-left span", "data-highlightingclass")
-		if teamLeft != "" {
-			match.Teams[0].FullName = strings.TrimSpace(teamLeft)
-			refLink := e.ChildAttr("tr > td.team-left a", "href")
-			match.Teams[0].TeamProfileLink = rootDomain + refLink
-		}
-
-		// skip parsing scores if the match is not started yet
-		t1PotentialRelativeURLs := e.ChildAttrs("tr > td.team-left a", "href")
-		for _, t1PotentialRelativeURL := range t1PotentialRelativeURLs {
-			// the sequence of potential relative URLs is not always the same on each match
-			// then better to check if the URL is valid or not
-			if isValidTeamURL(t1PotentialRelativeURL) {
-				match.Teams[0].TeamProfileLink = rootDomain + t1PotentialRelativeURL
-			} else {
-				match.Teams[0].TeamProfileLink = ""
-				break
+		e.ForEach("tr > td.team-left", func(i int, e *colly.HTMLElement) {
+			teamLeft := e.ChildAttr("span", "data-highlightingclass")
+			if teamLeft != "" {
+				match.Teams[0].FullName = strings.TrimSpace(teamLeft)
 			}
-		}
 
-		teamRight := e.ChildAttr("tr > td.team-right span", "data-highlightingclass")
-		if teamRight != "" {
-			match.Teams[1].FullName = strings.TrimSpace(teamRight)
-		}
+			if match.Teams[0].FullName == "TBD" {
+				return
+			}
 
-		// skip parsing scores if the match is not started yet
-		if match.Teams[1].FullName != "TBD" {
+			match.Teams[0].ShortName = e.ChildText("span.team-template-text")
+
+			// skip parsing scores if the match is not started yet
+			t1PotentialRelativeURLs := e.ChildAttrs("a", "href")
+			for _, t1PotentialRelativeURL := range t1PotentialRelativeURLs {
+				// the sequence of potential relative URLs is not always the same on each match
+				// then better to check if the URL is valid or not
+				if isValidTeamURL(t1PotentialRelativeURL) {
+					match.Teams[0].TeamProfileLink = secureDomain + t1PotentialRelativeURL
+				} else {
+					match.Teams[0].TeamProfileLink = ""
+					break
+				}
+			}
+		})
+
+		e.ForEach("tr > td.team-right", func(i int, e *colly.HTMLElement) {
+			teamRight := e.ChildAttr("span", "data-highlightingclass")
+			if teamRight != "" {
+				match.Teams[1].FullName = strings.TrimSpace(teamRight)
+			}
+
+			// skip parsing scores if the match is not started yet
+			if match.Teams[1].FullName == "TBD" {
+				return
+			}
+
+			match.Teams[1].ShortName = e.ChildText("span.team-template-text")
+
 			// the sequence of potential relative URLs is not always the same on each match
 			// then better to check if the URL is valid or not
-			t2PotentialRelativeURLs := e.ChildAttrs("tr > td.team-right a", "href")
+			t2PotentialRelativeURLs := e.ChildAttrs("a", "href")
 			for _, t2PotentialRelativeURL := range t2PotentialRelativeURLs {
 				if isValidTeamURL(t2PotentialRelativeURL) {
-					match.Teams[1].TeamProfileLink = rootDomain + t2PotentialRelativeURL
+					match.Teams[1].TeamProfileLink = secureDomain + t2PotentialRelativeURL
 				} else {
 					match.Teams[1].TeamProfileLink = ""
 					break
 				}
 			}
-		}
+		})
 
 		versus := e.ChildText("tr > td.versus")
 		if versus != "" {
@@ -115,19 +127,24 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 
 		e.ForEach("tr > td.match-filler", func(_ int, el *colly.HTMLElement) {
 			match.Tournament.Name = el.ChildText("div:nth-child(1) > div:nth-child(1) a")
-			match.Tournament.Urls.Logo = el.ChildAttr("div:nth-child(1) span.league-icon-small-image img", "src")
+			el.ForEach("div:nth-child(1) span.league-icon-small-image", func(i int, h *colly.HTMLElement) {
+				match.Tournament.Urls.Page = secureDomain + el.ChildAttr("a", "href")
+				match.Tournament.Urls.Logo = el.ChildAttr("img", "src")
+			})
 
-			// Get start time of match
-			dataStartTimestamp := el.ChildAttr("span > span.timer-object", "data-timestamp")
-			startTimestamp, _ := strconv.ParseInt(dataStartTimestamp, 10, 64)
-			match.Start = time.Unix(startTimestamp, 0)
+			el.ForEach("span > span.timer-object", func(i int, h *colly.HTMLElement) {
+				// Get start time of match
+				dataStartTimestamp := h.Attr("data-timestamp")
+				startTimestamp, _ := strconv.ParseInt(dataStartTimestamp, 10, 64)
+				match.Start = time.Unix(startTimestamp, 0)
 
-			// Get twitch channel name
-			twitchChannelName := el.ChildAttr("span > span.timer-object", "data-stream-twitch")
-			if twitchChannelName != "" {
-				match.StreamingURL = buildStreamPageLink(twitchChannelName)
-				match.HasStreamingURL = true
-			}
+				// Get twitch channel name
+				twitchChannelName := h.Attr("data-stream-twitch")
+				if twitchChannelName != "" {
+					match.StreamingURL = buildStreamPageLink(twitchChannelName)
+					match.HasStreamingURL = true
+				}
+			})
 		})
 
 		// Store with has to avoid duplicate matches
@@ -152,5 +169,20 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 
 // buildStreamPageLink builds a link to the stream page on liquipedia
 func buildStreamPageLink(channelName string) string {
-	return fmt.Sprintf("https://liquipedia.net/dota2/Special:Stream/twitch/%s", channelName)
+	return fmt.Sprintf("%s/dota2/Special:Stream/twitch/%s", secureDomain, channelName)
+}
+
+func parseLiveMatchDetailsPage(ctx context.Context, req *http.Request) ([]*api.LiveTeam, error) {
+	// TODO: Implement
+	return nil, nil
+}
+
+func parseTeamProfilePage(ctx context.Context, req *http.Request) (*api.Team, error) {
+	// TODO: Implement
+	return nil, nil
+}
+
+func parseTournamentPage(ctx colly.Context, req *http.Request) (*api.Tournament, error) {
+	// TODO: Implement
+	return nil, nil
 }

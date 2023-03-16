@@ -21,8 +21,9 @@ type Match struct {
 	UrlsDescriptions           struct {
 		Logo string `json:"logo"`
 	} `json:"urlsDescriptions"`
-	Teams  []*Team     `json:"teams"`
-	Status MatchStatus `json:"status"`
+	Teams         []*Team     `json:"teams"`
+	Status        MatchStatus `json:"status"`
+	VideoOnDemand []string    `json:"videoOnDemand"`
 }
 
 var defaultTeam = &Team{

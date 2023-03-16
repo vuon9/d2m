@@ -136,11 +136,10 @@ var filterKeys = matchFilterKeys{
 
 func newModel(matches []list.Item) tea.Model {
 	return &model{
-		listModel:    newListView(matches),
-		tableModel:   newTableModel(),
-		detailsModel: newDetailsModel(""),
-		items:        matches,
-		appState:     showListMatch,
+		listModel:  newListView(matches),
+		tableModel: newTableModel(),
+		items:      matches,
+		appState:   showListMatch,
 	}
 }
 
@@ -221,7 +220,7 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				if ok {
 					m.listModel.NewStatusMessage(fmt.Sprintf("Choose match %s", match.GeneralTitle()))
 					m.appState = showDetailsMatch
-
+					m.detailsModel = newDetailsModel(match)
 					return m, m.detailsModel.Init()
 				}
 
@@ -256,7 +255,8 @@ func (m model) openStreamingURL() {
 func (m model) View() string {
 	view := m.listModel.View()
 	if m.appState == showDetailsMatch {
-		view = m.detailsModel.View()
+		title := titleStyle.Render(m.listModel.Title) + "\n"
+		view = title + m.detailsModel.View()
 	}
 
 	return appStyle.Render(view)
@@ -264,44 +264,10 @@ func (m model) View() string {
 
 func newListView(matches []list.Item) list.Model {
 	listView := list.New(filterMatches(matches, FromToday), list.NewDefaultDelegate(), 0, 0)
-	listView.Title = "D2M - Dota2 Matches Tracker"
-	listView.Styles.Title = titleStyle
 	listView.AdditionalFullHelpKeys = filterKeys.FullHelp
 
+	listView.Title = "D2M - Dota2 Matches Tracker"
+	listView.Styles.Title = titleStyle
+
 	return listView
-}
-
-func newTableModel() table.Model {
-	columns := []table.Column{
-		{Title: "Player", Width: 10},
-		{Title: "Hero", Width: 10},
-		{Title: "Team", Width: 10},
-	}
-
-	rows := []table.Row{
-		{"player1", "hero1", "Liquid"},
-		{"player2", "hero2", "OG"},
-	}
-
-	tableView := table.New(
-		table.WithColumns(columns),
-		table.WithRows(rows),
-		table.WithFocused(true),
-		table.WithHeight(7),
-	)
-
-	s := table.DefaultStyles()
-	s.Header = s.Header.
-		BorderStyle(lipgloss.NormalBorder()).
-		BorderForeground(lipgloss.Color("240")).
-		BorderBottom(true).
-		Bold(false)
-	s.Selected = s.Selected.
-		Foreground(lipgloss.Color("229")).
-		Background(lipgloss.Color("57")).
-		Bold(false)
-
-	tableView.SetStyles(s)
-
-	return tableView
 }

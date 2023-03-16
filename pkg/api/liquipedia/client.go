@@ -8,13 +8,13 @@ import (
 )
 
 var (
-	upComingPageUrl = "https://liquipedia.net/dota2/Liquipedia:Upcoming_and_ongoing_matches"
+	upComingPageUrl = secureDomain + "/dota2/Liquipedia:Upcoming_and_ongoing_matches"
 )
 
 type Client struct {
 }
 
-func NewClient() (*Client) {
+func NewClient() *Client {
 	return &Client{}
 }
 

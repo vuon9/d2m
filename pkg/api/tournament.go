@@ -12,6 +12,7 @@ type Tournament struct {
 	ID                  string    `json:"id"`
 	Urls                struct {
 		Logo         string `json:"logo"`
+		Page         string `json:"pageUrl"`
 		BannerImage  string `json:"bannerImage"`
 		DefaultImage string `json:"defaultImage"`
 		SquareImage  string `json:"squareImage"`
@@ -19,8 +20,4 @@ type Tournament struct {
 		Default      string `json:"default"`
 		Search       string `json:"search"`
 	} `json:"urls"`
-	UrlsDescriptions struct {
-		Logo    string `json:"logo"`
-		Default string `json:"default"`
-	} `json:"urlsDescriptions"`
 }

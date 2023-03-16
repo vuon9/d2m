@@ -76,6 +76,7 @@ func (m *detailsModel) View() string {
 	return sp
 }
 
+// TODO: Remove??
 func newTableModel() table.Model {
 	columns := []table.Column{
 		{Title: "Player", Width: 10},

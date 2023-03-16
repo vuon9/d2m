@@ -181,3 +181,8 @@ func parseTeamProfilePage(ctx context.Context, req *http.Request) (*api.Team, er
 	// TODO: Implement
 	return nil, nil
 }
+
+func parseTournamentPage(ctx colly.Context, req *http.Request) (*api.Tournament, error) {
+	// TODO: Implement
+	return nil, nil
+}

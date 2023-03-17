@@ -35,3 +35,10 @@ Or download the binary from [release page](https://github.com/vuon9/d2m/releases
     - Yesterday
     - From today
 - Open Twitch streaming link in browser
+
+## Tasks
+
+- Async handle for the details, to ensure can handle async call well
+    - make a call to a function which has sleep 3, return text when end
+    - handle loading during the sleeping time
+    - show the returned text

@@ -15,15 +15,15 @@ type Match struct {
 	ContentType                string     `json:"contentType"`
 	Name                       string     `json:"name"`
 	StatusDescription          string     `json:"statusDescription"`
-	HasStreamingURL            bool       `json:"hasStreamingURL"`
 	StreamingURL               string     `json:"streamingURL"`
 	ID                         string     `json:"id"`
 	UrlsDescriptions           struct {
 		Logo string `json:"logo"`
 	} `json:"urlsDescriptions"`
-	Teams         []*Team     `json:"teams"`
-	Status        MatchStatus `json:"status"`
-	VideoOnDemand []string    `json:"videoOnDemand"`
+	Teams            []*Team     `json:"teams"`
+	IsConcludedMatch bool        `json:"isConcludedMatch"`
+	Status           MatchStatus `json:"status"`
+	VideoOnDemand    []string    `json:"videoOnDemand"`
 }
 
 var defaultTeam = &Team{
@@ -65,7 +65,7 @@ func (m *Match) Title() string {
 	switch m.Status {
 	case StatusLive:
 		tmp = "[%d:%d] " + hasNoStreamingIcon + " %s"
-		if m.HasStreamingURL {
+		if m.StreamingURL != "" {
 			tmp = "[%d:%d] " + hasStreamingIcon + " %s"
 		}
 

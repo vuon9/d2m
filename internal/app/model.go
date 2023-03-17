@@ -144,7 +144,7 @@ func newModel(matches []list.Item) tea.Model {
 }
 
 func (m model) Init() tea.Cmd {
-	return tea.EnterAltScreen
+	return nil
 }
 
 // DoFilterSuccessful is used to filter matches by key

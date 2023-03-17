@@ -15,7 +15,6 @@ type Match struct {
 	ContentType                string     `json:"contentType"`
 	Name                       string     `json:"name"`
 	StatusDescription          string     `json:"statusDescription"`
-	HasStreamingURL            bool       `json:"hasStreamingURL"`
 	StreamingURL               string     `json:"streamingURL"`
 	ID                         string     `json:"id"`
 	UrlsDescriptions           struct {
@@ -65,7 +64,7 @@ func (m *Match) Title() string {
 	switch m.Status {
 	case StatusLive:
 		tmp = "[%d:%d] " + hasNoStreamingIcon + " %s"
-		if m.HasStreamingURL {
+		if m.StreamingURL == "" {
 			tmp = "[%d:%d] " + hasStreamingIcon + " %s"
 		}
 

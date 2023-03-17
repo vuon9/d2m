@@ -39,7 +39,14 @@ func (a *app) Run(ctx context.Context) error {
 		items = append(items, match)
 	}
 
-	prog := tea.NewProgram(newModel(items))
+	f, err := tea.LogToFile("debug.log", "debug")
+	if err != nil {
+		return err
+	}
+
+	defer f.Close()
+
+	prog := tea.NewProgram(newModel(items), tea.WithAltScreen())
 	if _, err := prog.Run(); err != nil {
 		return err
 	}

@@ -30,6 +30,12 @@ func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error
 	req.Header.Add("Accept-Encoding", "gzip, deflate, br")
 	req.Header.Add("Cache-Control", "max-age=0")
 
-	return parseUpComingPage(ctx, req)
+	matches := make([]*api.Match, 0)
+	err = crawl(req, "div.matches-list > div:nth-child(2) table.infobox_matches_content > tbody", parseUpComingMatchesPage(&matches))
+	if err != nil {
+		return nil, err
+	}
+
+	return matches, nil
 
 }

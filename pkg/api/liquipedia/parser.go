@@ -16,88 +16,72 @@ import (
 	"github.com/vuon9/d2m/pkg/api"
 )
 
-var secureDomain = "https://liquipedia.net"
+func parseUpComingMatchesPage(matches *[]*api.Match) colly.HTMLCallback {
+	matchHash := make(map[string]struct{})
 
-var allowedDomains = []string{
-	"liquipedia.net",
-	"www.liquipedia.net",
-}
+	return func(e *colly.HTMLElement) {
+		team0 := new(api.Team)
+		team1 := new(api.Team)
 
-func isValidTeamURL(potentialURL string) bool {
-	return !strings.Contains(potentialURL, "/dota2/index.php?title=")
-}
-
-func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, error) {
-	c := colly.NewCollector(
-		colly.AllowedDomains(allowedDomains...),
-		// colly.CacheDir("./_cache"),
-	)
-
-	c.OnRequest(func(r *colly.Request) {
-		for k, v := range req.Header.Clone() {
-			r.Headers.Set(k, v[0])
-		}
-	})
-
-	uniqueMatches := map[string]*api.Match{}
-	c.OnHTML("table.infobox_matches_content > tbody", func(e *colly.HTMLElement) {
-		match := api.Match{
+		match := &api.Match{
 			Teams: []*api.Team{
-				{},
-				{},
+				team0,
+				team1,
 			},
 		}
 
-		e.ForEach("tr > td.team-left", func(i int, e *colly.HTMLElement) {
-			teamLeft := e.ChildAttr("span", "data-highlightingclass")
-			if teamLeft != "" {
-				match.Teams[0].FullName = strings.TrimSpace(teamLeft)
-			}
+		e.ForEach("tr", func(i int, h *colly.HTMLElement) {
+			h.ForEach("td.team-left", func(i int, e *colly.HTMLElement) {
+				teamLeft := e.ChildAttr("span", "data-highlightingclass")
+				if teamLeft != "" {
+					team0.FullName = strings.TrimSpace(teamLeft)
+				}
 
-			if match.Teams[0].FullName == "TBD" {
-				return
-			}
+				if team0.FullName == "TBD" {
+					return
+				}
 
-			match.Teams[0].ShortName = e.ChildText("span.team-template-text")
+				team0.ShortName = e.ChildText("span.team-template-text")
 
-			// skip parsing scores if the match is not started yet
-			t1PotentialRelativeURLs := e.ChildAttrs("a", "href")
-			for _, t1PotentialRelativeURL := range t1PotentialRelativeURLs {
+				// skip parsing scores if the match is not started yet
+				t1PotentialRelativeURLs := e.ChildAttrs("a", "href")
+				for _, t1PotentialRelativeURL := range t1PotentialRelativeURLs {
+					// the sequence of potential relative URLs is not always the same on each match
+					// then better to check if the URL is valid or not
+					if isValidTeamURL(t1PotentialRelativeURL) {
+						team0.TeamProfileLink = secureDomain + t1PotentialRelativeURL
+					} else {
+						team0.TeamProfileLink = ""
+						break
+					}
+				}
+			})
+
+			e.ForEach("td.team-right", func(i int, e *colly.HTMLElement) {
+				teamRight := e.ChildAttr("span", "data-highlightingclass")
+				if teamRight != "" {
+					team1.FullName = strings.TrimSpace(teamRight)
+				}
+
+				// skip parsing scores if the match is not started yet
+				if team1.FullName == "TBD" {
+					return
+				}
+
+				team1.ShortName = e.ChildText("span.team-template-text")
+
 				// the sequence of potential relative URLs is not always the same on each match
 				// then better to check if the URL is valid or not
-				if isValidTeamURL(t1PotentialRelativeURL) {
-					match.Teams[0].TeamProfileLink = secureDomain + t1PotentialRelativeURL
-				} else {
-					match.Teams[0].TeamProfileLink = ""
-					break
+				t2PotentialRelativeURLs := e.ChildAttrs("a", "href")
+				for _, t2PotentialRelativeURL := range t2PotentialRelativeURLs {
+					if isValidTeamURL(t2PotentialRelativeURL) {
+						team1.TeamProfileLink = secureDomain + t2PotentialRelativeURL
+					} else {
+						team1.TeamProfileLink = ""
+						break
+					}
 				}
-			}
-		})
-
-		e.ForEach("tr > td.team-right", func(i int, e *colly.HTMLElement) {
-			teamRight := e.ChildAttr("span", "data-highlightingclass")
-			if teamRight != "" {
-				match.Teams[1].FullName = strings.TrimSpace(teamRight)
-			}
-
-			// skip parsing scores if the match is not started yet
-			if match.Teams[1].FullName == "TBD" {
-				return
-			}
-
-			match.Teams[1].ShortName = e.ChildText("span.team-template-text")
-
-			// the sequence of potential relative URLs is not always the same on each match
-			// then better to check if the URL is valid or not
-			t2PotentialRelativeURLs := e.ChildAttrs("a", "href")
-			for _, t2PotentialRelativeURL := range t2PotentialRelativeURLs {
-				if isValidTeamURL(t2PotentialRelativeURL) {
-					match.Teams[1].TeamProfileLink = secureDomain + t2PotentialRelativeURL
-				} else {
-					match.Teams[1].TeamProfileLink = ""
-					break
-				}
-			}
+			})
 		})
 
 		versus := e.ChildText("tr > td.versus")
@@ -120,8 +104,8 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 				score0, _ := strconv.ParseInt(strings.TrimSpace(rawScores[0]), 10, 64)
 				score1, _ := strconv.ParseInt(strings.TrimSpace(rawScores[1]), 10, 64)
 
-				match.Teams[0].Score = int(score0)
-				match.Teams[1].Score = int(score1)
+				team0.Score = int(score0)
+				team1.Score = int(score1)
 			}
 		}
 
@@ -142,34 +126,22 @@ func parseUpComingPage(ctx context.Context, req *http.Request) ([]*api.Match, er
 				twitchChannelName := h.Attr("data-stream-twitch")
 				if twitchChannelName != "" {
 					match.StreamingURL = buildStreamPageLink(twitchChannelName)
-					match.HasStreamingURL = true
 				}
 			})
 		})
 
-		// Store with has to avoid duplicate matches
+		// Generate a hash to use for checking duplicate content which probably parsed in the previous iteration
+		// A limitation that when a match has TBDs for both team and happen in the same time, then it would not show correctly
 		h := md5.New()
-		_, _ = io.WriteString(h, match.Teams[0].FullName+match.Teams[1].FullName+match.Start.String())
-		uniqueMatches[fmt.Sprintf("%x", h.Sum(nil))] = &match
-	})
+		_, _ = io.WriteString(h, team0.FullName+team1.FullName+match.Start.String())
+		hashMatchID := fmt.Sprintf("%x", h.Sum(nil))
 
-	err := c.Visit(req.URL.String())
-	if err != nil {
-		return nil, err
+		// Only add new item if the hash is new
+		if _, found := matchHash[hashMatchID]; !found {
+			matchHash[hashMatchID] = struct{}{}
+			*matches = append(*matches, match)
+		}
 	}
-
-	matches := make([]*api.Match, 0)
-	for k, m := range uniqueMatches {
-		matches = append(matches, m)
-		uniqueMatches[k] = m
-	}
-
-	return matches, nil
-}
-
-// buildStreamPageLink builds a link to the stream page on liquipedia
-func buildStreamPageLink(channelName string) string {
-	return fmt.Sprintf("%s/dota2/Special:Stream/twitch/%s", secureDomain, channelName)
 }
 
 func parseLiveMatchDetailsPage(ctx context.Context, req *http.Request) ([]*api.LiveTeam, error) {

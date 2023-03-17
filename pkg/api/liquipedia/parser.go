@@ -130,10 +130,12 @@ func parseUpComingMatchesPage(matches *[]*api.Match) colly.HTMLCallback {
 			})
 		})
 
+		match.IsConcludedMatch = team0.FullName != "TBD" && team1.FullName != "TBD"
+
 		// Generate a hash to use for checking duplicate content which probably parsed in the previous iteration
 		// A limitation that when a match has TBDs for both team and happen in the same time, then it would not show correctly
 		h := md5.New()
-		_, _ = io.WriteString(h, team0.FullName+team1.FullName+match.Start.String())
+		_, _ = io.WriteString(h, team0.FullName+team1.FullName+match.CompetitionType+match.Start.String())
 		hashMatchID := fmt.Sprintf("%x", h.Sum(nil))
 
 		// Only add new item if the hash is new

@@ -65,7 +65,7 @@ func (m *Match) Title() string {
 	switch m.Status {
 	case StatusLive:
 		tmp = "[%d:%d] " + hasNoStreamingIcon + " %s"
-		if m.StreamingURL == "" {
+		if m.StreamingURL != "" {
 			tmp = "[%d:%d] " + hasStreamingIcon + " %s"
 		}
 

@@ -8,8 +8,7 @@ import (
 	"github.com/vuon9/d2m/pkg/api/liquipedia"
 )
 
-type App struct {
-}
+type App struct{}
 
 func NewApp() *App {
 	return &App{}

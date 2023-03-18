@@ -101,22 +101,20 @@ func parseUpComingMatchesPage(matches *[]*api.Match) colly.HTMLCallback {
 
 			if lo.Contains([]api.MatchStatus{api.StatusFinished, api.StatusLive}, match.Status) {
 				rawScores := strings.Split(versus, ":")
-				score0, _ := strconv.ParseInt(strings.TrimSpace(rawScores[0]), 10, 64)
-				score1, _ := strconv.ParseInt(strings.TrimSpace(rawScores[1]), 10, 64)
 
-				team0.Score = int(score0)
-				team1.Score = int(score1)
+				team0.Score, _ = strconv.Atoi(strings.TrimSpace(rawScores[0]))
+				team1.Score, _ = strconv.Atoi(strings.TrimSpace(rawScores[1]))
 			}
 		}
 
 		e.ForEach("tr > td.match-filler", func(_ int, el *colly.HTMLElement) {
 			match.Tournament.Name = el.ChildText("div:nth-child(1) > div:nth-child(1) a")
-			el.ForEach("div:nth-child(1) span.league-icon-small-image", func(i int, h *colly.HTMLElement) {
-				match.Tournament.Urls.Page = secureDomain + el.ChildAttr("a", "href")
-				match.Tournament.Urls.Logo = el.ChildAttr("img", "src")
+			el.ForEach("div:nth-child(1) span.league-icon-small-image", func(_ int, h *colly.HTMLElement) {
+				match.Tournament.Urls.Page = secureDomain + h.ChildAttr("a", "href")
+				match.Tournament.Urls.Logo = h.ChildAttr("img", "src")
 			})
 
-			el.ForEach("span > span.timer-object", func(i int, h *colly.HTMLElement) {
+			el.ForEach("span > span.timer-object", func(_ int, h *colly.HTMLElement) {
 				// Get start time of match
 				dataStartTimestamp := h.Attr("data-timestamp")
 				startTimestamp, _ := strconv.ParseInt(dataStartTimestamp, 10, 64)
@@ -151,9 +149,58 @@ func parseLiveMatchDetailsPage(ctx context.Context, req *http.Request) ([]*api.L
 	return nil, nil
 }
 
-func parseTeamProfilePage(ctx context.Context, req *http.Request) (*api.Team, error) {
-	// TODO: Implement
-	return nil, nil
+func parseTeamProfilePage(team *api.Team) colly.HTMLCallback {
+	type playerTableSelector struct {
+		tableSelector string
+		activeStatus  api.PlayerStatus
+	}
+
+	schemas := []playerTableSelector{
+		{
+			activeStatus:  api.Active,
+			tableSelector: "h3:has(span#Active) + div.table-responsive > table.roster-card tr.Player",
+		},
+		{
+			activeStatus:  api.Inactive,
+			tableSelector: "h3:has(span#Inactive) + div.table-responsive > table.roster-card tr.Player",
+		},
+		{
+			activeStatus: api.Former,
+			// Only take the active former table, because there are many inactive former player tables
+			tableSelector: "h3:has(span#Former) + div.active .table-responsive > table.roster-card tr.Player",
+		},
+		{
+			activeStatus:  api.StandIn,
+			tableSelector: "h3:has(span#StandIn) + div.table-responsive > table.roster-card tr.Player",
+		},
+	}
+
+	return func(h *colly.HTMLElement) {
+		team.FullName = h.ChildText("h1#firstHeading span")
+
+		for _, pps := range schemas {
+			h.ForEach(pps.tableSelector, func(_ int, h *colly.HTMLElement) {
+				team.PlayerRoster = append(team.PlayerRoster, &api.Player{
+					ID:   h.ChildText("td.ID a"),
+					Name: h.ChildText("td.Name"),
+					Position: func() api.Position {
+						rawP := h.ChildText("td.Position")
+						if rawP == "" {
+							return api.PosUnknown
+						}
+
+						rawP = rawP[len(rawP)-1:]
+						p, _ := strconv.ParseInt(rawP, 10, 64)
+						return api.Position(p)
+					}(),
+					JoinDate:       sanitizeDateOfPlayerRosterTable(h, "td.Position + td.Date i"),
+					LeaveDate:      sanitizeDateOfPlayerRosterTable(h, "td.Date + td.Date i"),
+					ActiveStatus:   pps.activeStatus,
+					ProfilePageURL: secureDomain + h.ChildAttr("td.ID a", "href"),
+				})
+			})
+		}
+	}
 }
 
 func parseTournamentPage(ctx colly.Context, req *http.Request) (*api.Tournament, error) {

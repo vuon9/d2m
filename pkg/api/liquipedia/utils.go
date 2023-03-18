@@ -45,3 +45,8 @@ func isValidTeamURL(potentialURL string) bool {
 func buildStreamPageLink(channelName string) string {
 	return fmt.Sprintf("%s/dota2/Special:Stream/twitch/%s", secureDomain, channelName)
 }
+
+// Remove ref link's text [1] [11] by separating the string by "[" and taking the first element
+func sanitizeDateOfPlayerRosterTable(h *colly.HTMLElement, selector string) string {
+	return strings.Split(h.ChildText(selector), "[")[0]
+}

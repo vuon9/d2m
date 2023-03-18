@@ -3,42 +3,21 @@ package app
 import (
 	"context"
 
-	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/vuon9/d2m/pkg/api"
+	"github.com/vuon9/d2m/pkg/api/liquipedia"
 )
 
-type app struct {
-	tracker Tracker
+type App struct{}
+
+func NewApp() *App {
+	return &App{}
 }
 
-type Apper interface {
-	Run(ctx context.Context) error
-}
-
-func NewApp() Apper {
-	return &app{
-		tracker: NewTracker(),
-	}
-}
+var apiClient api.Clienter = liquipedia.NewClient()
 
 // RunProgram prints matches as table on terminal
-func (a *app) Run(ctx context.Context) error {
-	matches, err := a.tracker.GetMatches(ctx)
-	if err != nil {
-		return err
-	}
-
-	// for _, match := range matches {
-	// 	fmt.Println(match.Team1().FullName, match.Team2().FullName, match.Start)
-	// 	fmt.Println(match.Team1().TeamProfileLink, match.Team2().TeamProfileLink)
-	// 	fmt.Println()
-	// }
-
-	items := make([]list.Item, 0)
-	for _, match := range matches {
-		items = append(items, match)
-	}
-
+func (a *App) Run(ctx context.Context) error {
 	f, err := tea.LogToFile("debug.log", "debug")
 	if err != nil {
 		return err
@@ -46,7 +25,7 @@ func (a *app) Run(ctx context.Context) error {
 
 	defer f.Close()
 
-	prog := tea.NewProgram(newModel(items), tea.WithAltScreen())
+	prog := tea.NewProgram(newModel(), tea.WithAltScreen())
 	if _, err := prog.Run(); err != nil {
 		return err
 	}

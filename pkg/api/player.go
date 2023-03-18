@@ -2,8 +2,13 @@ package api
 
 type PlayerStatus uint8
 
+func (ps PlayerStatus) String() string {
+	return [...]string{"Active", "Inactive", "Former", "StandIn"}[ps]
+}
+
 const (
-	Active PlayerStatus = iota
+	Unknown PlayerStatus = iota
+	Active
 	Inactive
 	Former
 	StandIn
@@ -11,22 +16,27 @@ const (
 
 type Position uint8
 
+func (p Position) String() string {
+	return [...]string{"Unknown", "1", "2", "3", "4", "5"}[p]
+}
+
 const (
-	Pos1 Position = iota
+	PosUnknown Position = iota
+	Pos1
 	Pos2
 	Pos3
 	Pos4
 	Pos5
-	Sub
 )
 
 type Player struct {
-	ID           string       `json:"gameID"`
-	Name         string       `json:"name"`
-	JoinDate     string       `json:"joinDate"`
-	LeaveDate    string       `json:"leaveDate"`
-	NewTeam      string       `json:"newTeam"`
-	Position     Position     `json:"position"`
-	ActiveStatus PlayerStatus `json:"isActive"`
-	IsCaptain    bool         `json:"isCaptain"`
+	ID             string       `json:"gameID"`
+	Name           string       `json:"name"`
+	JoinDate       string       `json:"joinDate"`
+	LeaveDate      string       `json:"leaveDate"`
+	NewTeam        string       `json:"newTeam"`
+	Position       Position     `json:"position"`
+	ActiveStatus   PlayerStatus `json:"isActive"`
+	IsCaptain      bool         `json:"isCaptain"`
+	ProfilePageURL string       `json:"profilePageURL"`
 }

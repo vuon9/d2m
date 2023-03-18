@@ -6,11 +6,15 @@ require (
 	github.com/BurntSushi/toml v1.2.1
 	github.com/gocolly/colly v1.2.0
 	github.com/samber/lo v1.37.0
+	github.com/urfave/cli/v2 v2.25.0
 )
 
 require (
 	github.com/atotto/clipboard v0.1.4 // indirect
+	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
+	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sahilm/fuzzy v0.1.0 // indirect
+	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	golang.org/x/exp v0.0.0-20221012211006-4de253d81b95 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 )

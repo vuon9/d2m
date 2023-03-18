@@ -1,11 +1,12 @@
 package app
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/charmbracelet/bubbles/key"
 	"github.com/charmbracelet/bubbles/list"
-	"github.com/charmbracelet/bubbles/table"
+	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/vuon9/d2m/pkg/api"
@@ -13,11 +14,11 @@ import (
 
 type (
 	model struct {
+		spinner      spinner.Model
 		listModel    list.Model
-		tableModel   table.Model
 		detailsModel tea.Model
-		items        []list.Item
 		appState     appState
+		items        []*api.Match
 	}
 
 	MatchItem interface {
@@ -70,6 +71,11 @@ var (
 			Foreground(lipgloss.Color("#FFFDF5")).
 			Background(lipgloss.Color("#25A065")).
 			Padding(0, 2)
+
+	headerStyle = lipgloss.NewStyle().
+			Foreground(lipgloss.Color("205"))
+
+	defaultBodyStyle = lipgloss.NewStyle().MarginLeft(2)
 
 	statusMessageStyle = lipgloss.NewStyle().
 				Foreground(lipgloss.AdaptiveColor{Light: "#04B575", Dark: "#04B575"}).
@@ -134,17 +140,22 @@ var filterKeys = matchFilterKeys{
 	Coming:    KeyComingMatches,
 }
 
-func newModel(matches []list.Item) tea.Model {
+func newModel() tea.Model {
+	sp := spinner.New()
+	sp.Spinner = spinner.Dot
+
 	return &model{
-		listModel:  newListView(matches),
-		tableModel: newTableModel(),
-		items:      matches,
-		appState:   showListMatch,
+		spinner:   sp,
+		listModel: newListView(),
+		appState:  showListMatch,
 	}
 }
 
 func (m model) Init() tea.Cmd {
-	return nil
+	return tea.Batch(
+		m.spinner.Tick,
+		getMatches,
+	)
 }
 
 // DoFilterSuccessful is used to filter matches by key
@@ -208,6 +219,13 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		cmds = append(cmds, cmd)
 	case showListMatch:
 		switch msg := msg.(type) {
+		case spinner.TickMsg:
+			var cmd tea.Cmd
+			m.spinner, cmd = m.spinner.Update(msg)
+			return m, cmd
+		case []*api.Match:
+			m.items = msg
+			m.listModel.SetItems(filterMatches(msg, FromToday))
 		case tea.KeyMsg:
 			// If the list is filtering, we want to skip all the keys in this state
 			if m.listModel.FilterState() == list.Filtering {
@@ -253,17 +271,36 @@ func (m model) openStreamingURL() {
 }
 
 func (m model) View() string {
-	view := m.listModel.View()
+	title := titleStyle.Render(m.listModel.Title) + "\n\n"
+	view := title
+
+	if m.appState == showListMatch {
+		if m.items != nil {
+			view = m.listModel.View()
+		} else {
+			view += m.spinner.View() + " Fetching matches"
+			view = defaultBodyStyle.Render(view)
+		}
+	}
+
 	if m.appState == showDetailsMatch {
-		title := titleStyle.Render(m.listModel.Title) + "\n"
 		view = title + m.detailsModel.View()
 	}
 
 	return appStyle.Render(view)
 }
 
-func newListView(matches []list.Item) list.Model {
-	listView := list.New(filterMatches(matches, FromToday), list.NewDefaultDelegate(), 0, 0)
+func getMatches() tea.Msg {
+	matches, err := apiClient.GetScheduledMatches(context.TODO())
+	if err != nil {
+		return err
+	}
+
+	return matches
+}
+
+func newListView() list.Model {
+	listView := list.New([]list.Item{}, list.NewDefaultDelegate(), 0, 0)
 	listView.AdditionalFullHelpKeys = filterKeys.FullHelp
 
 	listView.Title = "D2M - Dota2 Matches Tracker"

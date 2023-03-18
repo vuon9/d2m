@@ -8,11 +8,18 @@ import (
 )
 
 var (
+	defaultHeaders http.Header = map[string][]string{
+		"User-Agent":      {"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"},
+		"Accept":          {"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"},
+		"Accept-Language": {"en-US,en;q=0.9,vi;q=0.8"},
+		"Accept-Encoding": {"gzip, deflate, br"},
+		"Cache-Control":   {"max-age=0"},
+	}
+
 	upComingPageUrl = secureDomain + "/dota2/Liquipedia:Upcoming_and_ongoing_matches"
 )
 
-type Client struct {
-}
+type Client struct{}
 
 func NewClient() *Client {
 	return &Client{}
@@ -24,11 +31,7 @@ func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error
 		return nil, err
 	}
 
-	req.Header.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36")
-	req.Header.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
-	req.Header.Add("Accept-Language", "en-US,en;q=0.9,vi;q=0.8")
-	req.Header.Add("Accept-Encoding", "gzip, deflate, br")
-	req.Header.Add("Cache-Control", "max-age=0")
+	req.Header = defaultHeaders
 
 	matches := make([]*api.Match, 0)
 	err = crawl(req, "div.matches-list > div:nth-child(2) table.infobox_matches_content > tbody", parseUpComingMatchesPage(&matches))
@@ -36,6 +39,33 @@ func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error
 		return nil, err
 	}
 
-	return matches, nil
+	// loop through matches and sort them by ascending date
+	for i := 0; i < len(matches); i++ {
+		for j := i + 1; j < len(matches); j++ {
+			if matches[i].Start.After(matches[j].Start) {
+				matches[i], matches[j] = matches[j], matches[i]
+			}
+		}
+	}
 
+	return matches, nil
+}
+
+func (cre *Client) GetTeamDetailsPage(ctx context.Context, url string) (*api.Team, error) {
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header = defaultHeaders
+
+	team := new(api.Team)
+	team.TeamProfileLink = url
+
+	err = crawl(req, "body", parseTeamProfilePage(team))
+	if err != nil {
+		return nil, err
+	}
+
+	return team, nil
 }

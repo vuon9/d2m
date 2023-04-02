@@ -64,11 +64,11 @@ func (m *Match) Title() string {
 
 	switch m.Status {
 	case StatusLive:
-		tmp = "[%d:%d] " + hasNoStreamingIcon + " %s"
-		if m.StreamingURL != "" {
-			tmp = "[%d:%d] " + hasStreamingIcon + " %s"
+		liveIcon := hasStreamingIcon
+		if m.StreamingURL == "" {
+			liveIcon = hasNoStreamingIcon
 		}
-
+		tmp = "[%d:%d] " + liveIcon + " %s"
 		fallthrough
 	case StatusFinished:
 		typeAndScores = fmt.Sprintf(tmp, m.Team1().Score, m.Team2().Score, m.Status)

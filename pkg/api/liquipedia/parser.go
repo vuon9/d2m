@@ -19,34 +19,6 @@ import (
 func parseUpComingMatchesPage(matches *[]*api.Match) colly.HTMLCallback {
 	matchHash := make(map[string]struct{})
 
-	fetchTeam := func(team *api.Team) func(i int, e *colly.HTMLElement) {
-		return func(_ int, e *colly.HTMLElement) {
-			teamName := e.ChildText("span.team-template-text")
-			if teamName != "" {
-				team.ShortName = teamName
-			}
-
-			teamFullName := e.ChildAttr("span", "data-highlightingclass")
-			if teamFullName != "" {
-				team.FullName = strings.TrimSpace(teamFullName)
-			}
-
-			if team.FullName == "TBD" {
-				return
-			}
-
-			potentialRelURLs := e.ChildAttrs("a", "href")
-			for _, t1PotentialRelativeURL := range potentialRelURLs {
-				// the sequence of potential relative URLs is not always the same on each match
-				// then better to check if the URL is valid or not
-				if team.TeamProfileLink == "" && isValidTeamURL(t1PotentialRelativeURL) {
-					team.TeamProfileLink = secureDomain + t1PotentialRelativeURL
-					break
-				}
-			}
-		}
-	}
-
 	return func(e *colly.HTMLElement) {
 		team0 := new(api.Team)
 		team1 := new(api.Team)
@@ -59,32 +31,11 @@ func parseUpComingMatchesPage(matches *[]*api.Match) colly.HTMLCallback {
 		}
 
 		e.ForEach("tr", func(_ int, h *colly.HTMLElement) {
-			h.ForEach("td.team-left", fetchTeam(team0))
-			h.ForEach("td.team-right", fetchTeam(team1))
+			h.ForEach("td.team-left", parseTeam(team0))
+			h.ForEach("td.team-right", parseTeam(team1))
 		})
 
-		versus := e.ChildText("tr > td.versus")
-		if versus != "" {
-			re := regexp.MustCompile(`([A-Z]\w{2})`)
-			match.CompetitionType = string(re.Find([]byte(versus)))
-
-			// Skip parsing scores if the match is not started yet
-			switch {
-			case strings.Contains(versus, "vs"):
-				match.Status = api.StatusComing
-			case strings.Contains(versus, "Bo"):
-				match.Status = api.StatusLive
-			default:
-				match.Status = api.StatusFinished
-			}
-
-			if lo.Contains([]api.MatchStatus{api.StatusFinished, api.StatusLive}, match.Status) {
-				rawScores := strings.Split(versus, ":")
-
-				team0.Score, _ = strconv.Atoi(strings.TrimSpace(rawScores[0]))
-				team1.Score, _ = strconv.Atoi(strings.TrimSpace(rawScores[1]))
-			}
-		}
+		parseMatchStateAndScores(e, match)
 
 		e.ForEach("tr > td.match-filler", func(_ int, el *colly.HTMLElement) {
 			match.Tournament.Name = el.ChildText("div:nth-child(1) > div:nth-child(1) a")
@@ -119,6 +70,59 @@ func parseUpComingMatchesPage(matches *[]*api.Match) colly.HTMLCallback {
 		if _, found := matchHash[hashMatchID]; !found {
 			matchHash[hashMatchID] = struct{}{}
 			*matches = append(*matches, match)
+		}
+	}
+}
+
+func parseTeam(team *api.Team) func(i int, e *colly.HTMLElement) {
+	return func(_ int, e *colly.HTMLElement) {
+		teamName := e.ChildText("span.team-template-text")
+		if teamName != "" {
+			team.ShortName = teamName
+		}
+
+		teamFullName := e.ChildAttr("span", "data-highlightingclass")
+		if teamFullName != "" {
+			team.FullName = strings.TrimSpace(teamFullName)
+		}
+
+		if team.FullName == "TBD" {
+			return
+		}
+
+		potentialRelURLs := e.ChildAttrs("a", "href")
+		for _, t1PotentialRelativeURL := range potentialRelURLs {
+			// the sequence of potential relative URLs is not always the same on each match
+			// then better to check if the URL is valid or not
+			if team.TeamProfileLink == "" && isValidTeamURL(t1PotentialRelativeURL) {
+				team.TeamProfileLink = secureDomain + t1PotentialRelativeURL
+				break
+			}
+		}
+	}
+}
+
+func parseMatchStateAndScores(e *colly.HTMLElement, match *api.Match) {
+	versus := e.ChildText("tr > td.versus")
+	if versus != "" {
+		re := regexp.MustCompile(`([A-Z]\w{2})`)
+		match.CompetitionType = string(re.Find([]byte(versus)))
+
+		// Skip parsing scores if the match is not started yet
+		switch {
+		case strings.Contains(versus, "vs"):
+			match.Status = api.StatusComing
+		case strings.Contains(versus, "Bo"):
+			match.Status = api.StatusLive
+		default:
+			match.Status = api.StatusFinished
+		}
+
+		if lo.Contains([]api.MatchStatus{api.StatusFinished, api.StatusLive}, match.Status) {
+			rawScores := strings.Split(versus, ":")
+
+			match.Team1().Score, _ = strconv.Atoi(strings.TrimSpace(rawScores[0]))
+			match.Team2().Score, _ = strconv.Atoi(strings.TrimSpace(rawScores[1]))
 		}
 	}
 }
@@ -158,12 +162,12 @@ func parseTeamProfilePage(team *api.Team) colly.HTMLCallback {
 		team.FullName = h.ChildText("h1#firstHeading span")
 
 		for _, pps := range schemas {
-			h.ForEach(pps.tableSelector, parsePlayerRoster(&pps, team))
+			h.ForEach(pps.tableSelector, parsePlayerRoster(pps.activeStatus, team))
 		}
 	}
 }
 
-func parsePlayerRoster(pps *playerTableSelector, team *api.Team) func (_ int, h *colly.HTMLElement) {
+func parsePlayerRoster(playerStatus api.PlayerStatus, team *api.Team) func (_ int, h *colly.HTMLElement) {
 	return func (_ int, h *colly.HTMLElement) {
 		team.PlayerRoster = append(team.PlayerRoster, &api.Player{
 			ID:   h.ChildText("td.ID a"),
@@ -180,7 +184,7 @@ func parsePlayerRoster(pps *playerTableSelector, team *api.Team) func (_ int, h 
 			}(),
 			JoinDate:       sanitizeDateOfPlayerRosterTable(h, "td.Position + td.Date i"),
 			LeaveDate:      sanitizeDateOfPlayerRosterTable(h, "td.Date + td.Date i"),
-			ActiveStatus:   pps.activeStatus,
+			ActiveStatus:   playerStatus,
 			ProfilePageURL: secureDomain + h.ChildAttr("td.ID a", "href"),
 		})
 	}

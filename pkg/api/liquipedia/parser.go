@@ -138,6 +138,7 @@ type playerTableSelector struct {
 }
 
 func parseTeamProfilePage(team *api.Team) colly.HTMLCallback {
+	// TODO: I need to answer to myself, why I need to use a slice of playerTableSelector instead of just one selector?
 	schemas := []playerTableSelector{
 		{
 			activeStatus:  api.Active,

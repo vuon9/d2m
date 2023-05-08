@@ -4,6 +4,7 @@ import (
 	"context"
 	"net/http"
 
+	"github.com/gocolly/colly"
 	"github.com/vuon9/d2m/pkg/api"
 )
 
@@ -39,7 +40,6 @@ func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error
 		return nil, err
 	}
 
-	// loop through matches and sort them by ascending date
 	for i := 0; i < len(matches); i++ {
 		for j := i + 1; j < len(matches); j++ {
 			if matches[i].Start.After(matches[j].Start) {
@@ -62,7 +62,11 @@ func (cre *Client) GetTeamDetailsPage(ctx context.Context, url string) (*api.Tea
 	team := new(api.Team)
 	team.TeamProfileLink = url
 
-	err = crawl(req, "body", parseTeamProfilePage(team))
+	err = crawl(req, "body", func(h *colly.HTMLElement) {
+		team.FullName = h.ChildText("h1#firstHeading span")
+		team.PlayerRoster = parseTeamProfilePage(h)
+	})
+
 	if err != nil {
 		return nil, err
 	}

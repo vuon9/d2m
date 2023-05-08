@@ -137,56 +137,56 @@ type playerTableSelector struct {
 	activeStatus  api.PlayerStatus
 }
 
-func parseTeamProfilePage(team *api.Team) colly.HTMLCallback {
-	schemas := []playerTableSelector{
-		{
-			activeStatus:  api.Active,
-			tableSelector: "h3:has(span#Active) + div.table-responsive > table.roster-card tr.Player",
-		},
-		{
-			activeStatus:  api.Inactive,
-			tableSelector: "h3:has(span#Inactive) + div.table-responsive > table.roster-card tr.Player",
-		},
-		{
-			activeStatus: api.Former,
-			// Only take the active former table, because there are many inactive former player tables
-			tableSelector: "h3:has(span#Former) + div.active .table-responsive > table.roster-card tr.Player",
-		},
-		{
-			activeStatus:  api.StandIn,
-			tableSelector: "h3:has(span#StandIn) + div.table-responsive > table.roster-card tr.Player",
-		},
-	}
+func parseTeamProfilePage(h *colly.HTMLElement) []*api.Player {
+	// schemas := []playerTableSelector{
+	// 	{
+	// 		activeStatus:  api.Active,
+	// 		tableSelector: "h3:has(span#Active) + div.table-responsive > table.roster-card tr.Player",
+	// 	},
+	// 	{
+	// 		activeStatus:  api.Inactive,
+	// 		tableSelector: "h3:has(span#Inactive) + div.table-responsive > table.roster-card tr.Player",
+	// 	},
+	// 	{
+	// 		activeStatus: api.Former,
+	// 		// Only take the active former table, because there are many inactive former player tables
+	// 		tableSelector: "h3:has(span#Former) + div.active .table-responsive > table.roster-card tr.Player",
+	// 	},
+	// 	{
+	// 		activeStatus:  api.StandIn,
+	// 		tableSelector: "h3:has(span#StandIn) + div.table-responsive > table.roster-card tr.Player",
+	// 	},
+	// }
 
-	return func(h *colly.HTMLElement) {
-		team.FullName = h.ChildText("h1#firstHeading span")
+	players := make([]*api.Player, 0)
+	// for _, schema := range schemas {
+	// would improve by getting standin, inactive, and former players
+	h.ForEach("h3:has(span#Active) + div.table-responsive > table.roster-card tr.Player", func(i int, h *colly.HTMLElement) {
+		players = append(players, parsePlayerRoster(h))
+	})
+	// }
 
-		for _, pps := range schemas {
-			h.ForEach(pps.tableSelector, parsePlayerRoster(pps.activeStatus, team))
-		}
-	}
+	return players
 }
 
-func parsePlayerRoster(playerStatus api.PlayerStatus, team *api.Team) func (_ int, h *colly.HTMLElement) {
-	return func (_ int, h *colly.HTMLElement) {
-		team.PlayerRoster = append(team.PlayerRoster, &api.Player{
-			ID:   h.ChildText("td.ID a"),
-			Name: h.ChildText("td.Name"),
-			Position: func() api.Position {
-				rawP := h.ChildText("td.Position")
-				if rawP == "" {
-					return api.PosUnknown
-				}
+func parsePlayerRoster(h *colly.HTMLElement) *api.Player {
+	return &api.Player{
+		ID:   h.ChildText("td.ID a"),
+		Name: h.ChildText("td.Name"),
+		Position: func() api.Position {
+			rawP := h.ChildText("td.Position")
+			if rawP == "" {
+				return api.PosUnknown
+			}
 
-				rawP = rawP[len(rawP)-1:]
-				p, _ := strconv.ParseInt(rawP, 10, 64)
-				return api.Position(p)
-			}(),
-			JoinDate:       sanitizeDateOfPlayerRosterTable(h, "td.Position + td.Date i"),
-			LeaveDate:      sanitizeDateOfPlayerRosterTable(h, "td.Date + td.Date i"),
-			ActiveStatus:   playerStatus,
-			ProfilePageURL: secureDomain + h.ChildAttr("td.ID a", "href"),
-		})
+			rawP = rawP[len(rawP)-1:]
+			p, _ := strconv.ParseInt(rawP, 10, 64)
+			return api.Position(p)
+		}(),
+		JoinDate:       sanitizeDateOfPlayerRosterTable(h, "td.Position + td.Date i"),
+		LeaveDate:      sanitizeDateOfPlayerRosterTable(h, "td.Date + td.Date i"),
+		ActiveStatus:   api.Active,
+		ProfilePageURL: secureDomain + h.ChildAttr("td.ID a", "href"),
 	}
 }
 

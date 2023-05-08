@@ -144,12 +144,12 @@ func (m *detailsModel) View() string {
 
 	teamDetails := headerStyle.Render("Player Roster - Active") + "\n\n"
 
-	activePlayers := []table.Row{}
 	for i, t := range m.match.Teams {
+		activePlayers := []table.Row{}
 		teamDetails += fmt.Sprintf("Team %d: %s\n", i+1, t.FullName)
-		for _, p := range t.PlayerRoster {
+		for j, p := range t.PlayerRoster {
 			activePlayers = append(activePlayers, table.Row{
-				fmt.Sprintf("%d", i+1),
+				fmt.Sprintf("%d", j+1),
 				p.ID,
 				p.Name,
 				p.Position.String(),

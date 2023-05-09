@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/gocolly/colly"
+	"github.com/vuon9/d2m/pkg/api"
 )
 
 var secureDomain = "https://liquipedia.net"
@@ -15,7 +16,11 @@ var allowedDomains = []string{
 	"www.liquipedia.net",
 }
 
-func crawl(req *http.Request, rootSelector string, onHTMLFunc colly.HTMLCallback) error {
+type CrawData interface {
+	[]*api.Match | api.Team
+}
+
+func crawl[T CrawData](req *http.Request, rootSelector string, result *T, parser PageParser) (error) {
 	c := colly.NewCollector(
 		colly.AllowedDomains(allowedDomains...),
 		// colly.CacheDir("./_cache"),
@@ -27,7 +32,7 @@ func crawl(req *http.Request, rootSelector string, onHTMLFunc colly.HTMLCallback
 		}
 	})
 
-	c.OnHTML(rootSelector, onHTMLFunc)
+	c.OnHTML(rootSelector, parser.Parse(result))
 
 	err := c.Visit(req.URL.String())
 	if err != nil {

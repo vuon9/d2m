@@ -17,10 +17,10 @@ var allowedDomains = []string{
 }
 
 type CrawData interface {
-	[]*api.Match | api.Team
+	[]*api.Match | *api.Team
 }
 
-func crawl[T CrawData](req *http.Request, rootSelector string, result *T, parser PageParser) (error) {
+func crawl[T CrawData](req *http.Request, rootSelector string, parser PageParser[T]) (T, error) {
 	c := colly.NewCollector(
 		colly.AllowedDomains(allowedDomains...),
 		// colly.CacheDir("./_cache"),
@@ -32,14 +32,15 @@ func crawl[T CrawData](req *http.Request, rootSelector string, result *T, parser
 		}
 	})
 
-	c.OnHTML(rootSelector, parser.Parse(result))
+	var em T
+	c.OnHTML(rootSelector, parser.Parse())
 
 	err := c.Visit(req.URL.String())
 	if err != nil {
-		return err
+		return em, err
 	}
 
-	return nil
+	return parser.Result()
 }
 
 func isValidTeamURL(potentialURL string) bool {

@@ -8,11 +8,22 @@ import (
 	"github.com/vuon9/d2m/pkg/api"
 )
 
-type TeamProfilePageParser struct {
+type teamProfilePageParser struct {
+	team *api.Team
 }
 
-func (p *TeamProfilePageParser) Parse(anyTeam any) colly.HTMLCallback {
-	team := anyTeam.(*api.Team)
+func NewTeamProfilePageParser() *teamProfilePageParser {
+	return &teamProfilePageParser{
+		team: new(api.Team),
+	}
+}
+
+func (p *teamProfilePageParser) Result() (*api.Team, error) {
+	return p.team, nil
+}
+
+func (p *teamProfilePageParser) Parse() colly.HTMLCallback {
+	team := new(api.Team)
 
 	return func(e *colly.HTMLElement) {
 		team.TeamProfileLink = e.Request.URL.String()
@@ -58,10 +69,12 @@ func (p *TeamProfilePageParser) Parse(anyTeam any) colly.HTMLCallback {
 		wg.Wait()
 
 		team.PlayerRoster = players
+
+		p.team = team
 	}
 }
 
-func (p *TeamProfilePageParser) parsePlayerRoster(h *colly.HTMLElement, s api.PlayerStatus) *api.Player {
+func (p *teamProfilePageParser) parsePlayerRoster(h *colly.HTMLElement, s api.PlayerStatus) *api.Player {
 	return &api.Player{
 		ID:   h.ChildText("td.ID a"),
 		Name: h.ChildText("td.Name"),

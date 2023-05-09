@@ -14,12 +14,24 @@ import (
 	"github.com/vuon9/d2m/pkg/api"
 )
 
-type UpComingMatchesPageParser struct {
+type upComingMatchesPageParser struct {
+	matches []*api.Match
 }
 
-func (p *UpComingMatchesPageParser) Parse(anyMatches any) colly.HTMLCallback {
-	matches := anyMatches.(*[]*api.Match)
+func NewUpComingMatchesPageParser() *upComingMatchesPageParser {
+	return &upComingMatchesPageParser{
+		matches: make([]*api.Match, 0),
+	}
+}
+
+func (p *upComingMatchesPageParser) Result() ([]*api.Match, error) {
+	return p.matches, nil
+}
+
+func (p *upComingMatchesPageParser) Parse() colly.HTMLCallback {
+	// matches := anyMatches.(*[]*api.Match)
 	matchHash := make(map[string]struct{})
+	matches := []*api.Match{}
 
 	return func(e *colly.HTMLElement) {
 		team0 := new(api.Team)
@@ -76,12 +88,14 @@ func (p *UpComingMatchesPageParser) Parse(anyMatches any) colly.HTMLCallback {
 		// Only add new item if the hash is new
 		if _, found := matchHash[hashMatchID]; !found {
 			matchHash[hashMatchID] = struct{}{}
-			*matches = append(*matches, match)
+			matches = append(matches, match)
 		}
+
+		p.matches = matches
 	}
 }
 
-func (p *UpComingMatchesPageParser) parseTeam(e *colly.HTMLElement, team *api.Team) {
+func (p *upComingMatchesPageParser) parseTeam(e *colly.HTMLElement, team *api.Team) {
 	teamName := e.ChildText("span.team-template-text")
 	if teamName != "" {
 		team.ShortName = teamName
@@ -107,7 +121,7 @@ func (p *UpComingMatchesPageParser) parseTeam(e *colly.HTMLElement, team *api.Te
 	}
 }
 
-func (p *UpComingMatchesPageParser) parseMatchStateAndScores(e *colly.HTMLElement, match *api.Match) {
+func (p *upComingMatchesPageParser) parseMatchStateAndScores(e *colly.HTMLElement, match *api.Match) {
 	versus := e.ChildText("tr > td.versus")
 	if versus == "" {
 		return

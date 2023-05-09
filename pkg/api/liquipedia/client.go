@@ -20,8 +20,9 @@ var (
 	upComingPageUrl = secureDomain + "/dota2/Liquipedia:Upcoming_and_ongoing_matches"
 )
 
-type PageParser interface {
-	Parse(res any) colly.HTMLCallback
+type PageParser[T CrawData] interface {
+	Parse() colly.HTMLCallback
+	Result() (T, error)
 }
 
 type Client struct{}
@@ -38,13 +39,8 @@ func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error
 
 	req.Header = defaultHeaders
 
-	matches := make([]*api.Match, 0)
-	err = crawl(
-		req,
-		"div.matches-list > div:nth-child(2) table.infobox_matches_content > tbody",
-		&matches,
-		&UpComingMatchesPageParser{},
-	)
+	selector := "div.matches-list > div:nth-child(2) table.infobox_matches_content > tbody"
+	matches, err := crawl[[]*api.Match](req, selector, NewUpComingMatchesPageParser())
 	if err != nil {
 		return nil, err
 	}
@@ -68,8 +64,7 @@ func (cre *Client) GetTeamDetailsPage(ctx context.Context, url string) (*api.Tea
 
 	req.Header = defaultHeaders
 
-	team := new(api.Team)
-	err = crawl(req, "body", team, &TeamProfilePageParser{})
+	team, err := crawl[*api.Team](req, "body", NewTeamProfilePageParser())
 	if err != nil {
 		return nil, err
 	}

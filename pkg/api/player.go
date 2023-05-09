@@ -14,7 +14,7 @@ const (
 	StandIn
 )
 
-type Position uint8
+type Position int
 
 func (p Position) String() string {
 	return [...]string{"Unknown", "1", "2", "3", "4", "5"}[p]

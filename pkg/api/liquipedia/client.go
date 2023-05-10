@@ -21,6 +21,7 @@ var (
 )
 
 type PageParser[T CrawData] interface {
+	RootSelector() string
 	Parse() colly.HTMLCallback
 	Result() (T, error)
 }
@@ -31,16 +32,24 @@ func NewClient() *Client {
 	return &Client{}
 }
 
-func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error) {
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, upComingPageUrl, nil)
+func newLiquipediaRequest(ctx context.Context, method, url string) (*http.Request, error) {
+	req, err := http.NewRequestWithContext(ctx, method, url, nil)
 	if err != nil {
 		return nil, err
 	}
 
 	req.Header = defaultHeaders
 
-	selector := "div.matches-list > div:nth-child(2) table.infobox_matches_content > tbody"
-	matches, err := crawl[[]*api.Match](req, selector, NewUpComingMatchesPageParser())
+	return req, nil
+}
+
+func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error) {
+	req, err := newLiquipediaRequest(ctx, http.MethodGet, upComingPageUrl)
+	if err != nil {
+		return nil, err
+	}
+
+	matches, err := crawl[[]*api.Match](req, NewUpComingMatchesPageParser())
 	if err != nil {
 		return nil, err
 	}
@@ -57,14 +66,12 @@ func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*api.Match, error
 }
 
 func (cre *Client) GetTeamDetailsPage(ctx context.Context, url string) (*api.Team, error) {
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	req, err := newLiquipediaRequest(ctx, http.MethodGet, url)
 	if err != nil {
 		return nil, err
 	}
 
-	req.Header = defaultHeaders
-
-	team, err := crawl[*api.Team](req, "body", NewTeamProfilePageParser())
+	team, err := crawl[*api.Team](req, NewTeamProfilePageParser())
 	if err != nil {
 		return nil, err
 	}

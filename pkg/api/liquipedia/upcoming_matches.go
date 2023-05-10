@@ -15,13 +15,19 @@ import (
 )
 
 type upComingMatchesPageParser struct {
+	rootSelector string
 	matches []*api.Match
 }
 
 func NewUpComingMatchesPageParser() *upComingMatchesPageParser {
 	return &upComingMatchesPageParser{
+		rootSelector: "div.matches-list > div:nth-child(2) table.infobox_matches_content > tbody",
 		matches: make([]*api.Match, 0),
 	}
+}
+
+func (p *upComingMatchesPageParser) RootSelector() string {
+	return p.rootSelector
 }
 
 func (p *upComingMatchesPageParser) Result() ([]*api.Match, error) {
@@ -29,7 +35,6 @@ func (p *upComingMatchesPageParser) Result() ([]*api.Match, error) {
 }
 
 func (p *upComingMatchesPageParser) Parse() colly.HTMLCallback {
-	// matches := anyMatches.(*[]*api.Match)
 	matchHash := make(map[string]struct{})
 	matches := []*api.Match{}
 

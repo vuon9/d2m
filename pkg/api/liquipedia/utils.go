@@ -20,7 +20,7 @@ type CrawData interface {
 	[]*api.Match | *api.Team
 }
 
-func crawl[T CrawData](req *http.Request, rootSelector string, parser PageParser[T]) (T, error) {
+func crawl[T CrawData](req *http.Request, parser PageParser[T]) (T, error) {
 	c := colly.NewCollector(
 		colly.AllowedDomains(allowedDomains...),
 		// colly.CacheDir("./_cache"),
@@ -33,7 +33,7 @@ func crawl[T CrawData](req *http.Request, rootSelector string, parser PageParser
 	})
 
 	var em T
-	c.OnHTML(rootSelector, parser.Parse())
+	c.OnHTML(parser.RootSelector(), parser.Parse())
 
 	err := c.Visit(req.URL.String())
 	if err != nil {

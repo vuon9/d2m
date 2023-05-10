@@ -1,6 +1,7 @@
 package liquipedia
 
 import (
+	"net/http"
 	"strconv"
 	"sync"
 
@@ -9,13 +10,20 @@ import (
 )
 
 type teamProfilePageParser struct {
+	req *http.Request
+	rootSelector string
 	team *api.Team
 }
 
 func NewTeamProfilePageParser() *teamProfilePageParser {
 	return &teamProfilePageParser{
+		rootSelector: "body",
 		team: new(api.Team),
 	}
+}
+
+func (p *teamProfilePageParser) RootSelector() string {
+	return p.rootSelector
 }
 
 func (p *teamProfilePageParser) Result() (*api.Team, error) {

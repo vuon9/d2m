@@ -1,4 +1,4 @@
-package app
+package d2m
 
 import (
 	"time"

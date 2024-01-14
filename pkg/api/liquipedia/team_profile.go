@@ -10,15 +10,15 @@ import (
 )
 
 type teamProfilePageParser struct {
-	req *http.Request
+	req          *http.Request
 	rootSelector string
-	team *api.Team
+	team         *api.Team
 }
 
 func NewTeamProfilePageParser() *teamProfilePageParser {
 	return &teamProfilePageParser{
 		rootSelector: "body",
-		team: new(api.Team),
+		team:         new(api.Team),
 	}
 }
 
@@ -52,7 +52,7 @@ func (p *teamProfilePageParser) Parse() colly.HTMLCallback {
 				tableSelector: "h3:has(span#Inactive) + div.table-responsive > table.roster-card tr.Player",
 			},
 			{
-				activeStatus: api.Former,
+				activeStatus:  api.Former,
 				tableSelector: "h3:has(span#Former) + div.active .table-responsive > table.roster-card tr.Player",
 			},
 			{
@@ -93,7 +93,8 @@ func (p *teamProfilePageParser) parsePlayerRoster(h *colly.HTMLElement, s api.Pl
 			}
 
 			rawP = rawP[len(rawP)-1:]
-			p, _ := strconv.ParseInt(rawP, 10, 64)
+			p, _ := strconv.Atoi(rawP)
+
 			return api.Position(p)
 		}(),
 		JoinDate:       sanitizeDateOfPlayerRosterTable(h, "td.Position + td.Date i"),

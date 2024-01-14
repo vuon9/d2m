@@ -29,11 +29,11 @@ func newDetailsModel(match *api.Match) tea.Model {
 	return m
 }
 
-func fetchTeams(match *api.Match) func() tea.Msg {
+func fetchTeams(teams []*api.Team) func() tea.Msg {
 	return func() tea.Msg {
 		urls := []string{}
 
-		for _, team := range match.Teams {
+		for _, team := range teams {
 			if team.TeamProfileLink == "" {
 				continue
 			}
@@ -44,17 +44,16 @@ func fetchTeams(match *api.Match) func() tea.Msg {
 		wg := sync.WaitGroup{}
 		teams := make([]*api.Team, 0)
 
-		var lastErr error
-
 		for _, url := range urls {
 			wg.Add(1)
 
 			go func(url string) {
 				defer wg.Done()
+
 				team, err := apiClient.GetTeamDetailsPage(context.TODO(), url)
 				if err != nil {
-					lastErr = errors.New(fmt.Sprintf("Error while fetching team details: %s, url: %s", err.Error(), url))
-					return
+					team = new(api.Team)
+					team.LastError = errors.New(fmt.Sprintf("Error while fetching team details: %s, url: %s", err.Error(), url))
 				}
 
 				teams = append(teams, team)
@@ -62,10 +61,6 @@ func fetchTeams(match *api.Match) func() tea.Msg {
 		}
 
 		wg.Wait()
-
-		if lastErr != nil {
-			return lastErr
-		}
 
 		return teams
 	}
@@ -80,7 +75,7 @@ func (m *detailsModel) resetSpinner() {
 func (m *detailsModel) Init() tea.Cmd {
 	return tea.Batch(
 		spinner.Tick,
-		fetchTeams(m.match),
+		fetchTeams(m.match.Teams),
 	)
 }
 

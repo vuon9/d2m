@@ -64,11 +64,12 @@ func (m *Match) Title() string {
 
 	switch m.Status {
 	case StatusLive:
-		liveIcon := hasNoStreamingIcon
+		prefix := hasNoStreamingIcon
 		if m.StreamingURL != "" {
-			liveIcon = hasStreamingIcon
+			prefix = hasStreamingIcon
 		}
-		tmp = "[%d:%d] " + liveIcon + " %s"
+
+		tmp = fmt.Sprintf("%s %s", tmp, prefix)
 		fallthrough
 	case StatusFinished:
 		typeAndScores = fmt.Sprintf(tmp, m.Team1().Score, m.Team2().Score, m.Status)
@@ -87,20 +88,27 @@ func (m *Match) Description() string {
 
 // GeneralTitle uses for filtering only
 func (m *Match) GeneralTitle() string {
-	team1Name := hasTeamProfile
-	if m.Team1().TeamProfileLink == "" {
-		team1Name = hasNoTeamProfile
+	team1Name := m.Team1().FullName
+	if team1Name == "" {
+		team1Name = "TBD"
 	}
 
-	team2Name := hasTeamProfile
-	if m.Team2().TeamProfileLink == "" {
-		team2Name = hasNoTeamProfile
+	team2Name := m.Team2().FullName
+	if team2Name == "" {
+		team2Name = "TBD"
 	}
 
-	team1Name += " " + m.Team1().FullName
-	team2Name += " " + m.Team2().FullName
+	team1Icon := hasNoTeamProfile + m.Team1().TeamProfileLink
+	if m.Team1().TeamProfileLink != "" {
+		team1Icon = hasTeamProfile
+	}
 
-	vs := fmt.Sprintf("%s vs. %s", team1Name, team2Name)
+	team2Icon := hasNoTeamProfile + m.Team2().TeamProfileLink
+	if m.Team2().TeamProfileLink != "" {
+		team2Icon = hasTeamProfile
+	}
+
+	vs := fmt.Sprintf("%s %s vs. %s %s", team1Icon, team1Name, team2Icon, team2Name)
 	if m.CompetitionType != "" {
 		vs += fmt.Sprintf(" (%s)", m.CompetitionType)
 	}

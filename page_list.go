@@ -240,11 +240,25 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			switch {
 			case msg.String() == "enter":
 				match, ok := m.listModel.SelectedItem().(*api.Match)
-				if ok {
+				hasAnyLinks := false
+				for i, t := range match.Teams {
+					if t.TeamProfileLink != "" {
+						hasAnyLinks = true
+						break
+					}
+
+					if i == 1 {
+						break
+					}
+				}
+
+				if ok && hasAnyLinks {
 					m.listModel.NewStatusMessage(fmt.Sprintf("Choose match %s", match.GeneralTitle()))
 					m.appState = showDetailsMatch
 					m.detailsModel = newDetailsModel(match)
 					return m, m.detailsModel.Init()
+				} else {
+					m.listModel.NewStatusMessage("No team info available")
 				}
 
 				return m, nil

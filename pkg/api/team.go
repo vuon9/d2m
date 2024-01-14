@@ -45,4 +45,5 @@ type Team struct {
 	Archivements           []*League `json:"archivements"`
 	RecentMatches          []*Match  `json:"recentMatches"`
 	Articles               []*Link   `json:"articles"`
+	LastError              error     `json:"lastError"`
 }

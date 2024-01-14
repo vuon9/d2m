@@ -16,13 +16,13 @@ import (
 
 type upComingMatchesPageParser struct {
 	rootSelector string
-	matches []*api.Match
+	matches      []*api.Match
 }
 
 func NewUpComingMatchesPageParser() *upComingMatchesPageParser {
 	return &upComingMatchesPageParser{
 		rootSelector: "div.matches-list > div:nth-child(2) table.infobox_matches_content > tbody",
-		matches: make([]*api.Match, 0),
+		matches:      make([]*api.Match, 0),
 	}
 }
 

@@ -3,7 +3,7 @@ package liquipedia
 import (
 	"net/http"
 	"strconv"
-	"sync"
+	"strings"
 
 	"github.com/gocolly/colly"
 	"github.com/vuon9/d2m/pkg/api"
@@ -31,11 +31,9 @@ func (p *teamProfilePageParser) Result() (*api.Team, error) {
 }
 
 func (p *teamProfilePageParser) Parse() colly.HTMLCallback {
-	team := new(api.Team)
-
 	return func(e *colly.HTMLElement) {
-		team.TeamProfileLink = e.Request.URL.String()
-		team.FullName = e.ChildText("h1#firstHeading span")
+		p.team.TeamProfileLink = e.Request.URL.String()
+		p.team.FullName = e.ChildText("h1#firstHeading .mw-page-title-main")
 
 		type playerTableSelector struct {
 			tableSelector string
@@ -45,49 +43,42 @@ func (p *teamProfilePageParser) Parse() colly.HTMLCallback {
 		schemas := []playerTableSelector{
 			{
 				activeStatus:  api.Active,
+				tableSelector: "h3:has(span#Active_Roster) + div.table-responsive > table.roster-card tr.Player",
+			},
+			{
+				activeStatus:  api.Active,
 				tableSelector: "h3:has(span#Active) + div.table-responsive > table.roster-card tr.Player",
 			},
-			{
-				activeStatus:  api.Inactive,
-				tableSelector: "h3:has(span#Inactive) + div.table-responsive > table.roster-card tr.Player",
-			},
-			{
-				activeStatus:  api.Former,
-				tableSelector: "h3:has(span#Former) + div.active .table-responsive > table.roster-card tr.Player",
-			},
-			{
-				activeStatus:  api.StandIn,
-				tableSelector: "h3:has(span#StandIn) + div.table-responsive > table.roster-card tr.Player",
-			},
 		}
 
-		players := make([]*api.Player, 0)
-
-		wg := sync.WaitGroup{}
-		wg.Add(len(schemas))
+		p.team.PlayerRoster = make([]*api.Player, 0)
 		for _, schema := range schemas {
-			go func(s playerTableSelector, pl *[]*api.Player) {
-				e.ForEach(s.tableSelector, func(_ int, h *colly.HTMLElement) {
-					*pl = append(*pl, p.parsePlayerRoster(h, s.activeStatus))
-				})
-				wg.Done()
-			}(schema, &players)
+			e.ForEachWithBreak(schema.tableSelector, func(_ int, h *colly.HTMLElement) bool {
+				player := p.parsePlayerRoster(h, schema.activeStatus)
+				if player == nil {
+					return false
+				}
+
+				p.team.PlayerRoster = append(p.team.PlayerRoster, player)
+				return true
+			})
 		}
-
-		wg.Wait()
-
-		team.PlayerRoster = players
-
-		p.team = team
 	}
 }
 
 func (p *teamProfilePageParser) parsePlayerRoster(h *colly.HTMLElement, s api.PlayerStatus) *api.Player {
+	id := h.ChildText("td.ID")
+	position := h.ChildText("td.Position")
+
+	if strings.TrimSpace(id) == "" || strings.TrimSpace(position) == "" {
+		return nil
+	}
+
 	return &api.Player{
-		ID:   h.ChildText("td.ID a"),
+		ID:   id,
 		Name: h.ChildText("td.Name"),
 		Position: func() api.Position {
-			rawP := h.ChildText("td.Position")
+			rawP := position
 			if rawP == "" {
 				return api.PosUnknown
 			}

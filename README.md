@@ -33,4 +33,4 @@ Or download the binary from [release page](https://github.com/vuon9/d2m/releases
 - Display icons to help you quickly identify the status:
     - Team has info: ◆ (but not 100% sure if it has roster, some teams have no roster or no info at all)
     - Team has no info (e.g TBD): ◇
-    - Live match has streaming page: Twitch icon
+    - Live match has streaming page: Twitch icon (has to install Nerdfont to display correctly)

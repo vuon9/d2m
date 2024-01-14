@@ -1,6 +1,7 @@
 package d2m
 
 import (
+	"regexp"
 	"time"
 
 	"github.com/charmbracelet/bubbles/list"
@@ -54,4 +55,24 @@ func filterMatches(items []*api.Match, mf matchFilter) []list.Item {
 	}
 
 	return filteredItems
+}
+
+func RegexFilter(term string, targets []string) []list.Rank {
+	var result []list.Rank
+
+	for i, target := range targets {
+		regexp, err := regexp.Compile(term)
+		if err != nil {
+			continue
+		}
+
+		if regexp.MatchString(target) {
+			result = append(result, list.Rank{
+				Index:          i,
+				MatchedIndexes: []int{0},
+			})
+		}
+	}
+
+	return result
 }

@@ -52,7 +52,7 @@ func (m *Match) Team2() *Team {
 
 var (
 	defaultTemplate    = "[%d:%d] %s"
-	hasStreamingIcon   = "\u25b6"
+	hasStreamingIcon   = "\ufa42"
 	hasNoStreamingIcon = "\u25b7"
 	hasTeamProfile     = "\u25c6"
 	hasNoTeamProfile   = "\u25c7"
@@ -64,9 +64,9 @@ func (m *Match) Title() string {
 
 	switch m.Status {
 	case StatusLive:
-		liveIcon := hasStreamingIcon
-		if m.StreamingURL == "" {
-			liveIcon = hasNoStreamingIcon
+		liveIcon := hasNoStreamingIcon
+		if m.StreamingURL != "" {
+			liveIcon = hasStreamingIcon
 		}
 		tmp = "[%d:%d] " + liveIcon + " %s"
 		fallthrough
@@ -78,7 +78,7 @@ func (m *Match) Title() string {
 		typeAndScores = fmt.Sprintf("%s", m.Status)
 	}
 
-	return fmt.Sprintf("%s - %s", typeAndScores, m.GeneralTitle())
+	return fmt.Sprintf("%s %s", typeAndScores, m.GeneralTitle())
 }
 
 func (m *Match) Description() string {

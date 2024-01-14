@@ -1,4 +1,4 @@
-package main
+package d2m
 
 import (
 	"io"

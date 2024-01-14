@@ -1,4 +1,4 @@
-package cmd
+package main
 
 import (
 	"context"
@@ -6,20 +6,20 @@ import (
 	"os"
 
 	"github.com/urfave/cli/v2"
-	iapp "github.com/vuon9/d2m/internal/app"
+	"github.com/vuon9/d2m"
 )
 
-func Execute() {
+func main() {
 	app := &cli.App{
 		Name: "d2m",
 		Action: func(*cli.Context) error {
-			prog := iapp.NewApp()
+			prog := d2m.NewApp()
 			return prog.Run(context.Background())
 		},
 		Commands: []*cli.Command{
 			{
 				Name:        "test",
-				Subcommands: iapp.GetSubCommands(),
+				Subcommands: d2m.GetSubCommands(),
 			},
 		},
 	}

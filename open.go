@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package app
+package d2m
 
 import (
 	"fmt"

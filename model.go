@@ -1,4 +1,4 @@
-package app
+package d2m
 
 import (
 	"context"
@@ -14,11 +14,11 @@ import (
 
 type (
 	model struct {
-		spinner      spinner.Model
 		listModel    list.Model
 		detailsModel tea.Model
-		appState     appState
 		items        []*api.Match
+		spinner      spinner.Model
+		appState     appState
 	}
 
 	MatchItem interface {
@@ -39,7 +39,6 @@ type keyMap struct {
 	KeyOpenStreamURL    key.Binding
 }
 
-// TODO: Missing help menu for these keys
 func (km keyMap) FullHelp() []key.Binding {
 	return []key.Binding{
 		km.KeyAllMatches,
@@ -111,12 +110,7 @@ const (
 type matchFilterKeys map[matchFilter]key.Binding
 
 func (m matchFilterKeys) FullHelp() []key.Binding {
-	var keys []key.Binding
-	for _, k := range m {
-		keys = append(keys, k)
-	}
-
-	return keys
+	return helpOptions
 }
 
 func IsFilterKey(msg tea.KeyMsg) bool {
@@ -138,6 +132,17 @@ var filterKeys = matchFilterKeys{
 	Live:      KeyLiveMatches,
 	Finished:  KeyFinishedMatches,
 	Coming:    KeyComingMatches,
+}
+
+var helpOptions = []key.Binding{
+	KeyAllMatches,
+	KeyFromTodayMatches,
+	KeyTodayMatches,
+	KeyTomorrowMatches,
+	KeyYesterdayMatches,
+	KeyLiveMatches,
+	KeyFinishedMatches,
+	KeyComingMatches,
 }
 
 func newModel() tea.Model {
@@ -302,6 +307,7 @@ func getMatches() tea.Msg {
 func newListView() list.Model {
 	listView := list.New([]list.Item{}, list.NewDefaultDelegate(), 0, 0)
 	listView.AdditionalFullHelpKeys = filterKeys.FullHelp
+	listView.Filter = RegexFilter
 
 	listView.Title = "D2M - Dota2 Matches Tracker"
 	listView.Styles.Title = titleStyle

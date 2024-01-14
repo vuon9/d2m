@@ -9,6 +9,10 @@ on:
   release:
     types: [created]
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   releases-matrix:
     name: Release Go Binary
@@ -22,8 +26,8 @@ jobs:
           - goarch: "386"
             goos: darwin
     steps:
-    - uses: actions/checkout@v2
-    - uses: wangyoucao577/go-release-action@v1.20
+    - uses: actions/checkout@v3
+    - uses: wangyoucao577/go-release-action@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: ${{ matrix.goos }}
@@ -31,4 +35,4 @@ jobs:
         goversion: "https://dl.google.com/go/go1.18.8.linux-amd64.tar.gz"
         # project_path: "./cmd/test-binary"
         binary_name: "d2m"
-        extra_files: LICENSE
+        extra_files: LICENSE README.md

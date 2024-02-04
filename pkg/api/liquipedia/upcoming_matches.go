@@ -11,18 +11,18 @@ import (
 
 	"github.com/gocolly/colly"
 	"github.com/samber/lo"
-	"github.com/vuon9/d2m/service/api/models"
+	"github.com/vuon9/d2m/pkg/api/model"
 )
 
 type upComingMatchesPageParser struct {
 	rootSelector string
-	matches      []*models.Match
+	matches      []*model.Match
 }
 
 func NewUpComingMatchesPageParser() *upComingMatchesPageParser {
 	return &upComingMatchesPageParser{
 		rootSelector: "div.matches-list > div:nth-child(2) table.infobox_matches_content > tbody",
-		matches:      make([]*models.Match, 0),
+		matches:      make([]*model.Match, 0),
 	}
 }
 
@@ -30,20 +30,20 @@ func (p *upComingMatchesPageParser) RootSelector() string {
 	return p.rootSelector
 }
 
-func (p *upComingMatchesPageParser) Result() ([]*models.Match, error) {
+func (p *upComingMatchesPageParser) Result() ([]*model.Match, error) {
 	return p.matches, nil
 }
 
 func (p *upComingMatchesPageParser) Parse() colly.HTMLCallback {
 	matchHash := make(map[string]struct{})
-	matches := []*models.Match{}
+	matches := []*model.Match{}
 
 	return func(e *colly.HTMLElement) {
-		team0 := new(models.Team)
-		team1 := new(models.Team)
+		team0 := new(model.Team)
+		team1 := new(model.Team)
 
-		match := &models.Match{
-			Teams: []*models.Team{
+		match := &model.Match{
+			Teams: []*model.Team{
 				team0,
 				team1,
 			},
@@ -100,7 +100,7 @@ func (p *upComingMatchesPageParser) Parse() colly.HTMLCallback {
 	}
 }
 
-func (p *upComingMatchesPageParser) parseTeam(e *colly.HTMLElement, team *models.Team) {
+func (p *upComingMatchesPageParser) parseTeam(e *colly.HTMLElement, team *model.Team) {
 	teamName := e.ChildText("span.team-template-text")
 	if teamName != "" {
 		team.ShortName = teamName
@@ -126,7 +126,7 @@ func (p *upComingMatchesPageParser) parseTeam(e *colly.HTMLElement, team *models
 	}
 }
 
-func (p *upComingMatchesPageParser) parseMatchStateAndScores(e *colly.HTMLElement, match *models.Match) {
+func (p *upComingMatchesPageParser) parseMatchStateAndScores(e *colly.HTMLElement, match *model.Match) {
 	versus := e.ChildText("tr > td.versus")
 	if versus == "" {
 		return
@@ -137,14 +137,14 @@ func (p *upComingMatchesPageParser) parseMatchStateAndScores(e *colly.HTMLElemen
 	// Skip parsing scores if the match is not started yet
 	switch {
 	case strings.Contains(versus, "vs"):
-		match.Status = models.StatusComing
+		match.Status = model.StatusComing
 	case strings.Contains(versus, "Bo"):
-		match.Status = models.StatusLive
+		match.Status = model.StatusLive
 	default:
-		match.Status = models.StatusFinished
+		match.Status = model.StatusFinished
 	}
 
-	if lo.Contains([]models.MatchStatus{models.StatusFinished, models.StatusLive}, match.Status) {
+	if lo.Contains([]model.MatchStatus{model.StatusFinished, model.StatusLive}, match.Status) {
 		rawScores := strings.Split(versus, ":")
 
 		match.Team1().Score, _ = strconv.Atoi(strings.TrimSpace(rawScores[0]))

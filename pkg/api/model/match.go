@@ -1,4 +1,4 @@
-package models
+package model
 
 import (
 	"fmt"
@@ -7,23 +7,23 @@ import (
 )
 
 type Match struct {
-	Start                      time.Time  `json:"start"`
-	Tournament                 Tournament `json:"tournament"`
-	Tier                       string     `json:"tier"`
-	CompetitionType            string     `json:"competitionType"`
-	CompetitionTypeDescription string     `json:"competitionTypeDescription"`
-	ContentType                string     `json:"contentType"`
-	Name                       string     `json:"name"`
-	StatusDescription          string     `json:"statusDescription"`
-	StreamingURL               string     `json:"streamingURL"`
-	ID                         string     `json:"id"`
+	Start                      time.Time   `json:"start"`
+	CompetitionType            string      `json:"competitionType"`
+	IsConcludedMatch           bool        `json:"isConcludedMatch"`
+	Status                     MatchStatus `json:"status"`
+	Tournament                 Tournament  `json:"tournament"`
+	Tier                       string      `json:"tier,omitempty"`
+	CompetitionTypeDescription string      `json:"competitionTypeDescription,omitempty"`
+	ContentType                string      `json:"contentType,omitempty"`
+	Name                       string      `json:"name,omitempty"`
+	StatusDescription          string      `json:"statusDescription,omitempty"`
+	StreamingURL               string      `json:"streamingURL,omitempty"`
+	ID                         string      `json:"id"`
 	UrlsDescriptions           struct {
-		Logo string `json:"logo"`
+		Logo string `json:"logo,omitempty"`
 	} `json:"urlsDescriptions"`
-	Teams            []*Team     `json:"teams"`
-	IsConcludedMatch bool        `json:"isConcludedMatch"`
-	Status           MatchStatus `json:"status"`
-	VideoOnDemand    []string    `json:"videoOnDemand"`
+	Teams         []*Team  `json:"teams"`
+	VideoOnDemand []string `json:"videoOnDemand"`
 }
 
 var defaultTeam = &Team{

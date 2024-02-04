@@ -1,0 +1,65 @@
+{
+    "createdAt": "0001-01-01T00:00:00Z",
+    "id": "",
+    "teamProfileLink": "https://liquipedia.net/dota2/OG",
+    "shortName": "",
+    "fullName": "OG",
+    "players": [
+        {
+            "gameID": "Yuragi",
+            "name": "(Artem Golubiev)",
+            "joinDate": "2021-11-21",
+            "leaveDate": "",
+            "newTeam": "",
+            "position": 1,
+            "isActive": 1,
+            "isCaptain": false,
+            "profilePageURL": "https://liquipedia.net/dota2/Yuragi"
+        },
+        {
+            "gameID": "bzm",
+            "name": "(Bozhidar Bogdanov)",
+            "joinDate": "2021-11-21",
+            "leaveDate": "",
+            "newTeam": "",
+            "position": 2,
+            "isActive": 1,
+            "isCaptain": false,
+            "profilePageURL": "https://liquipedia.net/dota2/Bzm"
+        },
+        {
+            "gameID": "Wisper",
+            "name": "(Adrián Céspedes Dobles)",
+            "joinDate": "2023-11-12",
+            "leaveDate": "",
+            "newTeam": "",
+            "position": 3,
+            "isActive": 1,
+            "isCaptain": false,
+            "profilePageURL": "https://liquipedia.net/dota2/Wisper"
+        },
+        {
+            "gameID": "Ari",
+            "name": "(Matthew Walker)",
+            "joinDate": "2023-11-12",
+            "leaveDate": "",
+            "newTeam": "",
+            "position": 4,
+            "isActive": 1,
+            "isCaptain": false,
+            "profilePageURL": "https://liquipedia.net/dota2/Ari"
+        },
+        {
+            "gameID": "Ceb",
+            "name": "(Sébastien Debs)",
+            "joinDate": "2023-07-30",
+            "leaveDate": "",
+            "newTeam": "",
+            "position": 5,
+            "isActive": 1,
+            "isCaptain": false,
+            "profilePageURL": "https://liquipedia.net/dota2/Ceb"
+        }
+    ],
+    "score": 0
+}

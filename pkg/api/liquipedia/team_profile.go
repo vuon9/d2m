@@ -6,19 +6,19 @@ import (
 	"strings"
 
 	"github.com/gocolly/colly"
-	"github.com/vuon9/d2m/service/api/models"
+	"github.com/vuon9/d2m/pkg/api/model"
 )
 
 type teamProfilePageParser struct {
 	req          *http.Request
 	rootSelector string
-	team         *models.Team
+	team         *model.Team
 }
 
 func NewTeamProfilePageParser() *teamProfilePageParser {
 	return &teamProfilePageParser{
 		rootSelector: "body",
-		team:         new(models.Team),
+		team:         new(model.Team),
 	}
 }
 
@@ -26,7 +26,7 @@ func (p *teamProfilePageParser) RootSelector() string {
 	return p.rootSelector
 }
 
-func (p *teamProfilePageParser) Result() (*models.Team, error) {
+func (p *teamProfilePageParser) Result() (*model.Team, error) {
 	return p.team, nil
 }
 
@@ -37,21 +37,21 @@ func (p *teamProfilePageParser) Parse() colly.HTMLCallback {
 
 		type playerTableSelector struct {
 			tableSelector string
-			activeStatus  models.PlayerStatus
+			activeStatus  model.PlayerStatus
 		}
 
 		schemas := []playerTableSelector{
 			{
-				activeStatus:  models.Active,
+				activeStatus:  model.Active,
 				tableSelector: "h3:has(span#Active_Roster) + div.table-responsive > table.roster-card tr.Player",
 			},
 			{
-				activeStatus:  models.Active,
+				activeStatus:  model.Active,
 				tableSelector: "h3:has(span#Active) + div.table-responsive > table.roster-card tr.Player",
 			},
 		}
 
-		p.team.PlayerRoster = make([]*models.Player, 0)
+		p.team.PlayerRoster = make([]*model.Player, 0)
 		for _, schema := range schemas {
 			e.ForEachWithBreak(schema.tableSelector, func(_ int, h *colly.HTMLElement) bool {
 				player := p.parsePlayerRoster(h, schema.activeStatus)
@@ -66,7 +66,7 @@ func (p *teamProfilePageParser) Parse() colly.HTMLCallback {
 	}
 }
 
-func (p *teamProfilePageParser) parsePlayerRoster(h *colly.HTMLElement, s models.PlayerStatus) *models.Player {
+func (p *teamProfilePageParser) parsePlayerRoster(h *colly.HTMLElement, s model.PlayerStatus) *model.Player {
 	id := h.ChildText("td.ID")
 	position := h.ChildText("td.Position")
 
@@ -74,19 +74,19 @@ func (p *teamProfilePageParser) parsePlayerRoster(h *colly.HTMLElement, s models
 		return nil
 	}
 
-	return &models.Player{
+	return &model.Player{
 		ID:   id,
 		Name: h.ChildText("td.Name"),
-		Position: func() models.Position {
+		Position: func() model.Position {
 			rawP := position
 			if rawP == "" {
-				return models.PosUnknown
+				return model.PosUnknown
 			}
 
 			rawP = rawP[len(rawP)-1:]
 			p, _ := strconv.Atoi(rawP)
 
-			return models.Position(p)
+			return model.Position(p)
 		}(),
 		JoinDate:       sanitizeDateOfPlayerRosterTable(h, "td.Position + td.Date i"),
 		LeaveDate:      sanitizeDateOfPlayerRosterTable(h, "td.Date + td.Date i"),

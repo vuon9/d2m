@@ -4,14 +4,14 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"time"
 
 	"github.com/gocolly/colly"
-	"github.com/vuon9/d2m/pkg/api/clients"
-	"github.com/vuon9/d2m/service/api/models"
+	"github.com/vuon9/d2m/pkg/api"
+	"github.com/vuon9/d2m/pkg/api/models"
 )
 
 const (
@@ -72,11 +72,11 @@ func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context) ([]*models.
 	defer res.Body.Close()
 
 	if res.StatusCode == http.StatusUnauthorized {
-		return nil, clients.ErrMatchUnauthorized
+		return nil, api.ErrMatchUnauthorized
 	}
 
 	if res.StatusCode == http.StatusOK {
-		body, err := ioutil.ReadAll(res.Body)
+		body, err := io.ReadAll(res.Body)
 		if err != nil {
 			return nil, err
 		}

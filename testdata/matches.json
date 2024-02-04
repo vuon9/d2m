@@ -1,0 +1,5159 @@
+[
+    {
+        "start": "2024-02-03T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "cope",
+                "fullName": "copeDAO",
+                "teamProfileLink": "https://liquipedia.net/dota2/CopeDAO",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Astro",
+                "fullName": "Astronaut Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Astronaut_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Dinos",
+                "fullName": "Degen Dinos",
+                "teamProfileLink": "https://liquipedia.net/dota2/Degen_Dinos",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "YBN",
+                "fullName": "YodiBrodi Nexus",
+                "teamProfileLink": "https://liquipedia.net/dota2/YodiBrodi_Nexus",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Lil Nns",
+                "fullName": "Lil Nouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Lil_Nouns",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "THV",
+                "fullName": "The Honored Vanguard",
+                "teamProfileLink": "https://liquipedia.net/dota2/The_Honored_Vanguard",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Pnouns",
+                "fullName": "Pronouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Pronouns",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Spork",
+                "fullName": "Sporkface Killaz",
+                "teamProfileLink": "https://liquipedia.net/dota2/Sporkface_Killaz",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Contnm",
+                "fullName": "Continuum Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Continuum_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "FryBoys",
+                "fullName": "FryBoys",
+                "teamProfileLink": "https://liquipedia.net/dota2/FryBoys",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Chomp",
+                "fullName": "Chompers",
+                "teamProfileLink": "https://liquipedia.net/dota2/Chompers",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "BoG",
+                "fullName": "Bullish on Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/Bullish_on_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "cope.T",
+                "fullName": "copeDAO Tanuki",
+                "teamProfileLink": "https://liquipedia.net/dota2/CopeDAO_Tanuki",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "ARS",
+                "fullName": "Astronaut Rising Stars",
+                "teamProfileLink": "https://liquipedia.net/dota2/Astronaut_Rising_Stars",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Dinos2",
+                "fullName": "Degen Dinos Div2",
+                "teamProfileLink": "https://liquipedia.net/dota2/Degen_Dinos_Div2",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "YBN.F",
+                "fullName": "YodiBrodi Nexus Future",
+                "teamProfileLink": "https://liquipedia.net/dota2/YodiBrodi_Nexus_Future",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T12:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Trust",
+                "fullName": "Team Trust",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Trust",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Parb",
+                "fullName": "Me Parb",
+                "teamProfileLink": "https://liquipedia.net/dota2/Me_Parb",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T15:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Batam",
+                "fullName": "Batam Pride",
+                "teamProfileLink": "https://liquipedia.net/dota2/Batam_Pride",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Tough",
+                "fullName": "Team Tough",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Tough",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T17:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "EPL Season 16",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/European_Pro_League/16"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "NextUp",
+                "fullName": "NextUp",
+                "teamProfileLink": "https://liquipedia.net/dota2/NextUp",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "NAVI Jr.",
+                "fullName": "NAVI Junior",
+                "teamProfileLink": "https://liquipedia.net/dota2/NAVI_Junior",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T17:15:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Talon",
+                "fullName": "Talon Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Talon_Esports",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Nirvana",
+                "fullName": "MAG.Nirvana",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Nirvana",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Geek",
+                "fullName": "Geek Fam",
+                "teamProfileLink": "https://liquipedia.net/dota2/Geek_Fam",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "IHC",
+                "fullName": "IHC Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/IHC_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T20:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "EPL Season 16",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/European_Pro_League/16"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "MB",
+                "fullName": "MarsBet Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/MarsBet_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "SIBE",
+                "fullName": "SIBE Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/SIBE_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-03T23:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "EPL Season 16",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/European_Pro_League/16"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Tickles",
+                "fullName": "Team Tickles",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Tickles",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "NP",
+                "fullName": "Ninja Penguins",
+                "teamProfileLink": "https://liquipedia.net/dota2/Ninja_Penguins",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T04:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "EPL World Series AM S9",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/EPL_World_Series/America/9"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN1",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "x5",
+                "fullName": "x5 Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/X5_Gaming",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Infinity",
+                "fullName": "Infinity",
+                "teamProfileLink": "https://liquipedia.net/dota2/Infinity",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T04:30:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "Frios Show 2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/e/e3/Frios_Show_2_Logo.png/50px-Frios_Show_2_Logo.png",
+                "pageUrl": "https://liquipedia.net/dota2/Frios_Show_2"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Parimatch_Esports",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Kingteka",
+                "fullName": "Team Kingteka",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Kingteka",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Jericho",
+                "fullName": "Team Jericho",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Jericho",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T05:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "United 1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/United_Series_icon_allmode.png/50px-United_Series_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/United_Series/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Esports_United_Ukraine",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Luxor",
+                "fullName": "Luxor Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/Luxor_Gaming",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "kaiser",
+                "fullName": "kaiser",
+                "teamProfileLink": "https://liquipedia.net/dota2/Kaiser",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T07:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "Frios Show 2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/e/e3/Frios_Show_2_Logo.png/50px-Frios_Show_2_Logo.png",
+                "pageUrl": "https://liquipedia.net/dota2/Frios_Show_2"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Parimatch_Esports",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Benjaz",
+                "fullName": "Team Benjaz",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Benjaz",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Kingteka",
+                "fullName": "Team Kingteka",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Kingteka",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "cope.T",
+                "fullName": "copeDAO Tanuki",
+                "teamProfileLink": "https://liquipedia.net/dota2/CopeDAO_Tanuki",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "THVR",
+                "fullName": "The Honored Vanguard Recruits",
+                "teamProfileLink": "https://liquipedia.net/dota2/The_Honored_Vanguard_Recruits",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Dinos2",
+                "fullName": "Degen Dinos Div2",
+                "teamProfileLink": "https://liquipedia.net/dota2/Degen_Dinos_Div2",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Spork2",
+                "fullName": "Sporkface Killaz Div2",
+                "teamProfileLink": "https://liquipedia.net/dota2/Sporkface_Killaz_Div2",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Lil Nns2",
+                "fullName": "Lil Nouns Div2",
+                "teamProfileLink": "https://liquipedia.net/dota2/Lil_Nouns_Div2",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "FB Jr.",
+                "fullName": "FryBoys Jr.",
+                "teamProfileLink": "https://liquipedia.net/dota2/FryBoys_Jr.",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Pnouns2",
+                "fullName": "Pronouns2",
+                "teamProfileLink": "https://liquipedia.net/dota2/Pronouns2",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "BoG Lite",
+                "fullName": "BoG Lite",
+                "teamProfileLink": "https://liquipedia.net/dota2/BoG_Lite",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "CE.Blue",
+                "fullName": "Continuum Esports Blue",
+                "teamProfileLink": "https://liquipedia.net/dota2/Continuum_Esports_Blue",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Chomp X",
+                "fullName": "Chompers X",
+                "teamProfileLink": "https://liquipedia.net/dota2/Chompers_X",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Astro",
+                "fullName": "Astronaut Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Astronaut_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "YBN",
+                "fullName": "YodiBrodi Nexus",
+                "teamProfileLink": "https://liquipedia.net/dota2/YodiBrodi_Nexus",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "cope",
+                "fullName": "copeDAO",
+                "teamProfileLink": "https://liquipedia.net/dota2/CopeDAO",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "THV",
+                "fullName": "The Honored Vanguard",
+                "teamProfileLink": "https://liquipedia.net/dota2/The_Honored_Vanguard",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Dinos",
+                "fullName": "Degen Dinos",
+                "teamProfileLink": "https://liquipedia.net/dota2/Degen_Dinos",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Spork",
+                "fullName": "Sporkface Killaz",
+                "teamProfileLink": "https://liquipedia.net/dota2/Sporkface_Killaz",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/nadcleague",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Lil Nns",
+                "fullName": "Lil Nouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Lil_Nouns",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "FryBoys",
+                "fullName": "FryBoys",
+                "teamProfileLink": "https://liquipedia.net/dota2/FryBoys",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Pnouns",
+                "fullName": "Pronouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Pronouns",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "BoG",
+                "fullName": "Bullish on Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/Bullish_on_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Contnm",
+                "fullName": "Continuum Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Continuum_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Chomp",
+                "fullName": "Chompers",
+                "teamProfileLink": "https://liquipedia.net/dota2/Chompers",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "ARS",
+                "fullName": "Astronaut Rising Stars",
+                "teamProfileLink": "https://liquipedia.net/dota2/Astronaut_Rising_Stars",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "YBN.F",
+                "fullName": "YodiBrodi Nexus Future",
+                "teamProfileLink": "https://liquipedia.net/dota2/YodiBrodi_Nexus_Future",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T08:15:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "United 1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/United_Series_icon_allmode.png/50px-United_Series_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/United_Series/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Esports_United_Ukraine",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Hokori",
+                "fullName": "Hokori",
+                "teamProfileLink": "https://liquipedia.net/dota2/Hokori",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Silk",
+                "fullName": "Team Silk",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Silk",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "cope.T",
+                "fullName": "copeDAO Tanuki",
+                "teamProfileLink": "https://liquipedia.net/dota2/CopeDAO_Tanuki",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "FB Jr.",
+                "fullName": "FryBoys Jr.",
+                "teamProfileLink": "https://liquipedia.net/dota2/FryBoys_Jr.",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Dinos2",
+                "fullName": "Degen Dinos Div2",
+                "teamProfileLink": "https://liquipedia.net/dota2/Degen_Dinos_Div2",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "BoG Lite",
+                "fullName": "BoG Lite",
+                "teamProfileLink": "https://liquipedia.net/dota2/BoG_Lite",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Lil Nns2",
+                "fullName": "Lil Nouns Div2",
+                "teamProfileLink": "https://liquipedia.net/dota2/Lil_Nouns_Div2",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Chomp X",
+                "fullName": "Chompers X",
+                "teamProfileLink": "https://liquipedia.net/dota2/Chompers_X",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Pnouns2",
+                "fullName": "Pronouns2",
+                "teamProfileLink": "https://liquipedia.net/dota2/Pronouns2",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "CE.Blue",
+                "fullName": "Continuum Esports Blue",
+                "teamProfileLink": "https://liquipedia.net/dota2/Continuum_Esports_Blue",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/nadcleague",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "THV",
+                "fullName": "The Honored Vanguard",
+                "teamProfileLink": "https://liquipedia.net/dota2/The_Honored_Vanguard",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Astro",
+                "fullName": "Astronaut Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Astronaut_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "YBN",
+                "fullName": "YodiBrodi Nexus",
+                "teamProfileLink": "https://liquipedia.net/dota2/YodiBrodi_Nexus",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Spork",
+                "fullName": "Sporkface Killaz",
+                "teamProfileLink": "https://liquipedia.net/dota2/Sporkface_Killaz",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "cope",
+                "fullName": "copeDAO",
+                "teamProfileLink": "https://liquipedia.net/dota2/CopeDAO",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "FryBoys",
+                "fullName": "FryBoys",
+                "teamProfileLink": "https://liquipedia.net/dota2/FryBoys",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Dinos",
+                "fullName": "Degen Dinos",
+                "teamProfileLink": "https://liquipedia.net/dota2/Degen_Dinos",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "BoG",
+                "fullName": "Bullish on Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/Bullish_on_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Lil Nns",
+                "fullName": "Lil Nouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Lil_Nouns",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Chomp",
+                "fullName": "Chompers",
+                "teamProfileLink": "https://liquipedia.net/dota2/Chompers",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_1"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Pnouns",
+                "fullName": "Pronouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Pronouns",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Contnm",
+                "fullName": "Continuum Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Continuum_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "THVR",
+                "fullName": "The Honored Vanguard Recruits",
+                "teamProfileLink": "https://liquipedia.net/dota2/The_Honored_Vanguard_Recruits",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "ARS",
+                "fullName": "Astronaut Rising Stars",
+                "teamProfileLink": "https://liquipedia.net/dota2/Astronaut_Rising_Stars",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T10:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "NADCL S6 D2",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/8/8e/NADCL_League_S4_icon.png",
+                "pageUrl": "https://liquipedia.net/dota2/North_American_Dota_Challengers_League/Season_6/Division_2"
+            }
+        },
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "YBN.F",
+                "fullName": "YodiBrodi Nexus Future",
+                "teamProfileLink": "https://liquipedia.net/dota2/YodiBrodi_Nexus_Future",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Spork2",
+                "fullName": "Sporkface Killaz Div2",
+                "teamProfileLink": "https://liquipedia.net/dota2/Sporkface_Killaz_Div2",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T12:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Freedom",
+                "fullName": "Team Freedom (Southeast Asian team)",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Freedom_(Southeast_Asian_team)",
+                "score": 2,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "YG",
+                "fullName": "Yangon Galacticos",
+                "teamProfileLink": "https://liquipedia.net/dota2/Yangon_Galacticos",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T14:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "MIPH",
+                "fullName": "Made in Philippines",
+                "teamProfileLink": "https://liquipedia.net/dota2/Made_in_Philippines",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Parb",
+                "fullName": "Me Parb",
+                "teamProfileLink": "https://liquipedia.net/dota2/Me_Parb",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T15:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Nirvana",
+                "fullName": "MAG.Nirvana",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Nirvana",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Geek",
+                "fullName": "Geek Fam",
+                "teamProfileLink": "https://liquipedia.net/dota2/Geek_Fam",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Parb",
+                "fullName": "Me Parb",
+                "teamProfileLink": "https://liquipedia.net/dota2/Me_Parb",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "MAG.ID",
+                "fullName": "MAG.Indonesia",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Indonesia",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T16:20:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Aurora",
+                "fullName": "Aurora",
+                "teamProfileLink": "https://liquipedia.net/dota2/Aurora",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "VP",
+                "fullName": "Virtus.pro",
+                "teamProfileLink": "https://liquipedia.net/dota2/Virtus.pro",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T16:25:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "BB",
+                "fullName": "BetBoom Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/BetBoom_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "XG",
+                "fullName": "Xtreme Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/Xtreme_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T17:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "EPL Season 16",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/European_Pro_League/16"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Klee",
+                "fullName": "Team Klee",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Klee",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "KZ",
+                "fullName": "KZ Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/KZ_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T17:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "IHC",
+                "fullName": "IHC Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/IHC_Esports",
+                "score": 1,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Batam",
+                "fullName": "Batam Pride",
+                "teamProfileLink": "https://liquipedia.net/dota2/Batam_Pride",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T18:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 2,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Polaris",
+                "fullName": "Polaris Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Polaris_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "MAG.ID",
+                "fullName": "MAG.Indonesia",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Indonesia",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Tough",
+                "fullName": "Team Tough",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Tough",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Talon",
+                "fullName": "Talon Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Talon_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "GG",
+                "fullName": "Gaimin Gladiators",
+                "teamProfileLink": "https://liquipedia.net/dota2/Gaimin_Gladiators",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Liquid",
+                "fullName": "Team Liquid",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Liquid",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "AR",
+                "fullName": "Azure Ray",
+                "teamProfileLink": "https://liquipedia.net/dota2/Azure_Ray",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "OG",
+                "fullName": "OG",
+                "teamProfileLink": "https://liquipedia.net/dota2/OG",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T20:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "EPL Season 16",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/European_Pro_League/16"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "NP",
+                "fullName": "Ninja Penguins",
+                "teamProfileLink": "https://liquipedia.net/dota2/Ninja_Penguins",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "NAVI Jr.",
+                "fullName": "NAVI Junior",
+                "teamProfileLink": "https://liquipedia.net/dota2/NAVI_Junior",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T22:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Falcons",
+                "fullName": "Team Falcons",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Falcons",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "LGD",
+                "fullName": "LGD Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/LGD_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T22:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "TSpirit",
+                "fullName": "Team Spirit",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Spirit",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "nouns",
+                "fullName": "nouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Nouns",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-04T23:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "EPL Season 16",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/European_Pro_League/16"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "SIBE",
+                "fullName": "SIBE Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/SIBE_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T01:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "EPL World Series AM S9",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/EPL_World_Series/America/9"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN1",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Stereo",
+                "fullName": "Stereophonics",
+                "teamProfileLink": "https://liquipedia.net/dota2/Stereophonics",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "South",
+                "fullName": "South Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/South_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T04:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "EPL World Series AM S9",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/EPL_World_Series/America/9"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN1",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Infinity",
+                "fullName": "Infinity",
+                "teamProfileLink": "https://liquipedia.net/dota2/Infinity",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Hokori",
+                "fullName": "Hokori",
+                "teamProfileLink": "https://liquipedia.net/dota2/Hokori",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T05:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "United 1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/United_Series_icon_allmode.png/50px-United_Series_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/United_Series/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Esports_United_Ukraine",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "kaiser",
+                "fullName": "kaiser",
+                "teamProfileLink": "https://liquipedia.net/dota2/Kaiser",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Bird",
+                "fullName": "Lucky Bird",
+                "teamProfileLink": "https://liquipedia.net/dota2/Lucky_Bird",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T08:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "United 1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/United_Series_icon_allmode.png/50px-United_Series_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/United_Series/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Esports_United_Ukraine",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "GoH",
+                "fullName": "Gods Of Hell",
+                "teamProfileLink": "https://liquipedia.net/dota2/Gods_Of_Hell",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Bird",
+                "fullName": "Lucky Bird",
+                "teamProfileLink": "https://liquipedia.net/dota2/Lucky_Bird",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T12:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Polaris",
+                "fullName": "Polaris Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Polaris_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Nirvana",
+                "fullName": "MAG.Nirvana",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Nirvana",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T14:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Polaris",
+                "fullName": "Polaris Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Polaris_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Ardour",
+                "fullName": "Ardour",
+                "teamProfileLink": "https://liquipedia.net/dota2/Ardour",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T15:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "IHC",
+                "fullName": "IHC Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/IHC_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Nirvana",
+                "fullName": "MAG.Nirvana",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Nirvana",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "YG",
+                "fullName": "Yangon Galacticos",
+                "teamProfileLink": "https://liquipedia.net/dota2/Yangon_Galacticos",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Nirvana",
+                "fullName": "MAG.Nirvana",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Nirvana",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "GG",
+                "fullName": "Gaimin Gladiators",
+                "teamProfileLink": "https://liquipedia.net/dota2/Gaimin_Gladiators",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Aurora",
+                "fullName": "Aurora",
+                "teamProfileLink": "https://liquipedia.net/dota2/Aurora",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "BB",
+                "fullName": "BetBoom Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/BetBoom_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "OG",
+                "fullName": "OG",
+                "teamProfileLink": "https://liquipedia.net/dota2/OG",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T17:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Geek",
+                "fullName": "Geek Fam",
+                "teamProfileLink": "https://liquipedia.net/dota2/Geek_Fam",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Tough",
+                "fullName": "Team Tough",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Tough",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T18:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "YG",
+                "fullName": "Yangon Galacticos",
+                "teamProfileLink": "https://liquipedia.net/dota2/Yangon_Galacticos",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Ardour",
+                "fullName": "Ardour",
+                "teamProfileLink": "https://liquipedia.net/dota2/Ardour",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Batam",
+                "fullName": "Batam Pride",
+                "teamProfileLink": "https://liquipedia.net/dota2/Batam_Pride",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Talon",
+                "fullName": "Talon Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Talon_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "VP",
+                "fullName": "Virtus.pro",
+                "teamProfileLink": "https://liquipedia.net/dota2/Virtus.pro",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "LGD",
+                "fullName": "LGD Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/LGD_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "AR",
+                "fullName": "Azure Ray",
+                "teamProfileLink": "https://liquipedia.net/dota2/Azure_Ray",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "nouns",
+                "fullName": "nouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Nouns",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T22:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Liquid",
+                "fullName": "Team Liquid",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Liquid",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Falcons",
+                "fullName": "Team Falcons",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Falcons",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-05T22:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "XG",
+                "fullName": "Xtreme Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/Xtreme_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "TSpirit",
+                "fullName": "Team Spirit",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Spirit",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T01:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "EPL World Series AM S9",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/EPL_World_Series/America/9"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN1",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Lava",
+                "fullName": "Lava Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Lava_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "x5",
+                "fullName": "x5 Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/X5_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T04:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "EPL World Series AM S9",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/EPL_World_Series/America/9"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN1",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Acat",
+                "fullName": "AcatSuki",
+                "teamProfileLink": "https://liquipedia.net/dota2/AcatSuki",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Infinity",
+                "fullName": "Infinity",
+                "teamProfileLink": "https://liquipedia.net/dota2/Infinity",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T05:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "United 1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/United_Series_icon_allmode.png/50px-United_Series_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/United_Series/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Esports_United_Ukraine",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Qhali",
+                "fullName": "Qhali",
+                "teamProfileLink": "https://liquipedia.net/dota2/Qhali",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "kaiser",
+                "fullName": "kaiser",
+                "teamProfileLink": "https://liquipedia.net/dota2/Kaiser",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T07:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "EPL World Series AM S9",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/EPL_World_Series/America/9"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN1",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Silk",
+                "fullName": "Team Silk",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Silk",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "South",
+                "fullName": "South Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/South_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T08:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "United 1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/United_Series_icon_allmode.png/50px-United_Series_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/United_Series/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Esports_United_Ukraine",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "GoH",
+                "fullName": "Gods Of Hell",
+                "teamProfileLink": "https://liquipedia.net/dota2/Gods_Of_Hell",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Silk",
+                "fullName": "Team Silk",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Silk",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T12:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Trust",
+                "fullName": "Team Trust",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Trust",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "YG",
+                "fullName": "Yangon Galacticos",
+                "teamProfileLink": "https://liquipedia.net/dota2/Yangon_Galacticos",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T14:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Nirvana",
+                "fullName": "MAG.Nirvana",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Nirvana",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Parb",
+                "fullName": "Me Parb",
+                "teamProfileLink": "https://liquipedia.net/dota2/Me_Parb",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T15:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Talon",
+                "fullName": "Talon Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Talon_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Geek",
+                "fullName": "Geek Fam",
+                "teamProfileLink": "https://liquipedia.net/dota2/Geek_Fam",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "YG",
+                "fullName": "Yangon Galacticos",
+                "teamProfileLink": "https://liquipedia.net/dota2/Yangon_Galacticos",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Polaris",
+                "fullName": "Polaris Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Polaris_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "OG",
+                "fullName": "OG",
+                "teamProfileLink": "https://liquipedia.net/dota2/OG",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "nouns",
+                "fullName": "nouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Nouns",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Aurora",
+                "fullName": "Aurora",
+                "teamProfileLink": "https://liquipedia.net/dota2/Aurora",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "LGD",
+                "fullName": "LGD Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/LGD_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T17:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Tough",
+                "fullName": "Team Tough",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Tough",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "IHC",
+                "fullName": "IHC Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/IHC_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T18:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Trust",
+                "fullName": "Team Trust",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Trust",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "MAG.ID",
+                "fullName": "MAG.Indonesia",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Indonesia",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Nirvana",
+                "fullName": "MAG.Nirvana",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Nirvana",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Batam",
+                "fullName": "Batam Pride",
+                "teamProfileLink": "https://liquipedia.net/dota2/Batam_Pride",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "BB",
+                "fullName": "BetBoom Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/BetBoom_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "TSpirit",
+                "fullName": "Team Spirit",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Spirit",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "GG",
+                "fullName": "Gaimin Gladiators",
+                "teamProfileLink": "https://liquipedia.net/dota2/Gaimin_Gladiators",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Falcons",
+                "fullName": "Team Falcons",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Falcons",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T22:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "XG",
+                "fullName": "Xtreme Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/Xtreme_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "AR",
+                "fullName": "Azure Ray",
+                "teamProfileLink": "https://liquipedia.net/dota2/Azure_Ray",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-06T22:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Liquid",
+                "fullName": "Team Liquid",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Liquid",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "VP",
+                "fullName": "Virtus.pro",
+                "teamProfileLink": "https://liquipedia.net/dota2/Virtus.pro",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T01:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "EPL World Series AM S9",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/EPL_World_Series/America/9"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN1",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Hokori",
+                "fullName": "Hokori",
+                "teamProfileLink": "https://liquipedia.net/dota2/Hokori",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Acat",
+                "fullName": "AcatSuki",
+                "teamProfileLink": "https://liquipedia.net/dota2/AcatSuki",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T04:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "EPL World Series AM S9",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/EPL_World_Series/America/9"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN1",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "South",
+                "fullName": "South Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/South_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Infinity",
+                "fullName": "Infinity",
+                "teamProfileLink": "https://liquipedia.net/dota2/Infinity",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T05:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "United 1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/United_Series_icon_allmode.png/50px-United_Series_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/United_Series/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Esports_United_Ukraine",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "kaiser",
+                "fullName": "kaiser",
+                "teamProfileLink": "https://liquipedia.net/dota2/Kaiser",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "x5",
+                "fullName": "x5 Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/X5_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T07:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "EPL World Series AM S9",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b9/European_Pro_League_2023_icon_darkmode.png/50px-European_Pro_League_2023_icon_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/EPL_World_Series/America/9"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/EPL_Dota_EN1",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Silk",
+                "fullName": "Team Silk",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Silk",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "x5",
+                "fullName": "x5 Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/X5_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T08:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "United 1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/United_Series_icon_allmode.png/50px-United_Series_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/United_Series/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Esports_United_Ukraine",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Stereo",
+                "fullName": "Stereophonics",
+                "teamProfileLink": "https://liquipedia.net/dota2/Stereophonics",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Hokori",
+                "fullName": "Hokori",
+                "teamProfileLink": "https://liquipedia.net/dota2/Hokori",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T12:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "MIPH",
+                "fullName": "Made in Philippines",
+                "teamProfileLink": "https://liquipedia.net/dota2/Made_in_Philippines",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Goofy",
+                "fullName": "Private Goofy",
+                "teamProfileLink": "https://liquipedia.net/dota2/Private_Goofy",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T14:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "New Year Cup",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/b/b3/WDS_New_Year_Cup_2024_icon_allmode.png/50px-WDS_New_Year_Cup_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/World_Dota_Series/New_Year_Cup/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/WorldDotaSeries",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "YG",
+                "fullName": "Yangon Galacticos",
+                "teamProfileLink": "https://liquipedia.net/dota2/Yangon_Galacticos",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "MIPH",
+                "fullName": "Made in Philippines",
+                "teamProfileLink": "https://liquipedia.net/dota2/Made_in_Philippines",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T15:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "IHC",
+                "fullName": "IHC Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/IHC_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Talon",
+                "fullName": "Talon Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Talon_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "BB",
+                "fullName": "BetBoom Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/BetBoom_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "nouns",
+                "fullName": "nouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Nouns",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "GG",
+                "fullName": "Gaimin Gladiators",
+                "teamProfileLink": "https://liquipedia.net/dota2/Gaimin_Gladiators",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "LGD",
+                "fullName": "LGD Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/LGD_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "XG",
+                "fullName": "Xtreme Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/Xtreme_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "OG",
+                "fullName": "OG",
+                "teamProfileLink": "https://liquipedia.net/dota2/OG",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Falcons",
+                "fullName": "Team Falcons",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Falcons",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "VP",
+                "fullName": "Virtus.pro",
+                "teamProfileLink": "https://liquipedia.net/dota2/Virtus.pro",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T22:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "TSpirit",
+                "fullName": "Team Spirit",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Spirit",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "AR",
+                "fullName": "Azure Ray",
+                "teamProfileLink": "https://liquipedia.net/dota2/Azure_Ray",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-07T22:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Liquid",
+                "fullName": "Team Liquid",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Liquid",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Aurora",
+                "fullName": "Aurora",
+                "teamProfileLink": "https://liquipedia.net/dota2/Aurora",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-08T15:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Goofy",
+                "fullName": "Private Goofy",
+                "teamProfileLink": "https://liquipedia.net/dota2/Private_Goofy",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Bleed",
+                "fullName": "Bleed Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Bleed_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-08T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "GG",
+                "fullName": "Gaimin Gladiators",
+                "teamProfileLink": "https://liquipedia.net/dota2/Gaimin_Gladiators",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "VP",
+                "fullName": "Virtus.pro",
+                "teamProfileLink": "https://liquipedia.net/dota2/Virtus.pro",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-08T16:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "XG",
+                "fullName": "Xtreme Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/Xtreme_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "nouns",
+                "fullName": "nouns",
+                "teamProfileLink": "https://liquipedia.net/dota2/Nouns",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-08T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Immortal",
+                "fullName": "The Immortal",
+                "teamProfileLink": "https://liquipedia.net/dota2/The_Immortal",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "XctN",
+                "fullName": "Execration",
+                "teamProfileLink": "https://liquipedia.net/dota2/Execration",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-08T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Falcons",
+                "fullName": "Team Falcons",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Falcons",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Aurora",
+                "fullName": "Aurora",
+                "teamProfileLink": "https://liquipedia.net/dota2/Aurora",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-08T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "BB",
+                "fullName": "BetBoom Team",
+                "teamProfileLink": "https://liquipedia.net/dota2/BetBoom_Team",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "AR",
+                "fullName": "Azure Ray",
+                "teamProfileLink": "https://liquipedia.net/dota2/Azure_Ray",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-08T22:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Liquid",
+                "fullName": "Team Liquid",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Liquid",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "LGD",
+                "fullName": "LGD Gaming",
+                "teamProfileLink": "https://liquipedia.net/dota2/LGD_Gaming",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-08T22:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "TSpirit",
+                "fullName": "Team Spirit",
+                "teamProfileLink": "https://liquipedia.net/dota2/Team_Spirit",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "OG",
+                "fullName": "OG",
+                "teamProfileLink": "https://liquipedia.net/dota2/OG",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-11T13:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-11T16:30:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-11T20:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-11T23:30:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-12T15:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "Bleed",
+                "fullName": "Bleed Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Bleed_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "MAG.ID",
+                "fullName": "MAG.Indonesia",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Indonesia",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-12T17:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-12T17:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "XctN",
+                "fullName": "Execration",
+                "teamProfileLink": "https://liquipedia.net/dota2/Execration",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Goofy",
+                "fullName": "Private Goofy",
+                "teamProfileLink": "https://liquipedia.net/dota2/Private_Goofy",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-12T21:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-13T17:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-13T17:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "MAG.ID",
+                "fullName": "MAG.Indonesia",
+                "teamProfileLink": "https://liquipedia.net/dota2/MAG.Indonesia",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "XctN",
+                "fullName": "Execration",
+                "teamProfileLink": "https://liquipedia.net/dota2/Execration",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-13T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "MIPH",
+                "fullName": "Made in Philippines",
+                "teamProfileLink": "https://liquipedia.net/dota2/Made_in_Philippines",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Bleed",
+                "fullName": "Bleed Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Bleed_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-13T21:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-14T17:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-14T19:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "XctN",
+                "fullName": "Execration",
+                "teamProfileLink": "https://liquipedia.net/dota2/Execration",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "Bleed",
+                "fullName": "Bleed Esports",
+                "teamProfileLink": "https://liquipedia.net/dota2/Bleed_Esports",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-14T21:00:00+07:00",
+        "competitionType": "Bo3",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "BetBoom Dacha Dubai",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/d/d5/BetBoom_Dacha_DXB_2024_icon_allmode.png/49px-BetBoom_Dacha_DXB_2024_icon_allmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/BetBoom_Dacha/Dubai/2024"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/BetBoom_EN",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "",
+                "fullName": "",
+                "teamProfileLink": "",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    },
+    {
+        "start": "2024-02-15T15:00:00+07:00",
+        "competitionType": "Bo2",
+        "isConcludedMatch": true,
+        "status": 1,
+        "tournament": {
+            "name": "RES Regional SEA #1",
+            "prizePool": "",
+            "start": "0001-01-01T00:00:00Z",
+            "end": "0001-01-01T00:00:00Z",
+            "id": "",
+            "urls": {
+                "logo": "/commons/images/thumb/8/82/RES_Dota2_Regional_Series_darkmode.png/50px-RES_Dota2_Regional_Series_darkmode.png",
+                "pageUrl": "https://liquipedia.net/dota2/RES_Regional_Series/Southeast_Asia/1"
+            }
+        },
+        "streamingURL": "https://liquipedia.net/dota2/Special:Stream/twitch/Relog_Media_EN2",
+        "id": "",
+        "urlsDescriptions": {},
+        "teams": [
+            {
+                "id": "",
+                "shortName": "MIPH",
+                "fullName": "Made in Philippines",
+                "teamProfileLink": "https://liquipedia.net/dota2/Made_in_Philippines",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": "",
+                "shortName": "XctN",
+                "fullName": "Execration",
+                "teamProfileLink": "https://liquipedia.net/dota2/Execration",
+                "score": 0,
+                "createdAt": "0001-01-01T00:00:00Z"
+            }
+        ],
+        "videoOnDemand": null
+    }
+]

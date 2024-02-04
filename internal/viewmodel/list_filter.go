@@ -1,12 +1,35 @@
-package viewmodels
+package viewmodel
 
 import (
 	"regexp"
 	"time"
 
+	"github.com/charmbracelet/bubbles/key"
 	"github.com/charmbracelet/bubbles/list"
-	"github.com/vuon9/d2m/service/api/models"
+	tea "github.com/charmbracelet/bubbletea"
+	"github.com/vuon9/d2m/pkg/api/model"
 )
+
+func IsFilterKey(msg tea.KeyMsg) bool {
+	for _, k := range filterKeys {
+		if key.Matches(msg, k) {
+			return true
+		}
+	}
+
+	return false
+}
+
+var filterKeys = matchFilterKeys{
+	All:       KeyAllMatches,
+	FromToday: KeyFromTodayMatches,
+	Today:     KeyTodayMatches,
+	Tomorrow:  KeyTomorrowMatches,
+	Yesterday: KeyYesterdayMatches,
+	Live:      KeyLiveMatches,
+	Finished:  KeyFinishedMatches,
+	Coming:    KeyComingMatches,
+}
 
 type matchFilter uint8
 
@@ -21,7 +44,7 @@ const (
 	Coming
 )
 
-func filterMatches(items []*models.Match, mf matchFilter) []list.Item {
+func filterMatches(items []*model.Match, mf matchFilter) []list.Item {
 	var filteredItems []list.Item
 
 	for _, match := range items {
@@ -40,11 +63,11 @@ func filterMatches(items []*models.Match, mf matchFilter) []list.Item {
 		case Yesterday:
 			isEligible = match.Start.Day() == time.Now().AddDate(0, 0, -1).Day()
 		case Live:
-			isEligible = match.Status == models.StatusLive
+			isEligible = match.Status == model.StatusLive
 		case Finished:
-			isEligible = match.Status == models.StatusFinished
+			isEligible = match.Status == model.StatusFinished
 		case Coming:
-			isEligible = match.Status == models.StatusComing
+			isEligible = match.Status == model.StatusComing
 		default:
 			continue
 		}
@@ -61,12 +84,12 @@ func RegexFilter(term string, targets []string) []list.Rank {
 	var result []list.Rank
 
 	for i, target := range targets {
-		regexp, err := regexp.Compile(term)
+		re, err := regexp.Compile("(?i)" + term)
 		if err != nil {
 			continue
 		}
 
-		if regexp.MatchString(target) {
+		if re.MatchString(target) {
 			result = append(result, list.Rank{
 				Index:          i,
 				MatchedIndexes: []int{0},

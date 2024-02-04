@@ -1,4 +1,4 @@
-package viewmodels
+package viewmodel
 
 import (
 	"context"
@@ -9,16 +9,32 @@ import (
 	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/vuon9/d2m/service/api/liquipedia"
-	"github.com/vuon9/d2m/service/api/models"
-	"github.com/vuon9/d2m/service/opener"
+	"github.com/vuon9/d2m/pkg/api"
+	"github.com/vuon9/d2m/pkg/api/fromtestdata"
+	"github.com/vuon9/d2m/pkg/api/liquipedia"
+	"github.com/vuon9/d2m/pkg/api/model"
+	"github.com/vuon9/d2m/pkg/opener"
 )
+
+var (
+	apiClient api.Clienter = liquipedia.NewClient()
+)
+
+func UseTestAPIClient() {
+	var testClient = fromtestdata.NewClient()
+	testClient.FromFileMap(&model.TestDataFileMap{
+		MatchList: "testdata/matches.json",
+		Team:      "testdata/team.json",
+	})
+
+	apiClient = testClient
+}
 
 type (
 	mainModel struct {
 		listModel    list.Model
 		detailsModel tea.Model
-		items        []*models.Match
+		items        []*model.Match
 		spinner      spinner.Model
 		appState     appState
 	}
@@ -115,27 +131,6 @@ func (m matchFilterKeys) FullHelp() []key.Binding {
 	return helpOptions
 }
 
-func IsFilterKey(msg tea.KeyMsg) bool {
-	for _, k := range filterKeys {
-		if key.Matches(msg, k) {
-			return true
-		}
-	}
-
-	return false
-}
-
-var filterKeys = matchFilterKeys{
-	All:       KeyAllMatches,
-	FromToday: KeyFromTodayMatches,
-	Today:     KeyTodayMatches,
-	Tomorrow:  KeyTomorrowMatches,
-	Yesterday: KeyYesterdayMatches,
-	Live:      KeyLiveMatches,
-	Finished:  KeyFinishedMatches,
-	Coming:    KeyComingMatches,
-}
-
 var helpOptions = []key.Binding{
 	KeyAllMatches,
 	KeyFromTodayMatches,
@@ -147,7 +142,16 @@ var helpOptions = []key.Binding{
 	KeyComingMatches,
 }
 
-func NewMatchList() tea.Model {
+func getMatches() tea.Msg {
+	matches, err := apiClient.GetScheduledMatches(context.TODO())
+	if err != nil {
+		return err
+	}
+
+	return matches
+}
+
+func NewMainScreen() tea.Model {
 	sp := spinner.New()
 	sp.Spinner = spinner.Dot
 
@@ -158,7 +162,7 @@ func NewMatchList() tea.Model {
 	}
 }
 
-func (m mainModel) Init() tea.Cmd {
+func (m *mainModel) Init() tea.Cmd {
 	return tea.Batch(
 		m.spinner.Tick,
 		getMatches,
@@ -230,7 +234,7 @@ func (m *mainModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			var cmd tea.Cmd
 			m.spinner, cmd = m.spinner.Update(msg)
 			return m, cmd
-		case []*models.Match:
+		case []*model.Match:
 			m.items = msg
 			m.listModel.SetItems(filterMatches(msg, FromToday))
 		case tea.KeyMsg:
@@ -241,7 +245,7 @@ func (m *mainModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 			switch {
 			case msg.String() == "enter":
-				match, ok := m.listModel.SelectedItem().(*models.Match)
+				match, ok := m.listModel.SelectedItem().(*model.Match)
 				hasAnyLinks := false
 				for i, t := range match.Teams {
 					if t.TeamProfileLink != "" {
@@ -257,7 +261,7 @@ func (m *mainModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				if ok && hasAnyLinks {
 					m.listModel.NewStatusMessage(fmt.Sprintf("Choose match %s", match.GeneralTitle()))
 					m.appState = showDetailsMatch
-					m.detailsModel = newDetailsModel(match)
+					m.detailsModel = newDetailsMatch(match)
 					return m, m.detailsModel.Init()
 				} else {
 					m.listModel.NewStatusMessage("No team info available")
@@ -277,21 +281,21 @@ func (m *mainModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	return m, tea.Batch(cmds...)
 }
 
-func (m mainModel) openStreamingURL() {
-	match, ok := m.listModel.SelectedItem().(*models.Match)
+func (m *mainModel) openStreamingURL() {
+	match, ok := m.listModel.SelectedItem().(*model.Match)
 	if !ok || match.StreamingURL == "" {
 		m.listModel.NewStatusMessage("No stream URL available")
 		return
 	}
 
 	go func() {
-		opener.OpenURL(match.StreamingURL)
+		_ = opener.OpenURL(match.StreamingURL)
 	}()
 
 	m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
 }
 
-func (m mainModel) View() string {
+func (m *mainModel) View() string {
 	title := titleStyle.Render(m.listModel.Title) + "\n\n"
 	view := title
 
@@ -309,24 +313,4 @@ func (m mainModel) View() string {
 	}
 
 	return appStyle.Render(view)
-}
-
-func getMatches() tea.Msg {
-	matches, err := liquipedia.NewClient().GetScheduledMatches(context.TODO())
-	if err != nil {
-		return err
-	}
-
-	return matches
-}
-
-func newListView() list.Model {
-	listView := list.New([]list.Item{}, list.NewDefaultDelegate(), 0, 0)
-	listView.AdditionalFullHelpKeys = filterKeys.FullHelp
-	listView.Filter = RegexFilter
-
-	listView.Title = "D2M - Dota2 Matches Tracker"
-	listView.Styles.Title = titleStyle
-
-	return listView
 }

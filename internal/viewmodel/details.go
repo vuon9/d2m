@@ -1,8 +1,7 @@
-package viewmodels
+package viewmodel
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"sync"
 
@@ -10,18 +9,18 @@ import (
 	"github.com/charmbracelet/bubbles/table"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/vuon9/d2m/service/api/liquipedia"
-	"github.com/vuon9/d2m/service/api/models"
+	"github.com/pkg/errors"
+	"github.com/vuon9/d2m/pkg/api/model"
 )
 
 type matchDetail struct {
 	spinner     spinner.Model
-	match       *models.Match
+	match       *model.Match
 	fetchIsDone bool
 	lastErr     error
 }
 
-func newDetailsModel(match *models.Match) tea.Model {
+func newDetailsMatch(match *model.Match) tea.Model {
 	m := &matchDetail{
 		match: match,
 	}
@@ -30,7 +29,7 @@ func newDetailsModel(match *models.Match) tea.Model {
 	return m
 }
 
-func fetchTeams(teams []*models.Team) func() tea.Msg {
+func fetchTeams(teams []*model.Team) func() tea.Msg {
 	return func() tea.Msg {
 		urls := []string{}
 
@@ -43,7 +42,7 @@ func fetchTeams(teams []*models.Team) func() tea.Msg {
 		}
 
 		wg := sync.WaitGroup{}
-		teams := make([]*models.Team, 0)
+		teams := make([]*model.Team, 0)
 
 		for _, url := range urls {
 			wg.Add(1)
@@ -51,10 +50,10 @@ func fetchTeams(teams []*models.Team) func() tea.Msg {
 			go func(url string) {
 				defer wg.Done()
 
-				team, err := liquipedia.NewClient().GetTeamDetailsPage(context.TODO(), url)
+				team, err := apiClient.GetTeamDetailsPage(context.TODO(), url)
 				if err != nil {
-					team = new(models.Team)
-					team.LastError = errors.New(fmt.Sprintf("Error while fetching team details: %s, url: %s", err.Error(), url))
+					team = new(model.Team)
+					team.LastError = errors.Wrap(err, fmt.Sprintf("error while fetching team details from url: %s", url))
 				}
 
 				teams = append(teams, team)
@@ -87,7 +86,7 @@ func (m *matchDetail) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		default:
 			return m, nil
 		}
-	case []*models.Team:
+	case []*model.Team:
 		m.fetchIsDone = true
 		m.match.Teams = msg
 

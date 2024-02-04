@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gocolly/colly"
-	"github.com/vuon9/d2m/service/api/models"
+	"github.com/vuon9/d2m/pkg/api/model"
 )
 
 var (
@@ -33,7 +33,7 @@ func NewClient() *Client {
 }
 
 func newLiquipediaRequest(ctx context.Context, method, url string) (*http.Request, error) {
-	req, err := http.NewRequestWithContext(ctx, method, url, nil)
+	req, err := http.NewRequestWithContext(ctx, method, url, http.NoBody)
 	if err != nil {
 		return nil, err
 	}
@@ -43,13 +43,13 @@ func newLiquipediaRequest(ctx context.Context, method, url string) (*http.Reques
 	return req, nil
 }
 
-func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*models.Match, error) {
+func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*model.Match, error) {
 	req, err := newLiquipediaRequest(ctx, http.MethodGet, upComingPageUrl)
 	if err != nil {
 		return nil, err
 	}
 
-	matches, err := crawl[[]*models.Match](req, NewUpComingMatchesPageParser())
+	matches, err := crawl[[]*model.Match](req, NewUpComingMatchesPageParser())
 	if err != nil {
 		return nil, err
 	}
@@ -65,13 +65,13 @@ func (cre *Client) GetScheduledMatches(ctx context.Context) ([]*models.Match, er
 	return matches, nil
 }
 
-func (cre *Client) GetTeamDetailsPage(ctx context.Context, url string) (*models.Team, error) {
+func (cre *Client) GetTeamDetailsPage(ctx context.Context, url string) (*model.Team, error) {
 	req, err := newLiquipediaRequest(ctx, http.MethodGet, url)
 	if err != nil {
 		return nil, err
 	}
 
-	team, err := crawl[*models.Team](req, NewTeamProfilePageParser())
+	team, err := crawl[*model.Team](req, NewTeamProfilePageParser())
 	if err != nil {
 		return nil, err
 	}

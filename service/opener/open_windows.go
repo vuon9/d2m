@@ -1,7 +1,7 @@
 //go:build windows
 // +build windows
 
-package d2m
+package opener
 
 import (
 	"os/exec"

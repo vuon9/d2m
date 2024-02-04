@@ -1,4 +1,4 @@
-package d2m
+package viewmodels
 
 import (
 	"context"
@@ -9,14 +9,16 @@ import (
 	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/vuon9/d2m/pkg/api"
+	"github.com/vuon9/d2m/service/api/liquipedia"
+	"github.com/vuon9/d2m/service/api/models"
+	"github.com/vuon9/d2m/service/opener"
 )
 
 type (
-	model struct {
+	mainModel struct {
 		listModel    list.Model
 		detailsModel tea.Model
-		items        []*api.Match
+		items        []*models.Match
 		spinner      spinner.Model
 		appState     appState
 	}
@@ -145,18 +147,18 @@ var helpOptions = []key.Binding{
 	KeyComingMatches,
 }
 
-func newModel() tea.Model {
+func NewMatchList() tea.Model {
 	sp := spinner.New()
 	sp.Spinner = spinner.Dot
 
-	return &model{
+	return &mainModel{
 		spinner:   sp,
 		listModel: newListView(),
 		appState:  showListMatch,
 	}
 }
 
-func (m model) Init() tea.Cmd {
+func (m mainModel) Init() tea.Cmd {
 	return tea.Batch(
 		m.spinner.Tick,
 		getMatches,
@@ -164,7 +166,7 @@ func (m model) Init() tea.Cmd {
 }
 
 // DoFilterSuccessful is used to filter matches by key
-func (m *model) DoFilterSuccessful(msg tea.KeyMsg) bool {
+func (m *mainModel) DoFilterSuccessful(msg tea.KeyMsg) bool {
 	switch {
 	case key.Matches(msg, KeyAllMatches):
 		m.listModel.SetItems(filterMatches(m.items, All))
@@ -189,7 +191,7 @@ func (m *model) DoFilterSuccessful(msg tea.KeyMsg) bool {
 	return true
 }
 
-func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+func (m *mainModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	var cmds []tea.Cmd
 
 	// Commons handling
@@ -228,7 +230,7 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			var cmd tea.Cmd
 			m.spinner, cmd = m.spinner.Update(msg)
 			return m, cmd
-		case []*api.Match:
+		case []*models.Match:
 			m.items = msg
 			m.listModel.SetItems(filterMatches(msg, FromToday))
 		case tea.KeyMsg:
@@ -239,7 +241,7 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 			switch {
 			case msg.String() == "enter":
-				match, ok := m.listModel.SelectedItem().(*api.Match)
+				match, ok := m.listModel.SelectedItem().(*models.Match)
 				hasAnyLinks := false
 				for i, t := range match.Teams {
 					if t.TeamProfileLink != "" {
@@ -275,21 +277,21 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	return m, tea.Batch(cmds...)
 }
 
-func (m model) openStreamingURL() {
-	match, ok := m.listModel.SelectedItem().(*api.Match)
+func (m mainModel) openStreamingURL() {
+	match, ok := m.listModel.SelectedItem().(*models.Match)
 	if !ok || match.StreamingURL == "" {
 		m.listModel.NewStatusMessage("No stream URL available")
 		return
 	}
 
 	go func() {
-		OpenURL(match.StreamingURL)
+		opener.OpenURL(match.StreamingURL)
 	}()
 
 	m.listModel.NewStatusMessage(fmt.Sprintf("Opening stream URL for '%s'", match.GeneralTitle()))
 }
 
-func (m model) View() string {
+func (m mainModel) View() string {
 	title := titleStyle.Render(m.listModel.Title) + "\n\n"
 	view := title
 
@@ -310,7 +312,7 @@ func (m model) View() string {
 }
 
 func getMatches() tea.Msg {
-	matches, err := apiClient.GetScheduledMatches(context.TODO())
+	matches, err := liquipedia.NewClient().GetScheduledMatches(context.TODO())
 	if err != nil {
 		return err
 	}

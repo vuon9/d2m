@@ -1,4 +1,4 @@
-package d2m
+package viewmodels
 
 import (
 	"context"
@@ -10,18 +10,19 @@ import (
 	"github.com/charmbracelet/bubbles/table"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/vuon9/d2m/pkg/api"
+	"github.com/vuon9/d2m/service/api/liquipedia"
+	"github.com/vuon9/d2m/service/api/models"
 )
 
-type detailsModel struct {
+type matchDetail struct {
 	spinner     spinner.Model
-	match       *api.Match
+	match       *models.Match
 	fetchIsDone bool
 	lastErr     error
 }
 
-func newDetailsModel(match *api.Match) tea.Model {
-	m := &detailsModel{
+func newDetailsModel(match *models.Match) tea.Model {
+	m := &matchDetail{
 		match: match,
 	}
 	m.resetSpinner()
@@ -29,7 +30,7 @@ func newDetailsModel(match *api.Match) tea.Model {
 	return m
 }
 
-func fetchTeams(teams []*api.Team) func() tea.Msg {
+func fetchTeams(teams []*models.Team) func() tea.Msg {
 	return func() tea.Msg {
 		urls := []string{}
 
@@ -42,7 +43,7 @@ func fetchTeams(teams []*api.Team) func() tea.Msg {
 		}
 
 		wg := sync.WaitGroup{}
-		teams := make([]*api.Team, 0)
+		teams := make([]*models.Team, 0)
 
 		for _, url := range urls {
 			wg.Add(1)
@@ -50,9 +51,9 @@ func fetchTeams(teams []*api.Team) func() tea.Msg {
 			go func(url string) {
 				defer wg.Done()
 
-				team, err := apiClient.GetTeamDetailsPage(context.TODO(), url)
+				team, err := liquipedia.NewClient().GetTeamDetailsPage(context.TODO(), url)
 				if err != nil {
-					team = new(api.Team)
+					team = new(models.Team)
 					team.LastError = errors.New(fmt.Sprintf("Error while fetching team details: %s, url: %s", err.Error(), url))
 				}
 
@@ -66,27 +67,27 @@ func fetchTeams(teams []*api.Team) func() tea.Msg {
 	}
 }
 
-func (m *detailsModel) resetSpinner() {
+func (m *matchDetail) resetSpinner() {
 	m.spinner = spinner.New()
 	m.spinner.Spinner = spinner.Dot
 	m.spinner.Style = lipgloss.NewStyle().Foreground(lipgloss.Color("69"))
 }
 
-func (m *detailsModel) Init() tea.Cmd {
+func (m *matchDetail) Init() tea.Cmd {
 	return tea.Batch(
 		spinner.Tick,
 		fetchTeams(m.match.Teams),
 	)
 }
 
-func (m *detailsModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+func (m *matchDetail) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
 		switch msg.String() {
 		default:
 			return m, nil
 		}
-	case []*api.Team:
+	case []*models.Team:
 		m.fetchIsDone = true
 		m.match.Teams = msg
 
@@ -105,7 +106,7 @@ func (m *detailsModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	return m, nil
 }
 
-func (m *detailsModel) View() string {
+func (m *matchDetail) View() string {
 	if !m.fetchIsDone {
 		return m.spinner.View() + " Fetching teams"
 	}

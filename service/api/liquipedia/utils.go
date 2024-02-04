@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/gocolly/colly"
-	"github.com/vuon9/d2m/pkg/api"
+	"github.com/vuon9/d2m/service/api/models"
 )
 
 var secureDomain = "https://liquipedia.net"
@@ -17,7 +17,7 @@ var allowedDomains = []string{
 }
 
 type CrawData interface {
-	[]*api.Match | *api.Team
+	[]*models.Match | *models.Team
 }
 
 func crawl[T CrawData](req *http.Request, parser PageParser[T]) (T, error) {

@@ -1,11 +1,11 @@
-package d2m
+package viewmodels
 
 import (
 	"regexp"
 	"time"
 
 	"github.com/charmbracelet/bubbles/list"
-	"github.com/vuon9/d2m/pkg/api"
+	"github.com/vuon9/d2m/service/api/models"
 )
 
 type matchFilter uint8
@@ -21,7 +21,7 @@ const (
 	Coming
 )
 
-func filterMatches(items []*api.Match, mf matchFilter) []list.Item {
+func filterMatches(items []*models.Match, mf matchFilter) []list.Item {
 	var filteredItems []list.Item
 
 	for _, match := range items {
@@ -40,11 +40,11 @@ func filterMatches(items []*api.Match, mf matchFilter) []list.Item {
 		case Yesterday:
 			isEligible = match.Start.Day() == time.Now().AddDate(0, 0, -1).Day()
 		case Live:
-			isEligible = match.Status == api.StatusLive
+			isEligible = match.Status == models.StatusLive
 		case Finished:
-			isEligible = match.Status == api.StatusFinished
+			isEligible = match.Status == models.StatusFinished
 		case Coming:
-			isEligible = match.Status == api.StatusComing
+			isEligible = match.Status == models.StatusComing
 		default:
 			continue
 		}

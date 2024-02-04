@@ -1,4 +1,4 @@
-package api
+package models
 
 type MatchStatus uint8
 

@@ -10,7 +10,8 @@ import (
 	"time"
 
 	"github.com/gocolly/colly"
-	"github.com/vuon9/d2m/pkg/api"
+	"github.com/vuon9/d2m/pkg/api/clients"
+	"github.com/vuon9/d2m/service/api/models"
 )
 
 const (
@@ -24,7 +25,7 @@ type EsportHubClient struct {
 }
 
 type Response struct {
-	Matches []*api.Match `json:"matches"`
+	Matches []*models.Match `json:"matches"`
 }
 
 func NewClient() (*EsportHubClient, error) {
@@ -43,7 +44,7 @@ func NewClient() (*EsportHubClient, error) {
 	return parseCredentials(scriptContent)
 }
 
-func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context) ([]*api.Match, error) {
+func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context) ([]*models.Match, error) {
 	params := url.Values{}
 
 	now := time.Now()
@@ -71,7 +72,7 @@ func (cre *EsportHubClient) GetScheduledMatches(ctx context.Context) ([]*api.Mat
 	defer res.Body.Close()
 
 	if res.StatusCode == http.StatusUnauthorized {
-		return nil, api.ErrMatchUnauthorized
+		return nil, clients.ErrMatchUnauthorized
 	}
 
 	if res.StatusCode == http.StatusOK {

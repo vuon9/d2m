@@ -3,7 +3,6 @@ module github.com/vuon9/d2m
 go 1.18
 
 require (
-	github.com/BurntSushi/toml v1.3.2
 	github.com/gocolly/colly v1.2.0
 	github.com/samber/lo v1.39.0
 	github.com/urfave/cli/v2 v2.27.1
@@ -46,7 +45,7 @@ require (
 	github.com/antchfx/htmlquery v1.2.6 // indirect
 	github.com/antchfx/xmlquery v1.3.14 // indirect
 	github.com/antchfx/xpath v1.2.2 // indirect
-	github.com/charmbracelet/bubbles v0.17.1
+	github.com/charmbracelet/bubbles v0.18.0
 	github.com/charmbracelet/bubbletea v0.25.0
 	github.com/charmbracelet/lipgloss v0.9.1
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
@@ -64,7 +63,7 @@ require (
 	github.com/muesli/reflow v0.3.0 // indirect
 	github.com/muesli/termenv v0.15.2 // indirect
 	github.com/pkg/errors v0.9.1
-	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/rivo/uniseg v0.4.6 // indirect
 	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d // indirect
 	github.com/temoto/robotstxt v1.1.2 // indirect
 	golang.org/x/net v0.17.0 // indirect

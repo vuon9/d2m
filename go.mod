@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/gocolly/colly v1.2.0
 	github.com/samber/lo v1.39.0
-	github.com/urfave/cli/v2 v2.27.2
+	github.com/urfave/cli/v2 v2.27.3
 )
 
 require (
@@ -31,7 +31,7 @@ require (
 	github.com/sahilm/fuzzy v0.1.1-0.20230530133925-c48e322e2a8f // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.11 // indirect
-	github.com/xrash/smetrics v0.0.0-20240312152122-5f08fbb34913 // indirect
+	github.com/xrash/smetrics v0.0.0-20240521201337-686a1a2994c1 // indirect
 	golang.org/x/arch v0.3.0 // indirect
 	golang.org/x/crypto v0.21.0 // indirect
 	golang.org/x/exp v0.0.0-20221012211006-4de253d81b95 // indirect

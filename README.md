@@ -7,6 +7,10 @@
 
 Dota2 scheduled matches tracker. Mainly by CLI, but also support Restful API.
 
+**This project was initially created to explore HTML crawling using the bubbletea library. However, relying solely on HTML changes for logic proved unsustainable.**
+
+**Due to this limitation, I've decided to archive the project.**
+
 ![Main](./resource/main-with-details.gif)
 
 ## Installation
